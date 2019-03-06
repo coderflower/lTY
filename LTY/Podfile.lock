@@ -1,0 +1,42 @@
+PODS:
+  - CleanJSON (0.6.4)
+  - CollectionKit (2.3.0):
+    - CollectionKit/Core (= 2.3.0)
+  - CollectionKit/Core (2.3.0)
+  - EachNavigationBar (1.9.2)
+  - IQKeyboardManagerSwift (6.2.0)
+  - MJRefresh (3.1.15.7)
+  - SnapKit (4.2.0)
+  - Toast-Swift (4.0.1)
+
+DEPENDENCIES:
+  - CleanJSON
+  - CollectionKit
+  - EachNavigationBar
+  - IQKeyboardManagerSwift
+  - MJRefresh
+  - SnapKit
+  - Toast-Swift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CleanJSON
+    - CollectionKit
+    - EachNavigationBar
+    - IQKeyboardManagerSwift
+    - MJRefresh
+    - SnapKit
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  CleanJSON: ab7818bd1b4e61561d2154d5d4780e916510ea31
+  CollectionKit: 6910479bf865bfe49040e73322ce4b8fe8991231
+  EachNavigationBar: 4978d1327a85d7c50d070b0a387f6e30fa089cfc
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
+
+PODFILE CHECKSUM: 2a74d352ada72c389212a6218275949709a7011f
+
+COCOAPODS: 1.6.0.beta.2
