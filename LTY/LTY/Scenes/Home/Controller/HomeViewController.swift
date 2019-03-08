@@ -16,6 +16,20 @@ class HomeViewController: UIViewController {
         configureSubviews()
         configureNavigationBar()
         configureSignal()
+        
+        let button = UIButton("测试查询", color: ColorHelper.default.blackText, font: FontHelper.regular(20))
+        
+        view.addSubview(button)
+        button.snp.makeConstraints({
+            $0.center.equalToSuperview()
+        })
+        button.rx.tap.subscribeNext(weak: self) { (self)  in {_ in
+            let models: [HomeModel] = DBManager.shared.select(SFTable.main, errorClosure: { (error) in
+                myLog(error)
+            }) ?? []
+            myLog(models)
+            }
+        }.disposed(by: rx.disposeBag)
     }
     
 

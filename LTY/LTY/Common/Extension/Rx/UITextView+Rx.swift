@@ -25,8 +25,6 @@ public extension UITextView {
                 if string.isEmpty { return true }
                 guard let text = textView.text else { return true }
                 let length = text.count + string.count - range.length
-                myLog(newValue)
-                myLog(length)
                 return length <= newValue
             }
         }

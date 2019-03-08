@@ -18,15 +18,31 @@ final class PublishViewModel {
             $0.title.count > 1 && ($0.content.count > 10 || $0.images.count > 0)
         })
 
-        _ = input.publishTap.subscribeNext(weak: self) { (self) -> (()) -> Void in
-            return { _ in 
-                myLog("test")
+        let a = input.publishTap.withLatestFrom(parameters).flatMapFirst({ result -> Observable<String> in
+        
+            /// 保存用户数据,
+            /// 标题, 内容, 图片
+            let model = HomeModel(title: result.title, content: result.content, images: result.images)
+            if let error = DBManager.shared.insert(SFTable.main, objects: [model]) {
+                myLog("保存失败\(error)")
+            } else {
+                myLog("数据库存储成功")
+            }
+        
+            return Observable<String>.empty()
+        })
+        
+       _ = a.subscribeNext(weak: self) { (self) -> (String) -> Void in
+            {_ in
+                
             }
         }
         
-        
         return Output(isPublishEnabled: isPublishEnabled)
     }
+    
+    
+    
 }
 
 extension PublishViewModel: ViewModelType {
