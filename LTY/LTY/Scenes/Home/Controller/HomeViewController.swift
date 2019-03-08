@@ -8,8 +8,35 @@
 
 import UIKit
 import CollectionKit
-class HomeViewController: UIViewController {
+import MJRefresh
+import EachNavigationBar
 
+class HomeViewController: UIViewController {
+    private lazy var collectionView: CollectionView = {
+        let tmpView = CollectionView()
+        view.addSubview(tmpView)
+        tmpView.provider = provider
+        return tmpView
+    }()
+    let dataSource = ArrayDataSource<HomeViewCellViewModel>(data: [])
+    lazy var provider: BasicProvider<HomeViewCellViewModel, HomeItemViewCell> = {
+        
+        let viewSource = ClosureViewSource<HomeViewCellViewModel, HomeItemViewCell>(viewUpdater: { (view: HomeItemViewCell, data: HomeViewCellViewModel, at: Int) in
+           
+        })
+        let sizeSource = { (index: Int, data: HomeViewCellViewModel, collectionSize: CGSize) -> CGSize in
+            return CGSize(width: collectionSize.width, height: data.cellHeight)
+        }
+        let provider = BasicProvider<HomeViewCellViewModel, HomeItemViewCell>(
+            dataSource: dataSource,
+            viewSource: viewSource,
+            sizeSource: sizeSource)
+        provider.layout = FlowLayout(spacing: 10).inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        
+        return provider
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,16 +50,7 @@ class HomeViewController: UIViewController {
         button.snp.makeConstraints({
             $0.center.equalToSuperview()
         })
-        button.rx.tap.subscribeNext(weak: self) { (self)  in {_ in
-            let models: [HomeModel] = DBManager.shared.select(SFTable.main, errorClosure: { (error) in
-                myLog(error)
-            }) ?? []
-            myLog(models)
-            }
-        }.disposed(by: rx.disposeBag)
     }
-    
-
 }
 
 extension HomeViewController: ControllerConfigurable {

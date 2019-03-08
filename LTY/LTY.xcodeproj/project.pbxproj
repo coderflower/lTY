@@ -92,6 +92,13 @@
 		B894B07F2232688B00036A19 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B07E2232688B00036A19 /* NiblessViewController.swift */; };
 		B894B0812232819B00036A19 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B0802232819B00036A19 /* DBManager.swift */; };
 		B894B0832232825600036A19 /* String-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B0822232825600036A19 /* String-Extension.swift */; };
+		B894B0852232ABE400036A19 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B0842232ABE400036A19 /* HomeViewModel.swift */; };
+		B894B0872232AC4200036A19 /* HomeItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B0862232AC4200036A19 /* HomeItemViewCell.swift */; };
+		B894B0892232AC7900036A19 /* HomeItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B894B0882232AC7900036A19 /* HomeItemViewCell.xib */; };
+		B894B08B2232B0F400036A19 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B08A2232B0F400036A19 /* PhotoView.swift */; };
+		B894B08D2232B26E00036A19 /* LTProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B08C2232B26E00036A19 /* LTProvider.swift */; };
+		B894B08F2232B3A800036A19 /* HomeViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B08E2232B3A800036A19 /* HomeViewCellViewModel.swift */; };
+		B894B0912232B99100036A19 /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B0902232B99100036A19 /* Date-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +213,13 @@
 		B894B07E2232688B00036A19 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
 		B894B0802232819B00036A19 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		B894B0822232825600036A19 /* String-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extension.swift"; sourceTree = "<group>"; };
+		B894B0842232ABE400036A19 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B894B0862232AC4200036A19 /* HomeItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemViewCell.swift; sourceTree = "<group>"; };
+		B894B0882232AC7900036A19 /* HomeItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeItemViewCell.xib; sourceTree = "<group>"; };
+		B894B08A2232B0F400036A19 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		B894B08C2232B26E00036A19 /* LTProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTProvider.swift; sourceTree = "<group>"; };
+		B894B08E2232B3A800036A19 /* HomeViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellViewModel.swift; sourceTree = "<group>"; };
+		B894B0902232B99100036A19 /* Date-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
 		CA6A4058C100080C23A0B791 /* Pods-LTY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTY.release.xcconfig"; path = "Target Support Files/Pods-LTY/Pods-LTY.release.xcconfig"; sourceTree = "<group>"; };
 		E7FBCF0E367C29C9DE16C756 /* Pods-LTYUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTYUITests.debug.xcconfig"; path = "Target Support Files/Pods-LTYUITests/Pods-LTYUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBA13C73BABF0CB00D18DE18 /* Pods_LTYUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTYUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +338,7 @@
 				B8457BB222300B12006EC51F /* SFTabBarController.swift */,
 				B8457BCF2230BE5C006EC51F /* TabBarItemContentView.swift */,
 				B8457BB422300B24006EC51F /* SFNavigationController.swift */,
+				B894B08C2232B26E00036A19 /* LTProvider.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -371,6 +386,9 @@
 		B8457BA422300915006EC51F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B894B0862232AC4200036A19 /* HomeItemViewCell.swift */,
+				B894B0882232AC7900036A19 /* HomeItemViewCell.xib */,
+				B894B08A2232B0F400036A19 /* PhotoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -386,6 +404,8 @@
 		B8457BA622300924006EC51F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B894B0842232ABE400036A19 /* HomeViewModel.swift */,
+				B894B08E2232B3A800036A19 /* HomeViewCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -521,6 +541,7 @@
 				B894B06322324DA000036A19 /* UIView-Extension.swift */,
 				B8457C272230CD69006EC51F /* UIBarButtonItem-Extension.swift */,
 				B8457BBC22300C5A006EC51F /* UIScreen-Extension.swift */,
+				B894B0902232B99100036A19 /* Date-Extension.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -690,6 +711,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B894B0892232AC7900036A19 /* HomeItemViewCell.xib in Resources */,
 				B8457B7C223003E5006EC51F /* LaunchScreen.storyboard in Resources */,
 				B8457B79223003E5006EC51F /* Assets.xcassets in Resources */,
 				B8457B77223003E4006EC51F /* Main.storyboard in Resources */,
@@ -892,9 +914,11 @@
 				B8457BDD2230C716006EC51F /* ControllerConfigurable.swift in Sources */,
 				B894B07F2232688B00036A19 /* NiblessViewController.swift in Sources */,
 				B894B0732232529B00036A19 /* Bundle-Extension.swift in Sources */,
+				B894B08F2232B3A800036A19 /* HomeViewCellViewModel.swift in Sources */,
 				B894B0832232825600036A19 /* String-Extension.swift in Sources */,
 				B8457C092230CA66006EC51F /* UIResponder+Rx.swift in Sources */,
 				B8457BC622300CD7006EC51F /* Gradienter.swift in Sources */,
+				B894B08D2232B26E00036A19 /* LTProvider.swift in Sources */,
 				B8457C102230CA66006EC51F /* SFToast+Rx.swift in Sources */,
 				B894B0742232529B00036A19 /* DispatchTime-Extension.swift in Sources */,
 				B894B0762232529B00036A19 /* UITabBar-Extension.swift in Sources */,
@@ -908,12 +932,15 @@
 				B8457C182230CA66006EC51F /* UIViewController+Rx.swift in Sources */,
 				B8457C0A2230CA66006EC51F /* Response+Rx.swift in Sources */,
 				B8457BED2230CA2B006EC51F /* UINavigationController+SF.swift in Sources */,
+				B894B0872232AC4200036A19 /* HomeItemViewCell.swift in Sources */,
+				B894B0912232B99100036A19 /* Date-Extension.swift in Sources */,
 				B894B0792232529B00036A19 /* Sequence+Extension.swift in Sources */,
 				B8457BD92230C716006EC51F /* Toastable.swift in Sources */,
 				B8457BB522300B24006EC51F /* SFNavigationController.swift in Sources */,
 				B8457BD02230BE5C006EC51F /* TabBarItemContentView.swift in Sources */,
 				B8457C082230CA66006EC51F /* String+Rx.swift in Sources */,
 				B894B06222324D0D00036A19 /* AddPhotoViewCell.swift in Sources */,
+				B894B08B2232B0F400036A19 /* PhotoView.swift in Sources */,
 				B8457BB322300B12006EC51F /* SFTabBarController.swift in Sources */,
 				B894B07A2232529B00036A19 /* UILabel-Extension.swift in Sources */,
 				B8457BA922300955006EC51F /* HomeModel.swift in Sources */,
@@ -925,6 +952,7 @@
 				B8457BDC2230C716006EC51F /* ConfigurableTableViewCell.swift in Sources */,
 				B8457C242230CADC006EC51F /* MoyaPlugin.swift in Sources */,
 				B8457BAB22300A40006EC51F /* HomeViewController.swift in Sources */,
+				B894B0852232ABE400036A19 /* HomeViewModel.swift in Sources */,
 				B8457BDF2230C716006EC51F /* ViewModelType.swift in Sources */,
 				B8457C072230CA66006EC51F /* UIState+Rx.swift in Sources */,
 				B894B06A22324FB200036A19 /* PhotoModel.swift in Sources */,

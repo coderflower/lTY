@@ -13,7 +13,7 @@ import TZImagePickerController
 import RxSwift
 import RxCocoa
 class PublishViewController: NiblessViewController {
-    let viewModel = PublishViewModel()
+    private let viewModel = PublishViewModel()
     /// 用户输入标题
     private lazy var titleField: UITextField = {
         let tf = UITextField()
@@ -47,7 +47,6 @@ class PublishViewController: NiblessViewController {
         tmpView.provider = provider
         return tmpView
     }()
-    var addImageFinish: (([UIImage]) -> Void)?
     /// 此处如果不用NSMutableArray,用swift 的 array 会闪退
     private (set) var photos: NSMutableArray = NSMutableArray()
     private (set) var assets: NSMutableArray = NSMutableArray()
@@ -177,7 +176,7 @@ extension PublishViewController: TZImagePickerControllerDelegate {
         
     }
     
-    func updateCollectionView(photos: NSMutableArray, assets: NSMutableArray, originCount: Int) {
+    private func updateCollectionView(photos: NSMutableArray, assets: NSMutableArray, originCount: Int) {
         
         if let photos = photos as? [UIImage] {
             /// 完成添加图片 , compactMap 过滤 nil
@@ -189,7 +188,5 @@ extension PublishViewController: TZImagePickerControllerDelegate {
             models.append(PhotoModel())
         }
         provider.dataSource = ArrayDataSource(data: models)
-        
-        
     }
 }

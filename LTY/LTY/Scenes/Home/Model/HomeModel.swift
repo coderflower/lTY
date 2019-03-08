@@ -12,12 +12,12 @@ struct HomeModel: Codable {
     /// 标题
     let title: String
     /// 内容
-    let content: String
+    let content: String?
     /// 图片数组
-    let images: [Data]
+    let images: [Data]?
     /// 创建时间
     let createTime: Date
-    init(title: String, content: String, images: [Data]) {
+    init(title: String, content: String?, images: [Data]?) {
         self.identifer = nil
         self.title = title
         self.content = content

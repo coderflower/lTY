@@ -104,57 +104,47 @@ extension DBManager {
     
     typealias ErrorType = (WCDBSwift.Error?)->Void
     
-    func insert<Object>(_ table: TableProtocol, objects: [Object]) -> WCDBSwift.Error? where Object: TableEncodable {
-        do {
-            try table.dataBase.insert(objects: objects, intoTable: table.name)
-            return nil
-        } catch {
-            let errorValue = error as? WCDBSwift.Error
-            return errorValue
-        }
+    func insert<T: TableEncodable>(_ table: TableProtocol, objects: [T], on propertyConvertibleList: [PropertyConvertible]? = nil) throws {
+        try table.dataBase.insert(objects: objects, on: propertyConvertibleList, intoTable: table.name)
     }
     
-    func update<Object>(_ table: TableProtocol, object: Object, propertys: [PropertyConvertible], condition: Condition? = nil, orderBy: [OrderBy]? = nil, limit: Limit? = nil, offset: Offset? = nil) -> WCDBSwift.Error? where Object: TableEncodable {
-        do {
-            try table.dataBase.update(table: table.name, on: propertys, with: object, where: condition, orderBy: orderBy, limit: limit, offset: offset)
-            return nil
-        } catch {
-            let errorValue = error as? WCDBSwift.Error
-            return errorValue
-        }
+    func update<T: TableEncodable>(_ table: TableProtocol, object: T, propertys: [PropertyConvertible], condition: Condition? = nil, orderBy: [OrderBy]? = nil, limit: Limit? = nil, offset: Offset? = nil) throws {
+        
+        try table.dataBase.update(table: table.name, on: propertys, with: object, where: condition, orderBy: orderBy, limit: limit, offset: offset)
+        
+        
     }
     
-    func select<Object>(_ table: TableProtocol, condition: Condition? = nil, errorClosure: ErrorType?) -> [Object]? where Object: TableEncodable {
-        do {
-            if let condition = condition {
-                table.select?.where(condition)
-            }
-            let objects: [Object]? = try table.select?.allObjects() as? [Object]
-            return objects
-        } catch {
-            let errorValue = error as? WCDBSwift.Error
-            errorClosure?(errorValue)
-            return nil
+    func getObjects<T: TableCodable>(_ table:TableProtocol,
+                                     on propertyConvertibleList: [PropertyConvertible],
+                                     where condition: Condition?,
+                                     orderBy orderList: [OrderBy]?,
+                                     limit: Limit?,
+                                     offset: Offset?) throws -> [T]?  {
+        return try table.dataBase.getObjects(on: propertyConvertibleList, fromTable: table.name, where: condition, orderBy: orderList, limit: limit, offset: offset)
+    }
+    func selectAll<T: TableCodable>(_ table: TableProtocol,
+                                    condition: Condition? = nil) throws -> [T]? {
+        if let condition = condition {
+            table.select?.where(condition)
         }
+        return try table.select?.allObjects()
     }
     
-    func delete(_ table: TableProtocol, condition: Condition?, orderBy: [OrderBy]? = nil, limit: Limit? = nil, offset: Offset? = nil) -> WCDBSwift.Error? {
-        do {
-            try table.dataBase.delete(fromTable: table.name, where: condition, orderBy: orderBy, limit: limit, offset: offset)
-            return nil
-        } catch {
-            let errorValue = error as? WCDBSwift.Error
-            return errorValue
-        }
+    func delete(_ table: TableProtocol,
+                condition: Condition?,
+                orderBy: [OrderBy]? = nil,
+                limit: Limit? = nil,
+                offset: Offset? = nil)  throws  {
+        
+        try table.dataBase.delete(fromTable: table.name, where: condition, orderBy: orderBy, limit: limit, offset: offset)
+        
     }
     
-    func insertOrReplace<Object>(_ table: TableProtocol, objects: [Object]) -> WCDBSwift.Error? where Object : TableEncodable {
-        do {
-            try table.dataBase.insertOrReplace(objects: objects, intoTable: table.name)
-            return nil
-        } catch {
-            let errorValue = error as? WCDBSwift.Error
-            return errorValue
-        }
+    func insertOrReplace<T: TableEncodable>(
+        _ table: TableProtocol,
+        objects: [T],
+        on propertyConvertibleList: [PropertyConvertible]?) throws {
+        try table.dataBase.insertOrReplace(objects: objects, intoTable: table.name)
     }
 }
