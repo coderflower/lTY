@@ -15,7 +15,7 @@ class SFNavigationController: UINavigationController {
         navigation.configuration.isEnabled = true
         navigation.configuration.isTranslucent = false
         navigation.configuration.titleTextAttributes = [
-            .foregroundColor: UIColor(hex: "#4A4A4A"),
+            .foregroundColor: UIColor.white,
             .font: UIFont.boldSystemFont(ofSize: 18)
         ]
         if #available(iOS 11.0, *) {
@@ -23,9 +23,11 @@ class SFNavigationController: UINavigationController {
         } else {
             // Fallback on earlier versions
         }
+        navigation.configuration.tintColor = UIColor.white
         navigation.configuration.isShadowHidden = true
         navigation.configuration.barTintColor = ColorHelper.default.theme
         navigation.configuration.backBarButtonItem = .init(style: .image(UIImage(named: "nav_back")), tintColor: UIColor.black)
+        navigation.configuration.statusBarStyle = .lightContent
         // Do any additional setup after loading the view.
         interactivePopGestureRecognizer?.delegate = self;
     }

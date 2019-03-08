@@ -14,17 +14,20 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configureSubviews()
+        configureNavigationBar()
+        configureSignal()
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension ProfileViewController: ControllerConfigurable {
+    func configureSubviews() {
+        view.backgroundColor = .random
     }
-    */
-
+    func configureNavigationBar() {
+        navigation.item.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"))
+    }
+    func configureSignal() {
+        navigation.item.leftBarButtonItem?.rx.tap.bind(to: rx.goBack).disposed(by: rx.disposeBag)
+    }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
 import Foundation
-
+import WCDBSwift
 struct HomeModel: Codable {
     /// 创建时间
     let createTime: String
@@ -14,4 +14,14 @@ struct HomeModel: Codable {
     let title: String
     /// 内容
     let content: String
+    /// 图片数组
+    let images: [Data]
+}
+
+extension HomeModel: TableCodable {
+    enum CodingKeys: String, CodingTableKey, CodingKey {
+        typealias Root = HomeModel
+        static let objectRelationalMapping = TableBinding(CodingKeys.self)
+        case createTime, title, content, images
+    }
 }

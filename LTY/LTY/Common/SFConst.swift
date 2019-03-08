@@ -8,6 +8,7 @@
 @_exported import SnapKit
 @_exported import CollectionKit
 @_exported import EachNavigationBar
+@_exported import RxSwiftExt
 import Foundation
 
 

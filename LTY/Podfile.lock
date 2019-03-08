@@ -1,42 +1,122 @@
 PODS:
+  - Alamofire (4.8.1)
+  - Cache (5.2.0)
   - CleanJSON (0.6.4)
   - CollectionKit (2.3.0):
     - CollectionKit/Core (= 2.3.0)
   - CollectionKit/Core (2.3.0)
+  - Differentiator (3.1.0)
   - EachNavigationBar (1.9.2)
+  - ESTabBarController-swift (2.6.4)
   - IQKeyboardManagerSwift (6.2.0)
   - MJRefresh (3.1.15.7)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - Result (4.1.0)
+  - RxAtomic (4.4.1)
+  - RxCocoa (4.4.1):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxGesture (2.1.0):
+    - RxCocoa (~> 4.4.0)
+    - RxSwift (~> 4.4.0)
+  - RxSwift (4.4.1):
+    - RxAtomic (~> 4.4)
+  - RxSwiftExt (3.4.0):
+    - RxSwiftExt/Core (= 3.4.0)
+    - RxSwiftExt/RxCocoa (= 3.4.0)
+  - RxSwiftExt/Core (3.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwiftExt/RxCocoa (3.4.0):
+    - RxCocoa (~> 4.0)
+    - RxSwiftExt/Core
   - SnapKit (4.2.0)
+  - SQLiteRepairKit (1.2.1):
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
   - Toast-Swift (4.0.1)
+  - TZImagePickerController (3.2.0)
+  - WCDB.swift (1.0.7.5):
+    - SQLiteRepairKit (~> 1.2.0)
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDBOptimizedSQLCipher (1.2.1)
 
 DEPENDENCIES:
+  - Cache
   - CleanJSON
   - CollectionKit
   - EachNavigationBar
+  - ESTabBarController-swift
   - IQKeyboardManagerSwift
   - MJRefresh
+  - Moya/RxSwift
+  - RxCocoa
+  - RxDataSources
+  - RxGesture
+  - RxSwift
+  - RxSwiftExt
   - SnapKit
   - Toast-Swift
+  - TZImagePickerController
+  - WCDB.swift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Cache
     - CleanJSON
     - CollectionKit
+    - Differentiator
     - EachNavigationBar
+    - ESTabBarController-swift
     - IQKeyboardManagerSwift
     - MJRefresh
+    - Moya
+    - Result
+    - RxAtomic
+    - RxCocoa
+    - RxDataSources
+    - RxGesture
+    - RxSwift
+    - RxSwiftExt
     - SnapKit
+    - SQLiteRepairKit
     - Toast-Swift
+    - TZImagePickerController
+    - WCDB.swift
+    - WCDBOptimizedSQLCipher
 
 SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   CleanJSON: ab7818bd1b4e61561d2154d5d4780e916510ea31
   CollectionKit: 6910479bf865bfe49040e73322ce4b8fe8991231
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   EachNavigationBar: 4978d1327a85d7c50d070b0a387f6e30fa089cfc
+  ESTabBarController-swift: 58cca4ab7de980657d99a02181c1ff310983e975
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxGesture: 7f6dfb45dbde06e618c24442d38493e3144f2c95
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SQLiteRepairKit: 4d21bab9eff6a273f63da6815a0d1659e53f5bde
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
+  TZImagePickerController: 7850b158d025065b162a1a963d445040b828abc9
+  WCDB.swift: 87aee41f5ca3aded9c6f9b68b0ef3e88918a5ee2
+  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 130cca25ac61cad1e6d5452201a88c43f186854e
+PODFILE CHECKSUM: 25245c8f98483db3f2619e521dab2d2936cb3a5a
 
 COCOAPODS: 1.6.0.beta.2

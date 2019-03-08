@@ -28,43 +28,51 @@ let json = """
 ]
 """
 import UIKit
-import CleanJSON
-class SFTabBarController: UITabBarController {
+import ESTabBarController_swift
+class SFTabBarController: ESTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        let models = [
-        Model(viewController: HomeViewController(), title: "今日", imageName: "icon_tabbar_home_1_normal", selectedImageName: "icon_tabbar_home_1_click"),
-        Model(viewController: HomeViewController(), title: nil, imageName: "button_write_55x40_", selectedImageName: "button_write_55x40_"),
-        Model(viewController: HomeViewController(), title: " 我的", imageName: "icon_tabbar_me_2_normal", selectedImageName: "icon_tabbar_me_2_click")
-        ]
-        tabBar.backgroundImage = UIImage.sf.image(UIColor(hex: "DEDEDE"))
+        addAllChild()
+        configureTabBar()
+    }
+    func configureTabBar() {
+        tabBar.shadowImage = UIImage(named: "transparent")
+        tabBar.backgroundImage = UIImage(named: "background_dark")
+        shouldHijackHandler = { _, _, index in
+            if index == 1 {
+                return true
+            }
+            return false
+        }
+        didHijackHandler = { [weak self]_, _, index in
+            DispatchQueue.main.asyncAfter(deadline: 0.25, execute: {
+                let publish = PublishViewController()
+                self?.present(SFNavigationController(rootViewController:publish), animated: true, completion: nil)
+            })
+        }
+    }
+    func addAllChild() {
+        let home = HomeViewController()
+        let publish = UIViewController()
+        let profile = ProfileViewController()
         
-        self.viewControllers = models.map{navigationController(with: $0)}
-       
-        
-        
+        home.tabBarItem = tabBarItem(TabBarItemContentView(), title: "今日", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
+        publish.tabBarItem = tabBarItem(LarityContentView(), title: nil, image: UIImage(named: "photo_verybig"), selectedImage: UIImage(named: "photo_verybig_1"))
+        profile.tabBarItem = tabBarItem(TabBarItemContentView(), title: "今日", image: UIImage(named: "me"), selectedImage: UIImage(named: "me_1"))
+   
+        self.viewControllers = [home, publish, profile].map{SFNavigationController(rootViewController: $0)}
     }
 
-    func navigationController( with model: Model) -> SFNavigationController {
-        model.viewController.title = model.title
-        model.viewController.tabBarItem.title = model.title
-        model.viewController.tabBarItem.image = UIImage(named: model.imageName)
-        model.viewController.tabBarItem.selectedImage = UIImage(named: model.selectedImageName)
-        if model.title?.isEmpty == true {
-            model.viewController.tabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-        }
-        return SFNavigationController(rootViewController: model.viewController)
+    func tabBarItem(_ contentView: ESTabBarItemContentView, title: String?, image: UIImage?, selectedImage: UIImage?) -> ESTabBarItem {
+        return ESTabBarItem(contentView,
+                            title: title,
+                            image: image,
+                            selectedImage: selectedImage)
     }
 
 }
 
 extension SFTabBarController {
-    struct Model {
-        let viewController: UIViewController
-        let title: String?
-        let imageName: String
-        let selectedImageName: String
-    }
+    
 }
