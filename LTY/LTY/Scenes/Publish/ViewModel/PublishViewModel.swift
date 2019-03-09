@@ -13,30 +13,32 @@ import RxSwift
 final class PublishViewModel {
     func transform(input: Input) -> Output {
         /// 发布按钮是否能点, 标题不能为空,内容最少10个字或者图片不为空
-        let parameters = Observable.combineLatest(input.title, input.content, input.images).map({(title: $0, content: $1, images: $2)})
+        let parameters = Observable.combineLatest(input.title, input.content, input.images).map({(title: $0, content: $1, photos: $2)})
         let isPublishEnabled = parameters.map({
-            $0.title.count > 1 && (($0.content ?? "").count > 10 || $0.images.count > 0)
+            $0.title.count > 1 && (($0.content ?? "").count > 10 || $0.photos.count > 0)
         })
 
-        _ = input.publishTap.withLatestFrom(parameters).flatMapFirst({ result -> Observable<String> in
-
-            /// 保存用户数据,
-            /// 标题, 内容, 图片
-            let model = HomeModel(title: result.title, content: result.content, images: result.images)
-            
-            do {
-                try DBManager.shared.insert(SFTable.main, objects: [model]) 
-            }catch {
-                myLog("失败\(error)")
-            }
-
-            return Observable<String>.empty()
-        }).subscribe()
+        let uploadState = State()
         
-        
-        return Output(isPublishEnabled: isPublishEnabled)
+        let result = input.publishTap.withLatestFrom(parameters).flatMapFirst({
+            self.upload(title: $0.title, content: $0.content, photos: $0.photos).trackState(uploadState).catchErrorJustComplete()
+        }).asDriverOnErrorJustComplete()
+        return Output(isPublishEnabled: isPublishEnabled, result: result, uploadState: uploadState.asDriver(onErrorJustReturn: .idle))
     }
     
+    func upload(title: String, content: String?, photos: [Data]?) -> Observable<Bool> {
+        let model = HomeModel(title: title, content: content, images: photos)
+        return Observable.create({ (observable) -> Disposable in
+            do {
+               try DBManager.shared.insert(SFTable.main, objects: [model])
+                observable.onNext(true)
+                observable.onCompleted()
+            } catch {
+                observable.onError(error)
+            }
+            return Disposables.create()
+        })
+    }
     
     
 }
@@ -50,5 +52,7 @@ extension PublishViewModel: ViewModelType {
     }
     struct Output {
         let isPublishEnabled: Observable<Bool>
+        let result: Driver<Bool>
+        let uploadState: Driver<UIState>
     }
 }

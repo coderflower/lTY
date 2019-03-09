@@ -73,7 +73,7 @@ extension HomeViewController: ControllerConfigurable {
     }
     func configureNavigationBar() {
         navigation.item.title = "今日列表"
-        navigation.item.rightBarButtonItem = UIBarButtonItem(title: "关于")
+        navigation.item.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     }
     func configureSignal() {
         let input = HomeViewModel.Input(headerRefresh: collectionView.mj_header.rx.refreshing.shareOnce())

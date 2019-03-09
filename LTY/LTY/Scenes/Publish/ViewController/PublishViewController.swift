@@ -158,7 +158,12 @@ extension PublishViewController {
             .bind(to: rightBarButtonItem.rx.isEnabled)
             .disposed(by: rx.disposeBag)
         
-        
+        output.uploadState
+            .drive(SFToast.rx.state)
+            .disposed(by: rx.disposeBag)
+        output.result.map({ (_) -> Void in
+            NotificationCenter.default.post(name: NotifyName.userUploadCompleteNotification, object: nil)
+        }).drive(rx.goBack).disposed(by: rx.disposeBag)
     }
 }
 

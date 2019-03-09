@@ -37,7 +37,6 @@ final class HomeViewModel {
                 observable.onNext(objects.reversed())
                 observable.onCompleted()
             } catch {
-                
                 observable.onError(error)
             }
             return Disposables.create()
