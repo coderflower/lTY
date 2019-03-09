@@ -13,12 +13,14 @@ final class AddPhotoViewCell: NiblessView {
     private lazy var closeButton: UIButton = {
         let tmpButton = UIButton(type: .custom)
         addSubview(tmpButton)
-        tmpButton.setImage(UIImage(named: "image_delete"), for: .normal)
+        tmpButton.setImage(UIImage(named: "dismiss"), for: .normal)
         tmpButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
         return tmpButton
     }()
     private lazy var imageView: UIImageView = {
         let tmpImageView = UIImageView()
+        tmpImageView.borderColor = ColorHelper.default.line
+        tmpImageView.borderWidth = 1
         tmpImageView.contentMode = .scaleAspectFill
         tmpImageView.clipsToBounds = true
         addSubview(tmpImageView)

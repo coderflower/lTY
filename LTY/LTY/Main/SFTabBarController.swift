@@ -66,8 +66,8 @@ class SFTabBarController: ESTabBarController {
         let profile = ProfileViewController()
         
         home.tabBarItem = tabBarItem(TabBarItemContentView(), title: "今日", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
-        publish.tabBarItem = tabBarItem(LarityContentView(), title: nil, image: UIImage(named: "photo_verybig"), selectedImage: UIImage(named: "photo_verybig_1"))
-        profile.tabBarItem = tabBarItem(TabBarItemContentView(), title: "今日", image: UIImage(named: "me"), selectedImage: UIImage(named: "me_1"))
+        publish.tabBarItem = tabBarItem(LarityContentView(), title: nil, image: UIImage(named: "publish"), selectedImage: UIImage(named: "publish"))
+        profile.tabBarItem = tabBarItem(TabBarItemContentView(), title: "我的", image: UIImage(named: "me"), selectedImage: UIImage(named: "me_1"))
    
         self.viewControllers = [home, publish, profile].map{SFNavigationController(rootViewController: $0)}
     }

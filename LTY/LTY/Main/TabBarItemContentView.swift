@@ -62,16 +62,15 @@ class LarityContentView: ESTabBarItemContentView {
     }
     
     public override func selectAnimation(animated: Bool, completion: (() -> ())?) {
-        let view = UIView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize(width: 2.0, height: 2.0)))
-        view.layer.cornerRadius = 1.0
-        view.layer.opacity = 0.5
-        view.backgroundColor = UIColor.init(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
-        self.addSubview(view)
-        playMaskAnimation(animateView: view, target: self.imageView, completion: {
-            [weak view] in
-            view?.removeFromSuperview()
+
+        UIView.animate(withDuration: 0.25, animations: {
+            self.imageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 0.5)
+        }) { (_) in
             completion?()
-        })
+            self.imageView.transform = CGAffineTransform.identity
+        }
+        
+        
     }
     
     public override func reselectAnimation(animated: Bool, completion: (() -> ())?) {
