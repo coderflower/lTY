@@ -87,5 +87,14 @@ extension HomeViewController: ControllerConfigurable {
         output.endHeaderRefreshing
             .bind(to: collectionView.mj_header.rx.isRefreshing)
             .disposed(by: rx.disposeBag)
+        navigation.item.rightBarButtonItem?.rx.tap.asObservable().bind(to: publishTap).disposed(by: rx.disposeBag)
+    }
+    var publishTap: Binder<Void> {
+        return Binder(self) {this ,_ in
+            /// 执行操作
+            let publish = PublishViewController()
+            this.present(SFNavigationController(rootViewController:publish),
+                         animated: true, completion: nil)
+        }
     }
 }
