@@ -8,6 +8,7 @@
 
 import Foundation
 import Moya
+import WCDBSwift
 public enum ErrorCode: Int {
     /// token 过期
     case tokenExprie = 401
@@ -15,13 +16,18 @@ public enum ErrorCode: Int {
     case plateUnopened = 502
 }
 
-extension Error {
+extension Swift.Error {
     var errorMessage: String {
         guard let error = self as? SFError else { return "未知错误" }
         return error.errorMessage
     }
 }
 
+extension WCDBSwift.Error: SFError {
+    var errorMessage: String {
+        return type.description
+    }
+}
 
 protocol SFError: Swift.Error {
     var errorMessage: String { get }

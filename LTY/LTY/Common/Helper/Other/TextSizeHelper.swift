@@ -27,21 +27,39 @@ public struct TextSizeHelper {
         }
     }
     
-    public static func size(_ text: String, font: UIFont, width: CGFloat, insets: UIEdgeInsets = UIEdgeInsets.zero) -> CGRect {
+    public static func size(_ text: String, font: UIFont, width: CGFloat, insets: UIEdgeInsets = UIEdgeInsets.zero, lineSpacing: CGFloat? = nil) -> CGRect {
         let key = CacheEntry(text: text, font: font, width: width, insets: insets)
         if let hit = cache[key] {
             return hit
         }
-        
         let constrainedSize = CGSize(width: width - insets.left - insets.right, height: CGFloat.greatestFiniteMagnitude)
-        let attributes = [NSAttributedString.Key.font: font]
+        let attributes: [NSAttributedString.Key : Any]
+        
+        if let lineSpacing = lineSpacing {
+            attributes = fixLineHeightAttributed(lineSpacing + font.lineHeight, font: font)
+        } else {
+            attributes = [NSAttributedString.Key.font: font]
+        }
         let options: NSStringDrawingOptions = [.usesFontLeading, .usesLineFragmentOrigin]
-        var bounds = (text as NSString).boundingRect(with: constrainedSize, options: options, attributes: attributes, context: nil)
+        var bounds = text.asNSString.boundingRect(with: constrainedSize, options: options, attributes: attributes, context: nil)
         bounds.size.width = ceil(bounds.width + insets.left + insets.right)
         bounds.size.height = ceil(bounds.height + insets.top + insets.bottom)
         cache[key] = bounds
         return bounds
     }
+    
+    
+    /// 修复 lineHeight问题
+    static func fixLineHeightAttributed(_ lineHeight: CGFloat, font: UIFont) -> [NSAttributedString.Key: Any] {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.maximumLineHeight = lineHeight
+        paragraphStyle.minimumLineHeight = lineHeight
+        let baselineOffset = (lineHeight - font.lineHeight) / 4
+        return [.paragraphStyle: paragraphStyle,
+                .baselineOffset: baselineOffset,
+                .font: font]
+    }
+    
 }
 private func ==(lhs: TextSizeHelper.CacheEntry, rhs: TextSizeHelper.CacheEntry) -> Bool {
     return lhs.width == rhs.width && lhs.insets == rhs.insets && lhs.text == rhs.text

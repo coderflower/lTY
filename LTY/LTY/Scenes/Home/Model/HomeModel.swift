@@ -40,3 +40,5 @@ extension HomeModel: TableCodable {
         }
     }
 }
+
+

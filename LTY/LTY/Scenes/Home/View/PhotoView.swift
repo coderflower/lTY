@@ -7,9 +7,39 @@
 //
 
 import UIKit
+import CollectionKit
 
-final class PhotoView: UIView {
-
+class PhotoView: UIView {
     
+    let collectionView = CollectionView()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+    func initialize() {
+        collectionView.showsVerticalScrollIndicator = false
+        addSubview(collectionView)
+    }
+    override func layoutSubviews() {
+        collectionView.frame = bounds
+    }
+    var provider: BasicProvider<UIImage, UIImageView>? {
+        didSet {
+            
+        }
+    }
+}
 
+extension PhotoView: Updatable {
+    func update(_ model: BasicProvider<UIImage, UIImageView>?) {
+        guard let provider = model else {
+            return
+        }
+        collectionView.provider = provider
+    }
 }

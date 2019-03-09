@@ -12,6 +12,14 @@ public class NiblessView: UIView {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
+        initialize()
+    }
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        initialize()
+    }
+    func initialize()  {
+        
     }
     @available(*, unavailable, message: "loading this view from nib is unsupported")
     required init?(coder aDecoder: NSCoder) {

@@ -76,6 +76,7 @@
 		B8457C242230CADC006EC51F /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457C202230CADC006EC51F /* MoyaPlugin.swift */; };
 		B8457C262230CC23006EC51F /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457C252230CC23006EC51F /* NSObject+Rx.swift */; };
 		B8457C282230CD69006EC51F /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457C272230CD69006EC51F /* UIBarButtonItem-Extension.swift */; };
+		B85BAFE02233F3CE00264125 /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BAFDF2233F3CE00264125 /* FPSLabel.swift */; };
 		B894B06222324D0D00036A19 /* AddPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */; };
 		B894B06422324DA000036A19 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06322324DA000036A19 /* UIView-Extension.swift */; };
 		B894B06722324EF700036A19 /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06622324EF700036A19 /* NiblessView.swift */; };
@@ -197,6 +198,7 @@
 		B8457C202230CADC006EC51F /* MoyaPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
 		B8457C252230CC23006EC51F /* NSObject+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Rx.swift"; sourceTree = "<group>"; };
 		B8457C272230CD69006EC51F /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
+		B85BAFDF2233F3CE00264125 /* FPSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewCell.swift; sourceTree = "<group>"; };
 		B894B06322324DA000036A19 /* UIView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 		B894B06622324EF700036A19 /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
@@ -583,6 +585,7 @@
 			children = (
 				B894B06622324EF700036A19 /* NiblessView.swift */,
 				B894B07E2232688B00036A19 /* NiblessViewController.swift */,
+				B85BAFDF2233F3CE00264125 /* FPSLabel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/EachNavigationBar/EachNavigationBar.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -780,6 +784,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EachNavigationBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -900,6 +905,7 @@
 				B894B06722324EF700036A19 /* NiblessView.swift in Sources */,
 				B8457BEE2230CA2B006EC51F /* UICollectionView+SF.swift in Sources */,
 				B8457B72223003E4006EC51F /* AppDelegate.swift in Sources */,
+				B85BAFE02233F3CE00264125 /* FPSLabel.swift in Sources */,
 				B8457BC922300CD7006EC51F /* RegexHelper.swift in Sources */,
 				B8457BB822300B51006EC51F /* SFConst.swift in Sources */,
 				B8457C192230CA66006EC51F /* RxTextFieldDelegateProxy.swift in Sources */,

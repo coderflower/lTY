@@ -30,11 +30,19 @@ let json = """
 import UIKit
 import ESTabBarController_swift
 class SFTabBarController: ESTabBarController {
-
+    #if DEBUG
+    private lazy var fpsLabel: FPSLabel = {
+        let label = FPSLabel()
+        return label
+    }()
+    #endif
     override func viewDidLoad() {
         super.viewDidLoad()
         addAllChild()
         configureTabBar()
+        #if DEBUG
+        view.addSubview(fpsLabel)
+        #endif
     }
     func configureTabBar() {
         tabBar.shadowImage = UIImage(named: "transparent")

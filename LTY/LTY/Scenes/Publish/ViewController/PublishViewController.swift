@@ -147,7 +147,7 @@ extension PublishViewController {
         
         let input = PublishViewModel
             .Input(title: titleField.rx.text.orEmpty.asObservable(),
-                   content: contentTextView.rx.text.orEmpty.asObservable(),
+                   content: contentTextView.rx.text.asObservable(),
                    images: imagesSubject.asObservable(),
                    publishTap: rightBarButtonItem.rx.tap.asObservable())
      

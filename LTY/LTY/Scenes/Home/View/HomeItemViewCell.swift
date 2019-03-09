@@ -16,13 +16,16 @@ class HomeItemViewCell: UIView {
     /// 图片内容
     @IBOutlet weak var photoView: PhotoView!
     /// 时间
-    
-
+    @IBOutlet weak var timeLabel: UILabel!
 }
 
 extension HomeItemViewCell: Updatable {
     func update(_ model: HomeViewCellViewModel) {
-        
-        
+        titleLabel.text = model.title
+        contentLabel.attributedText = model.content?.adjustText(5)
+        timeLabel.text = model.timeString
+        contentLabel.isHighlighted = model.isHiddenContent
+        photoView.isHidden = model.isHiddenPhotoView
+        photoView.update(model.provider)
     }
 }

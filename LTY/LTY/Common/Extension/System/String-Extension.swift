@@ -52,16 +52,28 @@ extension  String {
     ///   - lineSpace: 行间距
     /// - Returns: 文本的宽高
     func calculateSize(font: UIFont,maxWidth: CGFloat = UIScreen.main.bounds.size.width) -> CGSize {
-        
         let size = CGSize(width: maxWidth, height: CGFloat(MAXFLOAT))
-
-        var textSize = (self as NSString).boundingRect(with: size, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: font], context: nil
+        var textSize = self.asNSString.boundingRect(with: size, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: font], context: nil
             ).size
         // 将高度取整,否则可能导致多行文字显示不全
         textSize.height = CGFloat(ceilf(Float(textSize.height)))
-        
         return textSize
-        
+    }
+    /// 调整文字行间距
+    func adjustText(_ lineSpacing: CGFloat) -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        let attributedString = NSMutableAttributedString(string: self)
+        attributedString.addAttributes([.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: count))
+        return attributedString
+    }
+    var isContainChinese: Bool {
+        for (_, value) in self.enumerated() {
+            if ("\u{4E00}" <= value  && value <= "\u{9FA5}") {
+                return true
+            }
+        }
+        return false
     }
 }
 

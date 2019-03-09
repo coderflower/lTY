@@ -9,6 +9,7 @@ PODS:
   - EachNavigationBar (1.9.2)
   - ESTabBarController-swift (2.6.4)
   - IQKeyboardManagerSwift (6.2.0)
+  - Kingfisher (5.2.0)
   - MJRefresh (3.1.15.7)
   - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
@@ -54,6 +55,7 @@ DEPENDENCIES:
   - EachNavigationBar
   - ESTabBarController-swift
   - IQKeyboardManagerSwift
+  - Kingfisher
   - MJRefresh
   - Moya/RxSwift
   - RxCocoa
@@ -76,6 +78,7 @@ SPEC REPOS:
     - EachNavigationBar
     - ESTabBarController-swift
     - IQKeyboardManagerSwift
+    - Kingfisher
     - MJRefresh
     - Moya
     - Result
@@ -101,6 +104,7 @@ SPEC CHECKSUMS:
   EachNavigationBar: 4978d1327a85d7c50d070b0a387f6e30fa089cfc
   ESTabBarController-swift: 58cca4ab7de980657d99a02181c1ff310983e975
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
@@ -117,6 +121,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 87aee41f5ca3aded9c6f9b68b0ef3e88918a5ee2
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 25245c8f98483db3f2619e521dab2d2936cb3a5a
+PODFILE CHECKSUM: cb8e0f52259c770aa41ca7ca36efb7e930f02b9e
 
 COCOAPODS: 1.6.0.beta.2
