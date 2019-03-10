@@ -38,6 +38,7 @@ PODS:
   - RxSwiftExt/RxCocoa (3.4.0):
     - RxCocoa (~> 4.0)
     - RxSwiftExt/Core
+  - SKPhotoBrowser (6.0.0)
   - SnapKit (4.2.0)
   - SQLiteRepairKit (1.2.1):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
@@ -63,6 +64,7 @@ DEPENDENCIES:
   - RxGesture
   - RxSwift
   - RxSwiftExt
+  - SKPhotoBrowser
   - SnapKit
   - Toast-Swift
   - TZImagePickerController
@@ -88,6 +90,7 @@ SPEC REPOS:
     - RxGesture
     - RxSwift
     - RxSwiftExt
+    - SKPhotoBrowser
     - SnapKit
     - SQLiteRepairKit
     - Toast-Swift
@@ -114,6 +117,7 @@ SPEC CHECKSUMS:
   RxGesture: 7f6dfb45dbde06e618c24442d38493e3144f2c95
   RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  SKPhotoBrowser: 76eb862685761707b5745fde7762757966565e07
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SQLiteRepairKit: 4d21bab9eff6a273f63da6815a0d1659e53f5bde
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
@@ -121,6 +125,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 87aee41f5ca3aded9c6f9b68b0ef3e88918a5ee2
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: cb8e0f52259c770aa41ca7ca36efb7e930f02b9e
+PODFILE CHECKSUM: 75250d45d129bb4773209693b4163524965bab1a
 
 COCOAPODS: 1.6.0.beta.2

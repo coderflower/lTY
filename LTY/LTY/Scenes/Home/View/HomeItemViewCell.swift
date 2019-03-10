@@ -17,10 +17,7 @@ class HomeItemViewCell: UIView {
     @IBOutlet weak var photoView: PhotoView!
     /// 时间
     @IBOutlet weak var timeLabel: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        contentLabel.fixLineHeightAttributed(23, font: contentLabel.font)
-    }
+   
 }
 
 extension HomeItemViewCell: Updatable {

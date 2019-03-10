@@ -22,6 +22,7 @@ target 'LTY' do
   pod 'TZImagePickerController'
   pod 'WCDB.swift'
   pod 'Kingfisher'
+  pod 'SKPhotoBrowser'
   # Pods for LTY
 
   target 'LTYTests' do
