@@ -108,11 +108,15 @@ extension DBManager {
         try table.dataBase.insert(objects: objects, on: propertyConvertibleList, intoTable: table.name)
     }
     
+    func insert<T: TableEncodable>(_ table: TableProtocol, object: T, on propertyConvertibleList: [PropertyConvertible]? = nil) throws {
+        try insert(table, objects: [object], on: propertyConvertibleList)
+    }
+    
+    
+    
     func update<T: TableEncodable>(_ table: TableProtocol, object: T, propertys: [PropertyConvertible], condition: Condition? = nil, orderBy: [OrderBy]? = nil, limit: Limit? = nil, offset: Offset? = nil) throws {
         
         try table.dataBase.update(table: table.name, on: propertys, with: object, where: condition, orderBy: orderBy, limit: limit, offset: offset)
-        
-        
     }
     
     func getObjects<T: TableCodable>(_ table:TableProtocol,
@@ -126,7 +130,7 @@ extension DBManager {
     func selectAll<T: TableCodable>(_ table: TableProtocol,
                                     condition: Condition? = nil) throws -> [T]? {
         if let condition = condition {
-            table.select?.where(condition)
+           return try table.select?.where(condition).allObjects()
         }
         return try table.select?.allObjects()
     }

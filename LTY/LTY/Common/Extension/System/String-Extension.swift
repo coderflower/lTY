@@ -60,11 +60,12 @@ extension  String {
         return textSize
     }
     /// 调整文字行间距
-    func adjustText(_ lineSpacing: CGFloat) -> NSAttributedString {
+    func adjustText(_ lineSpacing: CGFloat, font: UIFont) -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpacing
         let attributedString = NSMutableAttributedString(string: self)
-        attributedString.addAttributes([.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: count))
+        let baselineOffset = (lineSpacing - font.lineHeight) / 4
+        attributedString.addAttributes([.paragraphStyle: paragraphStyle, .baselineOffset: baselineOffset], range: NSRange(location: 0, length: count))
         return attributedString
     }
     var isContainChinese: Bool {

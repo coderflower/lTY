@@ -44,6 +44,7 @@ class PublishViewController: NiblessViewController {
     private lazy var collectionView: CollectionView = {
         let tmpView = CollectionView()
         view.addSubview(tmpView)
+        tmpView.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
         tmpView.provider = provider
         return tmpView
     }()
@@ -105,9 +106,6 @@ class PublishViewController: NiblessViewController {
             self.navigationController?.present(imagePicker, animated: true, completion: nil)
         }
     }
-    
-
-
 }
 
 

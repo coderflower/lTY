@@ -36,11 +36,12 @@ public struct TextSizeHelper {
         let attributes: [NSAttributedString.Key : Any]
         
         if let lineSpacing = lineSpacing {
-            attributes = fixLineHeightAttributed(lineSpacing + font.lineHeight, font: font)
+            attributes = fixLineHeightAttributed(lineSpacing, font: font)
         } else {
             attributes = [NSAttributedString.Key.font: font]
         }
-        let options: NSStringDrawingOptions = [.usesFontLeading, .usesLineFragmentOrigin]
+        
+        let options: NSStringDrawingOptions = [.truncatesLastVisibleLine, .usesFontLeading, .usesLineFragmentOrigin]
         var bounds = text.asNSString.boundingRect(with: constrainedSize, options: options, attributes: attributes, context: nil)
         bounds.size.width = ceil(bounds.width + insets.left + insets.right)
         bounds.size.height = ceil(bounds.height + insets.top + insets.bottom)
@@ -50,11 +51,12 @@ public struct TextSizeHelper {
     
     
     /// 修复 lineHeight问题
-    static func fixLineHeightAttributed(_ lineHeight: CGFloat, font: UIFont) -> [NSAttributedString.Key: Any] {
+    static func fixLineHeightAttributed(_ lineSpacing: CGFloat, font: UIFont) -> [NSAttributedString.Key: Any] {
         let paragraphStyle = NSMutableParagraphStyle()
+        let lineHeight = lineSpacing + font.lineHeight
         paragraphStyle.maximumLineHeight = lineHeight
         paragraphStyle.minimumLineHeight = lineHeight
-        let baselineOffset = (lineHeight - font.lineHeight) / 4
+        let baselineOffset = lineSpacing / 4
         return [.paragraphStyle: paragraphStyle,
                 .baselineOffset: baselineOffset,
                 .font: font]

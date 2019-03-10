@@ -22,11 +22,13 @@ extension UILabel {
 
 extension UILabel {
     /// 修复 lineHeight问题
-    func fixLineHeightAttributed(_ lineHeight: CGFloat, font: UIFont) -> [NSAttributedString.Key: Any] {
+    @discardableResult
+    func fixLineHeightAttributed(_ lineSpacing: CGFloat, font: UIFont) -> [NSAttributedString.Key: Any] {
         let paragraphStyle = NSMutableParagraphStyle()
+        let lineHeight = lineSpacing + font.lineHeight
         paragraphStyle.maximumLineHeight = lineHeight
-        paragraphStyle.minimumLineHeight = lineHeight
-        let baselineOffset = (lineHeight - font.lineHeight) / 4
+        paragraphStyle.minimumLineHeight = lineSpacing
+        let baselineOffset = lineSpacing / 4
         return [.paragraphStyle: paragraphStyle,
                 .baselineOffset: baselineOffset,]
     }

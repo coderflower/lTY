@@ -10,6 +10,7 @@
 		0B62FF724AEF10B259DEA04B /* Pods_LTYUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA13C73BABF0CB00D18DE18 /* Pods_LTYUITests.framework */; };
 		261AC72BA32BBAFD44AC5135 /* Pods_LTYTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AFD60D2BDE117D5AC604542 /* Pods_LTYTests.framework */; };
 		691906FBB043EFAE42BEEFBF /* Pods_LTY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B691CDDB4AA78B8924A7DE45 /* Pods_LTY.framework */; };
+		B8357F192234B5260020FE17 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8357F182234B5260020FE17 /* TransitionAnimator.swift */; };
 		B8457B72223003E4006EC51F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457B71223003E4006EC51F /* AppDelegate.swift */; };
 		B8457B74223003E4006EC51F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457B73223003E4006EC51F /* ViewController.swift */; };
 		B8457B77223003E4006EC51F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8457B75223003E4006EC51F /* Main.storyboard */; };
@@ -127,6 +128,7 @@
 		734DC79C5B868C7B811DB3E5 /* Pods-LTYTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTYTests.debug.xcconfig"; path = "Target Support Files/Pods-LTYTests/Pods-LTYTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AFD60D2BDE117D5AC604542 /* Pods_LTYTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTYTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B691CDDB4AA78B8924A7DE45 /* Pods_LTY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8357F182234B5260020FE17 /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
 		B8457B6E223003E4006EC51F /* LTY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8457B71223003E4006EC51F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8457B73223003E4006EC51F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +280,14 @@
 				EBA13C73BABF0CB00D18DE18 /* Pods_LTYUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8357F172234B4DF0020FE17 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				B8357F182234B5260020FE17 /* TransitionAnimator.swift */,
+			);
+			path = Animator;
 			sourceTree = "<group>";
 		};
 		B8457B65223003E4006EC51F = {
@@ -442,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				B8457BB722300B51006EC51F /* SFConst.swift */,
+				B8357F172234B4DF0020FE17 /* Animator */,
 				B894B06522324EDB00036A19 /* Base */,
 				B8457BD12230C6A0006EC51F /* Protocol */,
 				B8457BC022300CA2006EC51F /* Helper */,
@@ -894,6 +905,7 @@
 				B8457C0D2230CA66006EC51F /* RxTableViewSectionedDelegate.swift in Sources */,
 				B8457C0E2230CA66006EC51F /* Rx+Ext.swift in Sources */,
 				B8457BEC2230CA2B006EC51F /* UIViewController+SF.swift in Sources */,
+				B8357F192234B5260020FE17 /* TransitionAnimator.swift in Sources */,
 				B8457BAF22300A89006EC51F /* PublishViewController.swift in Sources */,
 				B8457BBF22300C63006EC51F /* UIDevice+SF.swift in Sources */,
 				B8457C172230CA66006EC51F /* UIAlertController+Rx.swift in Sources */,

@@ -17,12 +17,16 @@ class HomeItemViewCell: UIView {
     @IBOutlet weak var photoView: PhotoView!
     /// 时间
     @IBOutlet weak var timeLabel: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        contentLabel.fixLineHeightAttributed(23, font: contentLabel.font)
+    }
 }
 
 extension HomeItemViewCell: Updatable {
     func update(_ model: HomeViewCellViewModel) {
         titleLabel.text = model.title
-        contentLabel.attributedText = model.content?.adjustText(5)
+        contentLabel.attributedText = model.attributedText
         timeLabel.text = model.timeString
         contentLabel.isHighlighted = model.isHiddenContent
         photoView.isHidden = model.isHiddenPhotoView

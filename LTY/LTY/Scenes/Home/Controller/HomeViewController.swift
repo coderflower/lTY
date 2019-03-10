@@ -17,9 +17,14 @@ class HomeViewController: UIViewController {
         let tmpView = CollectionView()
         view.addSubview(tmpView)
         let header = MJRefreshNormalHeader()
+        
         header.lastUpdatedTimeLabel.isHidden = true
         tmpView.mj_header = header
-        tmpView.provider = provider
+        /// 包装空数据 provider
+        let emptyImageView = UIImageView(image: UIImage(named: "home_empty"))
+        emptyImageView.contentMode = .center
+        let emptyProvider = EmptyStateProvider(emptyStateView: emptyImageView, content: self.provider)
+        tmpView.provider = emptyProvider
         return tmpView
     }()
     let dataSource = ArrayDataSource<HomeViewCellViewModel>(data: [])
@@ -46,13 +51,19 @@ class HomeViewController: UIViewController {
     
     var collectionDataSource: Binder<[HomeViewCellViewModel]> {
         return Binder(self) { this, data in
-            data.forEach({
-                myLog($0.content)
-            })
+//            data.forEach({
+//                myLog($0.content)
+//            })
             this.dataSource.data = data
         }
     }
     
+    lazy var animator = TransitionAnimator()
+    var userUploadCompleteNotification: Binder<Notification> {
+        return Binder(self) {this ,_ in
+            this.collectionView.mj_header.beginRefreshing()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -60,6 +71,10 @@ class HomeViewController: UIViewController {
         configureNavigationBar()
         configureSignal()
         
+        NotificationCenter.default.rx
+            .notification(NotifyName.userUploadCompleteNotification)
+            .bind(to: userUploadCompleteNotification)
+            .disposed(by: rx.disposeBag)
     }
 }
 
@@ -93,8 +108,13 @@ extension HomeViewController: ControllerConfigurable {
         return Binder(self) {this ,_ in
             /// 执行操作
             let publish = PublishViewController()
-            this.present(SFNavigationController(rootViewController:publish),
-                         animated: true, completion: nil)
+            
+            let nav = SFNavigationController(rootViewController:publish)
+            nav.modalPresentationStyle = UIModalPresentationStyle.custom
+            nav.transitioningDelegate = this.animator
+            this.present(nav,animated: true, completion: nil)
+            
+            
         }
     }
 }

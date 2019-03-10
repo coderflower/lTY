@@ -20,10 +20,10 @@ final class HomeViewCellViewModel {
     let isHiddenPhotoView: Bool
     /// 标题
     let title: String
-    /// 内容
-    let content: String?
     /// 时间
     let timeString: String
+    /// 内容
+    let attributedText: NSAttributedString?
     let provider: BasicProvider<UIImage, UIImageView>?
     static let maxWidth: CGFloat = (UIScreen.width - 40)
     static let singleItemHeight: CGFloat = CGFloat(floor(Float(maxWidth * 0.5)))
@@ -33,14 +33,21 @@ final class HomeViewCellViewModel {
     init(model: HomeModel) {
         self.model = model
         self.title = model.title
-        self.content = model.content
         self.isHiddenContent = model.content != nil
         self.timeString = HomeViewCellViewModel.formatDate(model.createTime)
         let images = model.images?.compactMap({UIImage(data: $0)})
         self.isHiddenPhotoView = images?.count == 0
         self.cellHeight = HomeViewCellViewModel.calculateViewHeight(content: model.content, imagesCount: images?.count ?? 0)
         self.provider = HomeViewCellViewModel.createProvider(images: images, content: model.content)
+        if let content = model.content {
+            let attributed = TextSizeHelper.fixLineHeightAttributed(5, font: UIFont.systemFont(ofSize: 15))
+            self.attributedText = NSAttributedString(string: content, attributes: attributed)
+        } else {
+            self.attributedText = nil
+        }
     }
+    
+    
     /// 图片布局,
     static func caluclateSizeSource(imagesCount: Int) -> (Int, UIImage, CGSize) -> CGSize{
         return { (index: Int, data: UIImage, collectionSize: CGSize) -> CGSize in            
@@ -87,17 +94,17 @@ final class HomeViewCellViewModel {
     static func formatDate(_ date: Date) -> String {
         if date.isToday() {
             //是今天
-            formatter.dateFormat = "今天HH:mm"
+            formatter.dateFormat = "今天 HH:mm"
             return formatter.string(from: date)
         }else if date.isYesterday(){
             //是昨天
-            formatter.dateFormat = "昨天HH:mm"
+            formatter.dateFormat = "昨天 HH:mm"
             return formatter.string(from: date)
         } else if date.isTheSameYear() {
-            formatter.dateFormat = "MM-dd HH:mm"
+            formatter.dateFormat = "M月-d日 HH:mm"
             return formatter.string(from: date)
         } else{
-            formatter.dateFormat = "yyyy-MM-dd HH:mm"
+            formatter.dateFormat = "yyyy年-M月-d日 HH:mm"
             return formatter.string(from: date)
         }
     }
@@ -109,6 +116,7 @@ final class HomeViewCellViewModel {
         if let content = content, content.count > 0 {
             let textHeight = TextSizeHelper.size(content, font: UIFont.systemFont(ofSize: 15), width: maxWidth, lineSpacing: 5).height
             height += textHeight
+            myLog(textHeight)
             /// 文字底部10
             height += 10
         }
