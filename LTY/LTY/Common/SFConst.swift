@@ -46,3 +46,8 @@ public struct SFConst {
 public extension SFConst {
     static let bundleShortVersionString = "SFBundleShortVersionString";
 }
+
+
+public extension SFConst {
+    static let passwordKey = "passwordKey";
+}

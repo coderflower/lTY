@@ -59,14 +59,9 @@ extension ProfileViewController: ControllerConfigurable {
     }
     func configureSignal() {
         navigation.item.rightBarButtonItem?.rx.tap.bind(to: rx.goBack).disposed(by: rx.disposeBag)
-        
         let input = ProfileViewModel.Input()
         let output = viewModel.transform(input: input)
-        
         dataSource.data = output.dataSource
-        
-        
-        
     }
 }
 
@@ -77,13 +72,45 @@ extension ProfileViewController: Actionable {
         case .about:
             myLog(type.rawValue)
         case .password:
-            let set = SetPasswordViewController()
-            navigationController?.pushViewController(set, animated: true)
+            /// 判断用户是否设置密码,
+            let viewController: UIViewController
+            if isSetPassword() {
+                viewController = ModifyPasswordViewController()
+            } else {
+                viewController = SetPasswordViewController()
+            }
+            navigate(to: viewController)
         case .images:
-            let photoWall = PhotoWallViewController()
-            navigationController?.pushViewController(photoWall, animated: true)
-        default:
-            break
+            showAlert { [weak self] in
+                self?.navigate(to: PhotoWallViewController())
+            }
+        case .diary:
+            showAlert { [weak self] in
+                self?.navigate(to: AllItemViewController())
+            }
         }
     }
+    func navigate(to viewController: UIViewController) {
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    func isSetPassword() -> Bool {
+        return UserDefaults.standard.string(forKey: SFConst.passwordKey) != nil
+    }
+    
+    func showAlert(completion: @escaping () -> Void) {
+        if let password = UserDefaults.standard.string(forKey: SFConst.passwordKey) {
+            UIAlertController.rx.prompt(in: self, title: "请输入密码", message: "输入正确的密码才能继续访问", defaultValue: nil, closeTitle: "取消", confirmTitle: "确定").subscribe(onSuccess: { (input) in
+                myLog(password)
+                if password == input {
+                    completion()
+                } else {
+                    SFToast.show(info: "密码错误")
+                }
+            }).disposed(by: rx.disposeBag)
+        } else {
+            completion()
+        }
+    }
+    
+    
 }

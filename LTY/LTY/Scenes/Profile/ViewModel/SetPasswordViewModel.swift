@@ -13,8 +13,10 @@ class SetPasswordViewModel {
     
     func transform(input: Input) -> Output {
         let state = State()
-        let result = input.repeatEndSignal.flatMap({_ in
-            Observable.just(true).trackState(state, success: "密码设置成功")
+        let result = input.repeatEndSignal.flatMap({ password -> Observable<Bool> in
+            UserDefaults.standard.set(password, forKey: SFConst.passwordKey)
+            UserDefaults.standard.synchronize()
+            return Observable.just(true).trackState(state, success: "密码设置成功")
         })
         return Output(result: result, state: state.asDriver(onErrorJustReturn: .idle))
     }

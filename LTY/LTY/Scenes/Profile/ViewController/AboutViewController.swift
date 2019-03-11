@@ -25,7 +25,7 @@ final class AboutViewController: UIViewController {
 }
 extension AboutViewController: ControllerConfigurable {
     func configureSubviews() {
-        contentLabel.text = "我要记-记录日常生活中每一个精彩瞬间,你可以用文字或者图片文的形式记录"
+        contentLabel.text = "我要记-记录日常生活中每一个精彩瞬间,你可以用图文的形式记录"
     }
     func configureNavigationBar() {
         navigation.item.title = "关于我们"

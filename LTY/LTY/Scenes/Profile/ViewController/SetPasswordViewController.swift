@@ -56,6 +56,7 @@ class SetPasswordViewController: UIViewController {
             this.firstInputView.isHidden = true
             this.repeatInputView.isHidden = true
             this.view.endEditing(true)
+            this.sf.goBack()
         }
     }
     
