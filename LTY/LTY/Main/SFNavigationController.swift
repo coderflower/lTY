@@ -26,7 +26,7 @@ class SFNavigationController: UINavigationController {
         navigation.configuration.tintColor = UIColor.white
         navigation.configuration.isShadowHidden = true
         navigation.configuration.barTintColor = ColorHelper.default.theme
-        navigation.configuration.backBarButtonItem = .init(style: .image(UIImage(named: "nav_back")), tintColor: UIColor.black)
+        navigation.configuration.backBarButtonItem = .init(style: .image(UIImage(named: "nav_back")), tintColor: UIColor.white)
         navigation.configuration.statusBarStyle = .lightContent
         // Do any additional setup after loading the view.
         interactivePopGestureRecognizer?.delegate = self;

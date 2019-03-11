@@ -22,12 +22,31 @@ extension Array {
     // 去重
     func filterDuplicates<E: Equatable>(_ filter: (Element) -> E) -> [Element] {
         var result = [Element]()
-        for value in self {
-            let key = filter(value)
+        for element in self {
+            let key = filter(element)
             if !result.map({filter($0)}).contains(key) {
-                result.append(value)
+                result.append(element)
             }
         }
         return result
+    }
+    
+    
+    
+}
+extension Array where Element: Hashable {
+    /// 按指定条件升维
+    func grouped(by condition: (Element) -> Element) -> [[Element]]{
+        var result: [Element: [Element]] = [:]
+        for element in self {
+            let key = condition(element)
+            if var values = result[key] {
+                values.append(key)
+                result.updateValue(values, forKey: key)
+            } else {
+                result.updateValue([element], forKey: key)
+            }
+        }
+        return result.map({$0.value})
     }
 }

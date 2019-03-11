@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import CollectionKit
-
+import SKPhotoBrowser
 final class HomeViewCellViewModel {
     private let model: HomeModel
     /// item 高度
@@ -44,6 +44,18 @@ final class HomeViewCellViewModel {
             self.attributedText = NSAttributedString(string: content, attributes: attributed)
         } else {
             self.attributedText = nil
+        }
+        
+        guard let provider = provider else  {
+            return
+        }
+        
+        provider.tapHandler = { (tap) in
+            let photos = model.images?.compactMap{UIImage(data: $0)}
+            guard let images = photos?.compactMap({SKPhoto.photoWithImage($0)}) else {return}
+            let browser = SKPhotoBrowser(photos: images)
+            browser.initializePageIndex(tap.index)
+            UIApplication.shared.sf.navigationController?.present(browser, animated: true, completion: {})
         }
     }
     
@@ -116,7 +128,6 @@ final class HomeViewCellViewModel {
         if let content = content, content.count > 0 {
             let textHeight = TextSizeHelper.size(content, font: UIFont.systemFont(ofSize: 15), width: maxWidth, lineSpacing: 5).height
             height += textHeight
-            myLog(textHeight)
             /// 文字底部10
             height += 10
         }

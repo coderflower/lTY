@@ -75,6 +75,8 @@ class HomeViewController: UIViewController {
             .notification(NotifyName.userUploadCompleteNotification)
             .bind(to: userUploadCompleteNotification)
             .disposed(by: rx.disposeBag)
+        
+        
     }
 }
 

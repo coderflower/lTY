@@ -8,7 +8,7 @@
 
 import UIKit
 import CollectionKit
-
+import SKPhotoBrowser
 class PhotoView: UIView {
     
     let collectionView = CollectionView()
@@ -27,11 +27,6 @@ class PhotoView: UIView {
     }
     override func layoutSubviews() {
         collectionView.frame = bounds
-    }
-    var provider: BasicProvider<UIImage, UIImageView>? {
-        didSet {
-            
-        }
     }
 }
 

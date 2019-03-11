@@ -22,7 +22,7 @@ class PublishViewController: NiblessViewController {
         tf.textColor = ColorHelper.default.blackText
         tf.attributedPlaceholder = NSAttributedString(string: "在这里输入标题", attributes: [.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         tf.font = FontHelper.regular(14)
-        tf.maxLength = 10
+        tf.maxLength = 15
         view.addSubview(tf)
         tf.backgroundColor = UIColor.white
         tf.borderStyle = .none
@@ -106,6 +106,14 @@ class PublishViewController: NiblessViewController {
             self.navigationController?.present(imagePicker, animated: true, completion: nil)
         }
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        titleField.becomeFirstResponder()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true)
+    }
 }
 
 
@@ -130,7 +138,8 @@ extension PublishViewController {
         })
     }
     func configureNavigationBar() {
-        navigation.item.title = "编辑记录"
+//        navigation.item.title = "编辑记录"
+        navigation.item.title = "添加日记"
         navigation.item.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"))
         navigation.item.rightBarButtonItem = UIBarButtonItem(title: "发布")
     }
@@ -160,7 +169,8 @@ extension PublishViewController {
             .drive(SFToast.rx.state)
             .disposed(by: rx.disposeBag)
         output.result.map({ (_) -> Void in
-            NotificationCenter.default.post(name: NotifyName.userUploadCompleteNotification, object: nil)
+            NotificationCenter.default
+                .post(name: NotifyName.userUploadCompleteNotification, object: nil)
         }).drive(rx.goBack).disposed(by: rx.disposeBag)
     }
 }

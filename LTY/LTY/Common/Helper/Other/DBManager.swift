@@ -121,14 +121,15 @@ extension DBManager {
     
     func getObjects<T: TableCodable>(_ table:TableProtocol,
                                      on propertyConvertibleList: [PropertyConvertible],
-                                     where condition: Condition?,
-                                     orderBy orderList: [OrderBy]?,
-                                     limit: Limit?,
-                                     offset: Offset?) throws -> [T]?  {
+                                     where condition: Condition? = nil,
+                                     orderBy orderList: [OrderBy]? = nil,
+                                     limit: Limit? = nil,
+                                     offset: Offset? = nil) throws -> [T]?  {
         return try table.dataBase.getObjects(on: propertyConvertibleList, fromTable: table.name, where: condition, orderBy: orderList, limit: limit, offset: offset)
     }
     func selectAll<T: TableCodable>(_ table: TableProtocol,
-                                    condition: Condition? = nil) throws -> [T]? {
+                                    condition: Condition? = nil,
+                                    orderBy orderList: [OrderBy]? = nil) throws -> [T]? {
         if let condition = condition {
            return try table.select?.where(condition).allObjects()
         }

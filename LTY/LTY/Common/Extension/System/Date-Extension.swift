@@ -41,7 +41,7 @@ extension Date {
     func morningDate() -> Date {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year,.month,.day], from: self)
-        return (calendar.date(from: components))!.transformDate()
+        return (calendar.date(from: components))!
     }
     /// 获取对应时间的 24点时间
     func twentyFourDate() -> Date {

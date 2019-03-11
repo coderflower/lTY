@@ -102,6 +102,17 @@
 		B894B08D2232B26E00036A19 /* LTProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B08C2232B26E00036A19 /* LTProvider.swift */; };
 		B894B08F2232B3A800036A19 /* HomeViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B08E2232B3A800036A19 /* HomeViewCellViewModel.swift */; };
 		B894B0912232B99100036A19 /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B0902232B99100036A19 /* Date-Extension.swift */; };
+		B8DA1D84223611D1005464F3 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D83223611D1005464F3 /* ProfileModel.swift */; };
+		B8DA1D872236129E005464F3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D862236129E005464F3 /* ProfileViewModel.swift */; };
+		B8DA1D89223614E2005464F3 /* ProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D88223614E2005464F3 /* ProfileViewCell.swift */; };
+		B8DA1D8B22361A82005464F3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D8A22361A82005464F3 /* AboutViewController.swift */; };
+		B8DA1D8D22361DEC005464F3 /* PhotoWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D8C22361DEC005464F3 /* PhotoWallViewController.swift */; };
+		B8DA1D8F22361E18005464F3 /* PhotoWallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D8E22361E18005464F3 /* PhotoWallViewCell.swift */; };
+		B8DA1D9122361E74005464F3 /* PhotoWallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9022361E74005464F3 /* PhotoWallViewModel.swift */; };
+		B8DA1D9322362138005464F3 /* PhotoWallViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9222362138005464F3 /* PhotoWallViewCellViewModel.swift */; };
+		B8DA1D9622362B76005464F3 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9522362B76005464F3 /* PasswordInputView.swift */; };
+		B8DA1D9822362C97005464F3 /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9722362C97005464F3 /* SetPasswordViewController.swift */; };
+		B8DA1D9A22362D09005464F3 /* SetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9922362D09005464F3 /* SetPasswordViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,6 +237,17 @@
 		B894B08C2232B26E00036A19 /* LTProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTProvider.swift; sourceTree = "<group>"; };
 		B894B08E2232B3A800036A19 /* HomeViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellViewModel.swift; sourceTree = "<group>"; };
 		B894B0902232B99100036A19 /* Date-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
+		B8DA1D83223611D1005464F3 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		B8DA1D862236129E005464F3 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		B8DA1D88223614E2005464F3 /* ProfileViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewCell.swift; sourceTree = "<group>"; };
+		B8DA1D8A22361A82005464F3 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		B8DA1D8C22361DEC005464F3 /* PhotoWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallViewController.swift; sourceTree = "<group>"; };
+		B8DA1D8E22361E18005464F3 /* PhotoWallViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallViewCell.swift; sourceTree = "<group>"; };
+		B8DA1D9022361E74005464F3 /* PhotoWallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallViewModel.swift; sourceTree = "<group>"; };
+		B8DA1D9222362138005464F3 /* PhotoWallViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallViewCellViewModel.swift; sourceTree = "<group>"; };
+		B8DA1D9522362B76005464F3 /* PasswordInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
+		B8DA1D9722362C97005464F3 /* SetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
+		B8DA1D9922362D09005464F3 /* SetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewModel.swift; sourceTree = "<group>"; };
 		CA6A4058C100080C23A0B791 /* Pods-LTY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTY.release.xcconfig"; path = "Target Support Files/Pods-LTY/Pods-LTY.release.xcconfig"; sourceTree = "<group>"; };
 		E7FBCF0E367C29C9DE16C756 /* Pods-LTYUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTYUITests.debug.xcconfig"; path = "Target Support Files/Pods-LTYUITests/Pods-LTYUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBA13C73BABF0CB00D18DE18 /* Pods_LTYUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTYUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,6 +414,9 @@
 		B8457BA3223006A8006EC51F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				B8DA1D81223611B6005464F3 /* Model */,
+				B8DA1D852236128E005464F3 /* ViewModel */,
+				B8DA1D82223611BE005464F3 /* View */,
 				B8457BAD22300A6F006EC51F /* ViewController */,
 			);
 			path = Profile;
@@ -444,6 +469,9 @@
 			isa = PBXGroup;
 			children = (
 				B8457BB022300A94006EC51F /* ProfileViewController.swift */,
+				B8DA1D9722362C97005464F3 /* SetPasswordViewController.swift */,
+				B8DA1D8A22361A82005464F3 /* AboutViewController.swift */,
+				B8DA1D8C22361DEC005464F3 /* PhotoWallViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -616,6 +644,35 @@
 			isa = PBXGroup;
 			children = (
 				B894B07C2232648700036A19 /* PublishViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B8DA1D81223611B6005464F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B8DA1D83223611D1005464F3 /* ProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B8DA1D82223611BE005464F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8DA1D9522362B76005464F3 /* PasswordInputView.swift */,
+				B8DA1D88223614E2005464F3 /* ProfileViewCell.swift */,
+				B8DA1D8E22361E18005464F3 /* PhotoWallViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B8DA1D852236128E005464F3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B8DA1D862236129E005464F3 /* ProfileViewModel.swift */,
+				B8DA1D9022361E74005464F3 /* PhotoWallViewModel.swift */,
+				B8DA1D9222362138005464F3 /* PhotoWallViewCellViewModel.swift */,
+				B8DA1D9922362D09005464F3 /* SetPasswordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -904,6 +961,7 @@
 				B8457BDB2230C716006EC51F /* Updatable.swift in Sources */,
 				B8457C222230CADC006EC51F /* HTTPService.swift in Sources */,
 				B8457C0C2230CA66006EC51F /* Countdown+Rx.swift in Sources */,
+				B8DA1D84223611D1005464F3 /* ProfileModel.swift in Sources */,
 				B8457C0D2230CA66006EC51F /* RxTableViewSectionedDelegate.swift in Sources */,
 				B8457C0E2230CA66006EC51F /* Rx+Ext.swift in Sources */,
 				B8457BEC2230CA2B006EC51F /* UIViewController+SF.swift in Sources */,
@@ -916,6 +974,7 @@
 				B8457B74223003E4006EC51F /* ViewController.swift in Sources */,
 				B8457C1A2230CA66006EC51F /* UITextView+Rx.swift in Sources */,
 				B8457C132230CA66006EC51F /* MapTo+Rx.swift in Sources */,
+				B8DA1D9322362138005464F3 /* PhotoWallViewCellViewModel.swift in Sources */,
 				B8457C122230CA66006EC51F /* MJRefresh+Rx.swift in Sources */,
 				B8457BCA22300CD7006EC51F /* TextSizeHelper.swift in Sources */,
 				B8457C232230CADC006EC51F /* HTTPService+Rx.swift in Sources */,
@@ -935,18 +994,23 @@
 				B8457BCE22301A51006EC51F /* UIImage+SF.swift in Sources */,
 				B8457BDA2230C716006EC51F /* Reusable.swift in Sources */,
 				B8457BDD2230C716006EC51F /* ControllerConfigurable.swift in Sources */,
+				B8DA1D8D22361DEC005464F3 /* PhotoWallViewController.swift in Sources */,
 				B894B07F2232688B00036A19 /* NiblessViewController.swift in Sources */,
 				B894B0732232529B00036A19 /* Bundle-Extension.swift in Sources */,
 				B894B08F2232B3A800036A19 /* HomeViewCellViewModel.swift in Sources */,
+				B8DA1D9122361E74005464F3 /* PhotoWallViewModel.swift in Sources */,
 				B894B0832232825600036A19 /* String-Extension.swift in Sources */,
 				B85BAFE22233FDF200264125 /* NotifyHelper.swift in Sources */,
+				B8DA1D9A22362D09005464F3 /* SetPasswordViewModel.swift in Sources */,
 				B8457C092230CA66006EC51F /* UIResponder+Rx.swift in Sources */,
 				B8457BC622300CD7006EC51F /* Gradienter.swift in Sources */,
+				B8DA1D8B22361A82005464F3 /* AboutViewController.swift in Sources */,
 				B894B08D2232B26E00036A19 /* LTProvider.swift in Sources */,
 				B8457C102230CA66006EC51F /* SFToast+Rx.swift in Sources */,
 				B894B0742232529B00036A19 /* DispatchTime-Extension.swift in Sources */,
 				B894B0762232529B00036A19 /* UITabBar-Extension.swift in Sources */,
 				B894B0772232529B00036A19 /* UIButton-Extension.swift in Sources */,
+				B8DA1D8F22361E18005464F3 /* PhotoWallViewCell.swift in Sources */,
 				B894B07D2232648700036A19 /* PublishViewModel.swift in Sources */,
 				B8457C162230CA66006EC51F /* UIView+Rx.swift in Sources */,
 				B8457BEF2230CA2B006EC51F /* UITableView+SF.swift in Sources */,
@@ -956,6 +1020,7 @@
 				B8457C182230CA66006EC51F /* UIViewController+Rx.swift in Sources */,
 				B8457C0A2230CA66006EC51F /* Response+Rx.swift in Sources */,
 				B8457BED2230CA2B006EC51F /* UINavigationController+SF.swift in Sources */,
+				B8DA1D872236129E005464F3 /* ProfileViewModel.swift in Sources */,
 				B894B0872232AC4200036A19 /* HomeItemViewCell.swift in Sources */,
 				B894B0912232B99100036A19 /* Date-Extension.swift in Sources */,
 				B894B0792232529B00036A19 /* Sequence+Extension.swift in Sources */,
@@ -964,6 +1029,7 @@
 				B8457BD02230BE5C006EC51F /* TabBarItemContentView.swift in Sources */,
 				B8457C082230CA66006EC51F /* String+Rx.swift in Sources */,
 				B894B06222324D0D00036A19 /* AddPhotoViewCell.swift in Sources */,
+				B8DA1D9622362B76005464F3 /* PasswordInputView.swift in Sources */,
 				B894B08B2232B0F400036A19 /* PhotoView.swift in Sources */,
 				B8457BB322300B12006EC51F /* SFTabBarController.swift in Sources */,
 				B894B07A2232529B00036A19 /* UILabel-Extension.swift in Sources */,
@@ -975,8 +1041,10 @@
 				B8457BC722300CD7006EC51F /* FontHelper.swift in Sources */,
 				B8457BDC2230C716006EC51F /* ConfigurableTableViewCell.swift in Sources */,
 				B8457C242230CADC006EC51F /* MoyaPlugin.swift in Sources */,
+				B8DA1D9822362C97005464F3 /* SetPasswordViewController.swift in Sources */,
 				B8457BAB22300A40006EC51F /* HomeViewController.swift in Sources */,
 				B894B0852232ABE400036A19 /* HomeViewModel.swift in Sources */,
+				B8DA1D89223614E2005464F3 /* ProfileViewCell.swift in Sources */,
 				B8457BDF2230C716006EC51F /* ViewModelType.swift in Sources */,
 				B8457C072230CA66006EC51F /* UIState+Rx.swift in Sources */,
 				B894B06A22324FB200036A19 /* PhotoModel.swift in Sources */,
