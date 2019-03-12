@@ -17,31 +17,18 @@ class ProfileViewController: UIViewController {
         return tmpView
     }()
     let dataSource = ArrayDataSource<ProfileModel>(data: [])
-    lazy var provider: BasicProvider<ProfileModel, ProfileViewCell> = {
-        
-        let viewSource = ClosureViewSource<ProfileModel, ProfileViewCell>(viewUpdater: { (view: ProfileViewCell, data: ProfileModel, at: Int) in
-            view.update(data)
-        })
-        let sizeSource = { (index: Int, data: ProfileModel, collectionSize: CGSize) -> CGSize in
-            return CGSize(width: collectionSize.width, height: 44)
-        }
-        let provider = BasicProvider<ProfileModel, ProfileViewCell>(
-            dataSource: dataSource,
-            viewSource: viewSource,
-            sizeSource: sizeSource)
-        provider.layout = FlowLayout(spacing: 1).inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-        provider.tapHandler = {[weak self]tap in
-            self?.hanldeAction(by: tap.data.actionType)
-        }
-        return provider
-    }()
+    
+    lazy var provider = Provider.shared.profileProvider(dataSource: dataSource)
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         configureSubviews()
         configureNavigationBar()
         configureSignal()
+        provider.tapHandler = {[weak self] tap in
+            self?.hanldeAction(by: tap.data.actionType)
+        }
     }
 
 }
@@ -72,14 +59,7 @@ extension ProfileViewController: Actionable {
         case .about:
             myLog(type.rawValue)
         case .password:
-            /// 判断用户是否设置密码,
-            let viewController: UIViewController
-            if isSetPassword() {
-                viewController = ModifyPasswordViewController()
-            } else {
-                viewController = SetPasswordViewController()
-            }
-            navigate(to: viewController)
+            navigate(to: PassworManagerViewController())
         case .images:
             showAlert { [weak self] in
                 self?.navigate(to: PhotoWallViewController())

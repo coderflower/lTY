@@ -9,6 +9,14 @@
 import UIKit
 import RxCocoa
 import RxSwift
+
+class SetPasswordViewController: UIViewController {
+    
+}
+extension SetPasswordViewController: ControllerConfigurable {
+    
+}
+/*
 class SetPasswordViewController: UIViewController {
     let viewModel = SetPasswordViewModel()
     /// 第一次输入
@@ -132,3 +140,4 @@ extension SetPasswordViewController: PasswordInputViewDelegate {
         }
     }
 }
+*/

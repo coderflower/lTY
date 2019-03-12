@@ -10,9 +10,8 @@ import Foundation
 import UIKit
 final class ProfileViewModel {
     func transform(input: Input) -> Output {
-        
         let models = [ProfileModel(title: "所有日记", actionType: .diary),
-                      ProfileModel(title: "设置密码", actionType: .password),
+                      ProfileModel(title: "密码管理", actionType: .password),
                       ProfileModel(title: "我的相册", actionType: .images),
                       ProfileModel(title: "关于我们", actionType: .about)]
         return Output(dataSource: models)

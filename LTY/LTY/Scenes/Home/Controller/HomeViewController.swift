@@ -28,32 +28,11 @@ class HomeViewController: UIViewController {
         return tmpView
     }()
     let dataSource = ArrayDataSource<HomeViewCellViewModel>(data: [])
-    lazy var provider: BasicProvider<HomeViewCellViewModel, HomeItemViewCell> = {
-        
-        let viewSource = ClosureViewSource<HomeViewCellViewModel, HomeItemViewCell>(viewGenerator: { (_, _) -> HomeItemViewCell in
-            let view = HomeItemViewCell.xibView()
-            view.cornerRadius = 5
-            return view
-        }, viewUpdater: { (view: HomeItemViewCell, data: HomeViewCellViewModel, at: Int) in
-            view.update(data)
-        })
-        let sizeSource = { (index: Int, data: HomeViewCellViewModel, collectionSize: CGSize) -> CGSize in
-            return CGSize(width: collectionSize.width, height: data.cellHeight)
-        }
-        let provider = BasicProvider<HomeViewCellViewModel, HomeItemViewCell>(
-            dataSource: dataSource,
-            viewSource: viewSource,
-            sizeSource: sizeSource)
-        provider.layout = FlowLayout(spacing: 10).inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-        
-        return provider
-    }()
     
+    lazy var provider = Provider.shared.homeProvider(dataSource: dataSource)
+
     var collectionDataSource: Binder<[HomeViewCellViewModel]> {
         return Binder(self) { this, data in
-//            data.forEach({
-//                myLog($0.content)
-//            })
             this.dataSource.data = data
         }
     }

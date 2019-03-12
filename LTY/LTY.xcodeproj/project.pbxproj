@@ -118,6 +118,10 @@
 		B8DA1DA022364CB8005464F3 /* AllItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9F22364CB8005464F3 /* AllItemViewController.swift */; };
 		B8DA1DA222364D9E005464F3 /* AllItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DA122364D9E005464F3 /* AllItemViewModel.swift */; };
 		B8DA1DA422364E67005464F3 /* ListDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DA322364E67005464F3 /* ListDataHelper.swift */; };
+		B8DA1DA922369735005464F3 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DA822369735005464F3 /* Provider.swift */; };
+		B8DA1DAE22369B37005464F3 /* PassworManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DAC22369B37005464F3 /* PassworManagerViewController.swift */; };
+		B8DA1DAF22369B37005464F3 /* PassworManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8DA1DAD22369B37005464F3 /* PassworManagerViewController.xib */; };
+		B8DA1DB122369FA7005464F3 /* PasswordManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DB022369FA7005464F3 /* PasswordManagerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -258,6 +262,10 @@
 		B8DA1D9F22364CB8005464F3 /* AllItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemViewController.swift; sourceTree = "<group>"; };
 		B8DA1DA122364D9E005464F3 /* AllItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemViewModel.swift; sourceTree = "<group>"; };
 		B8DA1DA322364E67005464F3 /* ListDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDataHelper.swift; sourceTree = "<group>"; };
+		B8DA1DA822369735005464F3 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		B8DA1DAC22369B37005464F3 /* PassworManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassworManagerViewController.swift; sourceTree = "<group>"; };
+		B8DA1DAD22369B37005464F3 /* PassworManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassworManagerViewController.xib; sourceTree = "<group>"; };
+		B8DA1DB022369FA7005464F3 /* PasswordManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManagerViewModel.swift; sourceTree = "<group>"; };
 		CA6A4058C100080C23A0B791 /* Pods-LTY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTY.release.xcconfig"; path = "Target Support Files/Pods-LTY/Pods-LTY.release.xcconfig"; sourceTree = "<group>"; };
 		E7FBCF0E367C29C9DE16C756 /* Pods-LTYUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTYUITests.debug.xcconfig"; path = "Target Support Files/Pods-LTYUITests/Pods-LTYUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBA13C73BABF0CB00D18DE18 /* Pods_LTYUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTYUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,6 +400,7 @@
 		B8457BA022300671006EC51F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B8DA1DA722369705005464F3 /* Provider */,
 				B8457BA12230068A006EC51F /* Home */,
 				B8457BA22230068F006EC51F /* Publish */,
 				B8457BA3223006A8006EC51F /* Profile */,
@@ -480,6 +489,8 @@
 			children = (
 				B8457BB022300A94006EC51F /* ProfileViewController.swift */,
 				B8DA1D9F22364CB8005464F3 /* AllItemViewController.swift */,
+				B8DA1DAC22369B37005464F3 /* PassworManagerViewController.swift */,
+				B8DA1DAD22369B37005464F3 /* PassworManagerViewController.xib */,
 				B8DA1D9722362C97005464F3 /* SetPasswordViewController.swift */,
 				B8DA1D9B22363BAF005464F3 /* ModifyPasswordViewController.swift */,
 				B8DA1D8A22361A82005464F3 /* AboutViewController.swift */,
@@ -688,8 +699,17 @@
 				B8DA1D9222362138005464F3 /* PhotoWallViewCellViewModel.swift */,
 				B8DA1D9922362D09005464F3 /* SetPasswordViewModel.swift */,
 				B8DA1D9D22363D7A005464F3 /* ModifyPasswordViewModel.swift */,
+				B8DA1DB022369FA7005464F3 /* PasswordManagerViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B8DA1DA722369705005464F3 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				B8DA1DA822369735005464F3 /* Provider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -802,6 +822,7 @@
 			files = (
 				B894B0892232AC7900036A19 /* HomeItemViewCell.xib in Resources */,
 				B8457B7C223003E5006EC51F /* LaunchScreen.storyboard in Resources */,
+				B8DA1DAF22369B37005464F3 /* PassworManagerViewController.xib in Resources */,
 				B8457B79223003E5006EC51F /* Assets.xcassets in Resources */,
 				B8457B77223003E4006EC51F /* Main.storyboard in Resources */,
 			);
@@ -970,6 +991,7 @@
 				B8457BB122300A94006EC51F /* ProfileViewController.swift in Sources */,
 				B8457C0B2230CA66006EC51F /* Operators.swift in Sources */,
 				B8457BE12230C839006EC51F /* Actionable.swift in Sources */,
+				B8DA1DB122369FA7005464F3 /* PasswordManagerViewModel.swift in Sources */,
 				B894B06422324DA000036A19 /* UIView-Extension.swift in Sources */,
 				B8457BF22230CA2B006EC51F /* UIButton+SF.swift in Sources */,
 				B8457BC822300CD7006EC51F /* ColorHelper.swift in Sources */,
@@ -1029,6 +1051,7 @@
 				B894B0772232529B00036A19 /* UIButton-Extension.swift in Sources */,
 				B8DA1D8F22361E18005464F3 /* PhotoWallViewCell.swift in Sources */,
 				B894B07D2232648700036A19 /* PublishViewModel.swift in Sources */,
+				B8DA1DAE22369B37005464F3 /* PassworManagerViewController.swift in Sources */,
 				B8457C162230CA66006EC51F /* UIView+Rx.swift in Sources */,
 				B8457BEF2230CA2B006EC51F /* UITableView+SF.swift in Sources */,
 				B8457BCC22300D16006EC51F /* UIColor+SF.swift in Sources */,
@@ -1066,6 +1089,7 @@
 				B894B0852232ABE400036A19 /* HomeViewModel.swift in Sources */,
 				B8DA1D89223614E2005464F3 /* ProfileViewCell.swift in Sources */,
 				B8457BDF2230C716006EC51F /* ViewModelType.swift in Sources */,
+				B8DA1DA922369735005464F3 /* Provider.swift in Sources */,
 				B8457C072230CA66006EC51F /* UIState+Rx.swift in Sources */,
 				B894B06A22324FB200036A19 /* PhotoModel.swift in Sources */,
 				B8457C282230CD69006EC51F /* UIBarButtonItem-Extension.swift in Sources */,

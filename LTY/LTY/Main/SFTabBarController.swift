@@ -48,10 +48,7 @@ class SFTabBarController: ESTabBarController {
         tabBar.shadowImage = UIImage(named: "transparent")
         tabBar.backgroundImage = UIImage(named: "background_dark")
         shouldHijackHandler = { _, _, index in
-            if index == 1 {
-                return true
-            }
-            return false
+            return index == 1
         }
         didHijackHandler = { [weak self]_, _, index in
             DispatchQueue.main.asyncAfter(deadline: 0.25, execute: {

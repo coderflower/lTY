@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 final class AllItemViewModel {
-    private let pagesize = 20
+    private let pagesize = 3
     func transform(input: Input) -> Output {
         let refresh = input.headerRefresh.startWith(())
         let refreshState = State()
@@ -56,6 +56,9 @@ final class AllItemViewModel {
                                                                            orderBy: order,
                                                                            limit: pagesize,
                                                                            offset: offset) ?? []
+                
+               myLog(objects)
+                
                 observable.onNext(ListDataHelper<HomeModel>(items: objects, offset: offset + pagesize))
                 observable.onCompleted()
             } catch  {
@@ -66,7 +69,7 @@ final class AllItemViewModel {
         })
     }
     
-    func requestItems(_ from: [HomeModel], nextTrigger: Observable<Void>, pagesize: Int = 20, state: State) -> Observable<ListDataHelper<HomeModel>> {
+    func requestItems(_ from: [HomeModel], nextTrigger: Observable<Void>, pagesize: Int = 5, state: State) -> Observable<ListDataHelper<HomeModel>> {
         
         return fethcItems(offset: from.count, pagesize: pagesize, state: state).flatMapLatest { (result) -> Observable<ListDataHelper<HomeModel>> in
             /// 追加最新请求的数据
