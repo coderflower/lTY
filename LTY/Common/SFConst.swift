@@ -50,4 +50,5 @@ public extension SFConst {
 
 public extension SFConst {
     static let passwordKey = "passwordKey";
+    static let hasPasswordKey = "hasPasswordKey";
 }

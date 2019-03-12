@@ -12,22 +12,45 @@ import RxCocoa
 class SetPasswordViewModel {
     
     func transform(input: Input) -> Output {
-        let state = State()
-        let result = input.repeatEndSignal.flatMap({ password -> Observable<Bool> in
-            UserDefaults.standard.set(password, forKey: SFConst.passwordKey)
-            UserDefaults.standard.synchronize()
-            return Observable.just(true).trackState(state, success: "密码设置成功")
+        let parameters = Observable.combineLatest(input.passwordText, input.repeatText) {
+            return (passwordText: $0, repeatText: $1)
+        }
+        /// 两次长度一致,并且长度都最少6位
+        let isConfirmEnabled = parameters.map({
+            $0.repeatText.count == $0.passwordText.count && $0.passwordText.count > 5 && $0.repeatText.count > 5
         })
-        return Output(result: result, state: state.asDriver(onErrorJustReturn: .idle))
+        let setPasswordState = State()
+        
+        let result = input.confirmTap.withLatestFrom(parameters).flatMapFirst({
+            self.configurePassword(password: $0.passwordText, repeateText: $0.repeatText).trackState(setPasswordState, success: "密码设置成功").catchErrorJustComplete()
+        })
+        return Output(result: result, isConfirmEnabled: isConfirmEnabled, setPasswordState: setPasswordState.asDriver(onErrorJustReturn: .idle))
+    }
+    func configurePassword(password: String, repeateText: String) -> Observable<Bool> {
+        
+        if password != repeateText {
+           return Observable.error(HTTPService.Error.status(code: -10001, message: "两次输入不一致,请重新输入"))
+        }
+        
+        guard Matcher.passsword.match(password) , Matcher.passsword.match(repeateText)  else {
+            return Observable.error(HTTPService.Error.status(code: -10002, message: "密码设置不合理,请重新输入"))
+        }
+        /// 存储用户密码,
+        let user = User(password)
+        UserService.shared.user = user
+        return Observable.just(true)
     }
 }
 
 extension SetPasswordViewModel: ViewModelType {
     struct Input {
-        let repeatEndSignal: Observable<String>
+        let passwordText: Observable<String>
+        let repeatText: Observable<String>
+        let confirmTap: Observable<Void>
     }
     struct Output {
         let result: Observable<Bool>
-        let state: Driver<UIState>
+        let isConfirmEnabled: Observable<Bool>
+        let setPasswordState: Driver<UIState>
     }
 }

@@ -10,6 +10,8 @@
 		0B62FF724AEF10B259DEA04B /* Pods_LTYUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA13C73BABF0CB00D18DE18 /* Pods_LTYUITests.framework */; };
 		261AC72BA32BBAFD44AC5135 /* Pods_LTYTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AFD60D2BDE117D5AC604542 /* Pods_LTYTests.framework */; };
 		691906FBB043EFAE42BEEFBF /* Pods_LTY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B691CDDB4AA78B8924A7DE45 /* Pods_LTY.framework */; };
+		B8249C7622376B76007C67A6 /* SetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8249C7522376B76007C67A6 /* SetPasswordViewController.xib */; };
+		B8249C7822377B6D007C67A6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8249C7722377B6D007C67A6 /* UserService.swift */; };
 		B8357F192234B5260020FE17 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8357F182234B5260020FE17 /* TransitionAnimator.swift */; };
 		B8457B72223003E4006EC51F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457B71223003E4006EC51F /* AppDelegate.swift */; };
 		B8457B74223003E4006EC51F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457B73223003E4006EC51F /* ViewController.swift */; };
@@ -99,7 +101,6 @@
 		B894B0872232AC4200036A19 /* HomeItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B0862232AC4200036A19 /* HomeItemViewCell.swift */; };
 		B894B0892232AC7900036A19 /* HomeItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B894B0882232AC7900036A19 /* HomeItemViewCell.xib */; };
 		B894B08B2232B0F400036A19 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B08A2232B0F400036A19 /* PhotoView.swift */; };
-		B894B08D2232B26E00036A19 /* LTProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B08C2232B26E00036A19 /* LTProvider.swift */; };
 		B894B08F2232B3A800036A19 /* HomeViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B08E2232B3A800036A19 /* HomeViewCellViewModel.swift */; };
 		B894B0912232B99100036A19 /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B0902232B99100036A19 /* Date-Extension.swift */; };
 		B8DA1D84223611D1005464F3 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D83223611D1005464F3 /* ProfileModel.swift */; };
@@ -148,6 +149,8 @@
 		734DC79C5B868C7B811DB3E5 /* Pods-LTYTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTYTests.debug.xcconfig"; path = "Target Support Files/Pods-LTYTests/Pods-LTYTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AFD60D2BDE117D5AC604542 /* Pods_LTYTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTYTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B691CDDB4AA78B8924A7DE45 /* Pods_LTY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8249C7522376B76007C67A6 /* SetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetPasswordViewController.xib; sourceTree = "<group>"; };
+		B8249C7722377B6D007C67A6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		B8357F182234B5260020FE17 /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
 		B8457B6E223003E4006EC51F /* LTY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8457B71223003E4006EC51F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -243,7 +246,6 @@
 		B894B0862232AC4200036A19 /* HomeItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemViewCell.swift; sourceTree = "<group>"; };
 		B894B0882232AC7900036A19 /* HomeItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeItemViewCell.xib; sourceTree = "<group>"; };
 		B894B08A2232B0F400036A19 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
-		B894B08C2232B26E00036A19 /* LTProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTProvider.swift; sourceTree = "<group>"; };
 		B894B08E2232B3A800036A19 /* HomeViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellViewModel.swift; sourceTree = "<group>"; };
 		B894B0902232B99100036A19 /* Date-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
 		B8DA1D83223611D1005464F3 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -392,7 +394,7 @@
 				B8457BB222300B12006EC51F /* SFTabBarController.swift */,
 				B8457BCF2230BE5C006EC51F /* TabBarItemContentView.swift */,
 				B8457BB422300B24006EC51F /* SFNavigationController.swift */,
-				B894B08C2232B26E00036A19 /* LTProvider.swift */,
+				B8249C7722377B6D007C67A6 /* UserService.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -492,6 +494,7 @@
 				B8DA1DAC22369B37005464F3 /* PassworManagerViewController.swift */,
 				B8DA1DAD22369B37005464F3 /* PassworManagerViewController.xib */,
 				B8DA1D9722362C97005464F3 /* SetPasswordViewController.swift */,
+				B8249C7522376B76007C67A6 /* SetPasswordViewController.xib */,
 				B8DA1D9B22363BAF005464F3 /* ModifyPasswordViewController.swift */,
 				B8DA1D8A22361A82005464F3 /* AboutViewController.swift */,
 				B8DA1D8C22361DEC005464F3 /* PhotoWallViewController.swift */,
@@ -822,6 +825,7 @@
 			files = (
 				B894B0892232AC7900036A19 /* HomeItemViewCell.xib in Resources */,
 				B8457B7C223003E5006EC51F /* LaunchScreen.storyboard in Resources */,
+				B8249C7622376B76007C67A6 /* SetPasswordViewController.xib in Resources */,
 				B8DA1DAF22369B37005464F3 /* PassworManagerViewController.xib in Resources */,
 				B8457B79223003E5006EC51F /* Assets.xcassets in Resources */,
 				B8457B77223003E4006EC51F /* Main.storyboard in Resources */,
@@ -1044,7 +1048,7 @@
 				B8457C092230CA66006EC51F /* UIResponder+Rx.swift in Sources */,
 				B8457BC622300CD7006EC51F /* Gradienter.swift in Sources */,
 				B8DA1D8B22361A82005464F3 /* AboutViewController.swift in Sources */,
-				B894B08D2232B26E00036A19 /* LTProvider.swift in Sources */,
+				B8249C7822377B6D007C67A6 /* UserService.swift in Sources */,
 				B8457C102230CA66006EC51F /* SFToast+Rx.swift in Sources */,
 				B894B0742232529B00036A19 /* DispatchTime-Extension.swift in Sources */,
 				B894B0762232529B00036A19 /* UITabBar-Extension.swift in Sources */,

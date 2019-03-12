@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController {
     let dataSource = ArrayDataSource<ProfileModel>(data: [])
     
     lazy var provider = Provider.shared.profileProvider(dataSource: dataSource)
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
             self?.hanldeAction(by: tap.data.actionType)
         }
     }
-
+    
 }
 extension ProfileViewController: ControllerConfigurable {
     func configureSubviews() {
@@ -78,15 +78,20 @@ extension ProfileViewController: Actionable {
     }
     
     func showAlert(completion: @escaping () -> Void) {
-        if let password = UserDefaults.standard.string(forKey: SFConst.passwordKey) {
-            UIAlertController.rx.prompt(in: self, title: "请输入密码", message: "输入正确的密码才能继续访问", defaultValue: nil, closeTitle: "取消", confirmTitle: "确定").subscribe(onSuccess: { (input) in
-                myLog(password)
-                if password == input {
-                    completion()
-                } else {
-                    SFToast.show(info: "密码错误")
-                }
-            }).disposed(by: rx.disposeBag)
+        if let password = UserService.shared.user?.password {
+            /// 如果本身是关闭的,
+            UIAlertController.rx.show(in: self, title: "请输入密码", message: "输入正确的密码才能继续访问", buttons: [.cancel("取消"), .destructive("确认")], textFields: [{
+                $0.textAlignment = .center
+                }]).subscribe(onSuccess: { (index, input) in
+                    if index == 0 {return}
+                    guard let input = input.first else {return}
+                    /// 判断是否入旧密码相同
+                    if password == input {
+                        completion()
+                    } else {
+                        SFToast.show(info: "密码错误")
+                    }
+                }).disposed(by: rx.disposeBag)
         } else {
             completion()
         }
