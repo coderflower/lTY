@@ -2,31 +2,29 @@
 //  AboutViewController.swift
 //  LTY
 //
-//  Created by 花菜 on 2019/3/11.
+//  Created by 花菜 on 2019/3/12.
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
 
 import UIKit
 
-final class AboutViewController: UIViewController {
-    lazy var contentLabel: UILabel = {
-        let label = UILabel("", font: FontHelper.regular(14), color: ColorHelper.default.blackText)
-        label.numberOfLines = 0
-        view.addSubview(label)
-        return label
-    }()
+class AboutViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
-        configureSubviews()
         configureNavigationBar()
     }
     
 }
-extension AboutViewController: ControllerConfigurable {
-    func configureSubviews() {
-        contentLabel.text = "我要记-记录日常生活中每一个精彩瞬间,你可以用图文的形式记录"
+
+extension AboutViewController: Actionable {
+    @IBAction func bottomButtonAction(_ sender: Any) {
+        
     }
+}
+extension AboutViewController: ControllerConfigurable {
     func configureNavigationBar() {
         navigation.item.title = "关于我们"
     }

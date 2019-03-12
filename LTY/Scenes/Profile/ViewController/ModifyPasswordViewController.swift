@@ -54,6 +54,8 @@ extension ModifyPasswordViewController: ControllerConfigurable {
         let newPasswordFieldBackView = UIView(UIColor.white)
         view.addSubview(oldPasswordFieldBackView)
         view.addSubview(newPasswordFieldBackView)
+         configureField(oldPasswordField)
+         configureField(newPasswordField)
         oldPasswordFieldBackView.snp.makeConstraints({
             $0.left.equalToSuperview().offset(10)
             $0.top.equalTo(navigation.bar.snp.bottom).offset(50)
@@ -88,6 +90,7 @@ extension ModifyPasswordViewController: ControllerConfigurable {
             $0.top.equalTo(confirmButton.snp.bottom).offset(20)
             $0.left.right.equalTo(confirmButton)
         })
+       
     }
     func configureField(_ textField: UITextField) {
         /// 关闭自动联想

@@ -5,28 +5,7 @@
 //  Created by 花菜 on 2019/3/6.
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
-let json = """
-[
-    {
-        "viewController": "HomeViewController",
-        "title": "今日",
-        "imageName": "icon_tabbar_home_1_normal",
-        "selectedImageName": "icon_tabbar_home_1_click",
-    },
-    {
-        "viewController": "PublishViewController",
-        "title": "发布",
-        "imageName": "icon_tabbar_home_1_normal",
-        "selectedImageName": "icon_tabbar_home_1_click",
-    },
-    {
-        "viewController": "ProfileViewController",
-        "title": "我的",
-        "imageName": "icon_tabbar_home_1_normal",
-        "selectedImageName": "icon_tabbar_home_1_click",
-    }
-]
-"""
+
 import UIKit
 import ESTabBarController_swift
 class SFTabBarController: ESTabBarController {
@@ -58,7 +37,13 @@ class SFTabBarController: ESTabBarController {
         }
     }
     func addAllChild() {
-        let home = HomeViewController()
+        let home = HomeViewController(
+            HomeViewModel(condition: HomeModel.Properties
+                .createTime.between(
+                    Date().morningDate,
+                    Date().twentyFourDate)
+            )
+        )
         let publish = UIViewController()
         let profile = ProfileViewController()
         

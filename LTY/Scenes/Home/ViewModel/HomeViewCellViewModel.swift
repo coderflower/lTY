@@ -30,7 +30,7 @@ final class HomeViewCellViewModel {
     static let doubleItemHeight: CGFloat = CGFloat(floor(Float(maxWidth * 0.4)))
     static let itemHeight: CGFloat = CGFloat(floor(Float((maxWidth - 10) / 3)))
     static let space: CGFloat = 5
-    init(model: HomeModel) {
+    init(_ model: HomeModel) {
         self.model = model
         self.title = model.title
         self.isHiddenContent = model.content != nil
@@ -104,15 +104,15 @@ final class HomeViewCellViewModel {
     }
     static let formatter = DateFormatter()
     static func formatDate(_ date: Date) -> String {
-        if date.isToday() {
+        if date.isToday {
             //是今天
             formatter.dateFormat = "今天 HH:mm"
             return formatter.string(from: date)
-        }else if date.isYesterday(){
+        }else if date.isYesterday{
             //是昨天
             formatter.dateFormat = "昨天 HH:mm"
             return formatter.string(from: date)
-        } else if date.isTheSameYear() {
+        } else if date.isTheSameYear {
             formatter.dateFormat = "M月-d日 HH:mm"
             return formatter.string(from: date)
         } else{

@@ -79,6 +79,10 @@
 		B8457C242230CADC006EC51F /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457C202230CADC006EC51F /* MoyaPlugin.swift */; };
 		B8457C262230CC23006EC51F /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457C252230CC23006EC51F /* NSObject+Rx.swift */; };
 		B8457C282230CD69006EC51F /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457C272230CD69006EC51F /* UIBarButtonItem-Extension.swift */; };
+		B84EA67F2237C1D700EEC0ED /* HTTPService+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA67E2237C1D700EEC0ED /* HTTPService+Ext.swift */; };
+		B84EA6812237E82D00EEC0ED /* PhotoWallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA6802237E82D00EEC0ED /* PhotoWallViewModel.swift */; };
+		B84EA6842237EFEB00EEC0ED /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA6822237EFEB00EEC0ED /* AboutViewController.swift */; };
+		B84EA6852237EFEB00EEC0ED /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B84EA6832237EFEB00EEC0ED /* AboutViewController.xib */; };
 		B85BAFE02233F3CE00264125 /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BAFDF2233F3CE00264125 /* FPSLabel.swift */; };
 		B85BAFE22233FDF200264125 /* NotifyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BAFE12233FDF200264125 /* NotifyHelper.swift */; };
 		B894B06222324D0D00036A19 /* AddPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */; };
@@ -106,18 +110,14 @@
 		B8DA1D84223611D1005464F3 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D83223611D1005464F3 /* ProfileModel.swift */; };
 		B8DA1D872236129E005464F3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D862236129E005464F3 /* ProfileViewModel.swift */; };
 		B8DA1D89223614E2005464F3 /* ProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D88223614E2005464F3 /* ProfileViewCell.swift */; };
-		B8DA1D8B22361A82005464F3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D8A22361A82005464F3 /* AboutViewController.swift */; };
 		B8DA1D8D22361DEC005464F3 /* PhotoWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D8C22361DEC005464F3 /* PhotoWallViewController.swift */; };
 		B8DA1D8F22361E18005464F3 /* PhotoWallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D8E22361E18005464F3 /* PhotoWallViewCell.swift */; };
-		B8DA1D9122361E74005464F3 /* PhotoWallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9022361E74005464F3 /* PhotoWallViewModel.swift */; };
 		B8DA1D9322362138005464F3 /* PhotoWallViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9222362138005464F3 /* PhotoWallViewCellViewModel.swift */; };
-		B8DA1D9622362B76005464F3 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9522362B76005464F3 /* PasswordInputView.swift */; };
 		B8DA1D9822362C97005464F3 /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9722362C97005464F3 /* SetPasswordViewController.swift */; };
 		B8DA1D9A22362D09005464F3 /* SetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9922362D09005464F3 /* SetPasswordViewModel.swift */; };
 		B8DA1D9C22363BAF005464F3 /* ModifyPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9B22363BAF005464F3 /* ModifyPasswordViewController.swift */; };
 		B8DA1D9E22363D7A005464F3 /* ModifyPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9D22363D7A005464F3 /* ModifyPasswordViewModel.swift */; };
 		B8DA1DA022364CB8005464F3 /* AllItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1D9F22364CB8005464F3 /* AllItemViewController.swift */; };
-		B8DA1DA222364D9E005464F3 /* AllItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DA122364D9E005464F3 /* AllItemViewModel.swift */; };
 		B8DA1DA422364E67005464F3 /* ListDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DA322364E67005464F3 /* ListDataHelper.swift */; };
 		B8DA1DA922369735005464F3 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DA822369735005464F3 /* Provider.swift */; };
 		B8DA1DAE22369B37005464F3 /* PassworManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DAC22369B37005464F3 /* PassworManagerViewController.swift */; };
@@ -224,6 +224,11 @@
 		B8457C202230CADC006EC51F /* MoyaPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
 		B8457C252230CC23006EC51F /* NSObject+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Rx.swift"; sourceTree = "<group>"; };
 		B8457C272230CD69006EC51F /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
+		B84EA67D2237AFC400EEC0ED /* LTY.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LTY.entitlements; sourceTree = "<group>"; };
+		B84EA67E2237C1D700EEC0ED /* HTTPService+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPService+Ext.swift"; sourceTree = "<group>"; };
+		B84EA6802237E82D00EEC0ED /* PhotoWallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoWallViewModel.swift; sourceTree = "<group>"; };
+		B84EA6822237EFEB00EEC0ED /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		B84EA6832237EFEB00EEC0ED /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		B85BAFDF2233F3CE00264125 /* FPSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		B85BAFE12233FDF200264125 /* NotifyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyHelper.swift; sourceTree = "<group>"; };
 		B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewCell.swift; sourceTree = "<group>"; };
@@ -251,18 +256,14 @@
 		B8DA1D83223611D1005464F3 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		B8DA1D862236129E005464F3 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B8DA1D88223614E2005464F3 /* ProfileViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewCell.swift; sourceTree = "<group>"; };
-		B8DA1D8A22361A82005464F3 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B8DA1D8C22361DEC005464F3 /* PhotoWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallViewController.swift; sourceTree = "<group>"; };
 		B8DA1D8E22361E18005464F3 /* PhotoWallViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallViewCell.swift; sourceTree = "<group>"; };
-		B8DA1D9022361E74005464F3 /* PhotoWallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallViewModel.swift; sourceTree = "<group>"; };
 		B8DA1D9222362138005464F3 /* PhotoWallViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallViewCellViewModel.swift; sourceTree = "<group>"; };
-		B8DA1D9522362B76005464F3 /* PasswordInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
 		B8DA1D9722362C97005464F3 /* SetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
 		B8DA1D9922362D09005464F3 /* SetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewModel.swift; sourceTree = "<group>"; };
 		B8DA1D9B22363BAF005464F3 /* ModifyPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyPasswordViewController.swift; sourceTree = "<group>"; };
 		B8DA1D9D22363D7A005464F3 /* ModifyPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyPasswordViewModel.swift; sourceTree = "<group>"; };
 		B8DA1D9F22364CB8005464F3 /* AllItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemViewController.swift; sourceTree = "<group>"; };
-		B8DA1DA122364D9E005464F3 /* AllItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemViewModel.swift; sourceTree = "<group>"; };
 		B8DA1DA322364E67005464F3 /* ListDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDataHelper.swift; sourceTree = "<group>"; };
 		B8DA1DA822369735005464F3 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		B8DA1DAC22369B37005464F3 /* PassworManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassworManagerViewController.swift; sourceTree = "<group>"; };
@@ -357,6 +358,7 @@
 		B8457B70223003E4006EC51F /* LTY */ = {
 			isa = PBXGroup;
 			children = (
+				B84EA67D2237AFC400EEC0ED /* LTY.entitlements */,
 				B8457B71223003E4006EC51F /* AppDelegate.swift */,
 				B8457B73223003E4006EC51F /* ViewController.swift */,
 				B8457BB622300B40006EC51F /* Common */,
@@ -496,8 +498,9 @@
 				B8DA1D9722362C97005464F3 /* SetPasswordViewController.swift */,
 				B8249C7522376B76007C67A6 /* SetPasswordViewController.xib */,
 				B8DA1D9B22363BAF005464F3 /* ModifyPasswordViewController.swift */,
-				B8DA1D8A22361A82005464F3 /* AboutViewController.swift */,
 				B8DA1D8C22361DEC005464F3 /* PhotoWallViewController.swift */,
+				B84EA6822237EFEB00EEC0ED /* AboutViewController.swift */,
+				B84EA6832237EFEB00EEC0ED /* AboutViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				B8457C1F2230CADC006EC51F /* HTTPService+Rx.swift */,
 				B8457C202230CADC006EC51F /* MoyaPlugin.swift */,
 				B8457C1D2230CADC006EC51F /* TargetType+Request.swift */,
+				B84EA67E2237C1D700EEC0ED /* HTTPService+Ext.swift */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -686,7 +690,6 @@
 		B8DA1D82223611BE005464F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B8DA1D9522362B76005464F3 /* PasswordInputView.swift */,
 				B8DA1D88223614E2005464F3 /* ProfileViewCell.swift */,
 				B8DA1D8E22361E18005464F3 /* PhotoWallViewCell.swift */,
 			);
@@ -696,9 +699,8 @@
 		B8DA1D852236128E005464F3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B8DA1DA122364D9E005464F3 /* AllItemViewModel.swift */,
 				B8DA1D862236129E005464F3 /* ProfileViewModel.swift */,
-				B8DA1D9022361E74005464F3 /* PhotoWallViewModel.swift */,
+				B84EA6802237E82D00EEC0ED /* PhotoWallViewModel.swift */,
 				B8DA1D9222362138005464F3 /* PhotoWallViewCellViewModel.swift */,
 				B8DA1D9922362D09005464F3 /* SetPasswordViewModel.swift */,
 				B8DA1D9D22363D7A005464F3 /* ModifyPasswordViewModel.swift */,
@@ -787,6 +789,14 @@
 				TargetAttributes = {
 					B8457B6D223003E4006EC51F = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					B8457B81223003E5006EC51F = {
 						CreatedOnToolsVersion = 10.1;
@@ -824,6 +834,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B894B0892232AC7900036A19 /* HomeItemViewCell.xib in Resources */,
+				B84EA6852237EFEB00EEC0ED /* AboutViewController.xib in Resources */,
 				B8457B7C223003E5006EC51F /* LaunchScreen.storyboard in Resources */,
 				B8249C7622376B76007C67A6 /* SetPasswordViewController.xib in Resources */,
 				B8DA1DAF22369B37005464F3 /* PassworManagerViewController.xib in Resources */,
@@ -1041,13 +1052,11 @@
 				B894B07F2232688B00036A19 /* NiblessViewController.swift in Sources */,
 				B894B0732232529B00036A19 /* Bundle-Extension.swift in Sources */,
 				B894B08F2232B3A800036A19 /* HomeViewCellViewModel.swift in Sources */,
-				B8DA1D9122361E74005464F3 /* PhotoWallViewModel.swift in Sources */,
 				B894B0832232825600036A19 /* String-Extension.swift in Sources */,
 				B85BAFE22233FDF200264125 /* NotifyHelper.swift in Sources */,
 				B8DA1D9A22362D09005464F3 /* SetPasswordViewModel.swift in Sources */,
 				B8457C092230CA66006EC51F /* UIResponder+Rx.swift in Sources */,
 				B8457BC622300CD7006EC51F /* Gradienter.swift in Sources */,
-				B8DA1D8B22361A82005464F3 /* AboutViewController.swift in Sources */,
 				B8249C7822377B6D007C67A6 /* UserService.swift in Sources */,
 				B8457C102230CA66006EC51F /* SFToast+Rx.swift in Sources */,
 				B894B0742232529B00036A19 /* DispatchTime-Extension.swift in Sources */,
@@ -1074,12 +1083,10 @@
 				B8DA1D9E22363D7A005464F3 /* ModifyPasswordViewModel.swift in Sources */,
 				B8457C082230CA66006EC51F /* String+Rx.swift in Sources */,
 				B894B06222324D0D00036A19 /* AddPhotoViewCell.swift in Sources */,
-				B8DA1D9622362B76005464F3 /* PasswordInputView.swift in Sources */,
 				B894B08B2232B0F400036A19 /* PhotoView.swift in Sources */,
 				B8457BB322300B12006EC51F /* SFTabBarController.swift in Sources */,
 				B894B07A2232529B00036A19 /* UILabel-Extension.swift in Sources */,
 				B8457BA922300955006EC51F /* HomeModel.swift in Sources */,
-				B8DA1DA222364D9E005464F3 /* AllItemViewModel.swift in Sources */,
 				B8457C212230CADC006EC51F /* TargetType+Request.swift in Sources */,
 				B8DA1DA022364CB8005464F3 /* AllItemViewController.swift in Sources */,
 				B8457C152230CA66006EC51F /* UITextField+Rx.swift in Sources */,
@@ -1087,15 +1094,18 @@
 				B894B0752232529B00036A19 /* NSLayoutConstraint-Extension.swift in Sources */,
 				B8457BC722300CD7006EC51F /* FontHelper.swift in Sources */,
 				B8457BDC2230C716006EC51F /* ConfigurableTableViewCell.swift in Sources */,
+				B84EA6812237E82D00EEC0ED /* PhotoWallViewModel.swift in Sources */,
 				B8457C242230CADC006EC51F /* MoyaPlugin.swift in Sources */,
 				B8DA1D9822362C97005464F3 /* SetPasswordViewController.swift in Sources */,
 				B8457BAB22300A40006EC51F /* HomeViewController.swift in Sources */,
 				B894B0852232ABE400036A19 /* HomeViewModel.swift in Sources */,
 				B8DA1D89223614E2005464F3 /* ProfileViewCell.swift in Sources */,
 				B8457BDF2230C716006EC51F /* ViewModelType.swift in Sources */,
+				B84EA67F2237C1D700EEC0ED /* HTTPService+Ext.swift in Sources */,
 				B8DA1DA922369735005464F3 /* Provider.swift in Sources */,
 				B8457C072230CA66006EC51F /* UIState+Rx.swift in Sources */,
 				B894B06A22324FB200036A19 /* PhotoModel.swift in Sources */,
+				B84EA6842237EFEB00EEC0ED /* AboutViewController.swift in Sources */,
 				B8457C282230CD69006EC51F /* UIBarButtonItem-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1280,7 +1290,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.LTY;
+				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.wj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1300,7 +1310,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.LTY;
+				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.wj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

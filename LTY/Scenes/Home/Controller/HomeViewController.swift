@@ -11,15 +11,16 @@ import CollectionKit
 import MJRefresh
 import EachNavigationBar
 import RxCocoa
-class HomeViewController: UIViewController {
-    private let viewModel = HomeViewModel()
+class HomeViewController: NiblessViewController {
+    private let viewModel: HomeViewModel
     private lazy var collectionView: CollectionView = {
         let tmpView = CollectionView()
         view.addSubview(tmpView)
         let header = MJRefreshNormalHeader()
-        
         header.lastUpdatedTimeLabel.isHidden = true
         tmpView.mj_header = header
+        //设置尾部刷新控件
+        tmpView.mj_footer = MJRefreshBackNormalFooter()
         /// 包装空数据 provider
         let emptyImageView = UIImageView(image: UIImage(named: "home_empty"))
         emptyImageView.contentMode = .center
@@ -27,52 +28,33 @@ class HomeViewController: UIViewController {
         tmpView.provider = emptyProvider
         return tmpView
     }()
-    let dataSource = ArrayDataSource<HomeViewCellViewModel>(data: [])
-    
+    private let dataSource = ArrayDataSource<HomeViewCellViewModel>(data: [])
     lazy var provider = Provider.shared.homeProvider(dataSource: dataSource)
-
-    var collectionDataSource: Binder<[HomeViewCellViewModel]> {
-        return Binder(self) { this, data in
-            this.dataSource.data = data
-        }
-    }
-    
-    lazy var animator = TransitionAnimator()
-    var userUploadCompleteNotification: Binder<Notification> {
-        return Binder(self) {this ,_ in
-            this.collectionView.mj_header.beginRefreshing()
-        }
+    init(_ viewModel: HomeViewModel = HomeViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        configureSubviews()
-        configureNavigationBar()
-        configureSignal()
-        
         NotificationCenter.default.rx
             .notification(NotifyName.userUploadCompleteNotification)
             .bind(to: userUploadCompleteNotification)
             .disposed(by: rx.disposeBag)
-        
-        
     }
-}
-
-extension HomeViewController: ControllerConfigurable {
-    func configureSubviews() {
+    override func configureSubviews() {
         view.backgroundColor = ColorHelper.default.background
         collectionView.snp.makeConstraints({
             $0.left.right.bottom.equalToSuperview()
             $0.top.equalTo(navigation.bar.snp.bottom)
         })
     }
-    func configureNavigationBar() {
+    override func configureNavigationBar() {
         navigation.item.title = "今日列表"
         navigation.item.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     }
-    func configureSignal() {
-        let input = HomeViewModel.Input(headerRefresh: collectionView.mj_header.rx.refreshing.shareOnce())
+    override func configureSignal() {
+        let input = HomeViewModel.Input(headerRefresh: collectionView.mj_header.rx.refreshing.shareOnce(), footerRefresh: collectionView.mj_footer.rx.refreshing.shareOnce())
         let output = viewModel.transform(input: input)
         output.dataSource
             .bind(to: collectionDataSource)
@@ -83,19 +65,31 @@ extension HomeViewController: ControllerConfigurable {
         output.endHeaderRefreshing
             .bind(to: collectionView.mj_header.rx.isRefreshing)
             .disposed(by: rx.disposeBag)
+        output.endFooterRefreshing
+            .bind(to: collectionView.mj_footer.rx.refreshState)
+            .disposed(by: rx.disposeBag)
         navigation.item.rightBarButtonItem?.rx.tap.asObservable().bind(to: publishTap).disposed(by: rx.disposeBag)
     }
+}
+
+extension HomeViewController {
+    
     var publishTap: Binder<Void> {
         return Binder(self) {this ,_ in
             /// 执行操作
             let publish = PublishViewController()
-            
             let nav = SFNavigationController(rootViewController:publish)
-            nav.modalPresentationStyle = UIModalPresentationStyle.custom
-            nav.transitioningDelegate = this.animator
             this.present(nav,animated: true, completion: nil)
-            
-            
+        }
+    }
+    var collectionDataSource: Binder<[HomeViewCellViewModel]> {
+        return Binder(self) { this, data in
+            this.dataSource.data = data
+        }
+    }
+    var userUploadCompleteNotification: Binder<Notification> {
+        return Binder(self) {this ,_ in
+            this.collectionView.mj_header.beginRefreshing()
         }
     }
 }

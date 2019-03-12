@@ -22,5 +22,15 @@ class NiblessViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        configureSubviews()
+        configureNavigationBar()
+        configureSignal()
     }
+    
+    /// 配置子控件
+    func configureSubviews(){}
+    /// 配置导航栏
+    func configureNavigationBar(){}
+    /// transform input to output
+    func configureSignal(){}
 }

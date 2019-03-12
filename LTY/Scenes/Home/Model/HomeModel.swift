@@ -8,6 +8,7 @@
 import Foundation
 import WCDBSwift
 struct HomeModel: Codable {
+    static let order = [HomeModel.Properties.createTime.asOrder(by: .descending)]
     let identifier: Int?
     /// 标题
     let title: String
@@ -17,7 +18,7 @@ struct HomeModel: Codable {
     let images: [Data]?
     /// 创建时间
     let createTime: Date
-    init(title: String, content: String?, images: [Data]?) {
+    init(title: String, content: String?, images: [Data]? = nil) {
         self.identifier = nil
         self.title = title
         self.content = content

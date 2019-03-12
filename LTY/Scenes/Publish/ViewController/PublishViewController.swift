@@ -52,7 +52,7 @@ class PublishViewController: NiblessViewController {
     private (set) var photos: NSMutableArray = NSMutableArray()
     private (set) var assets: NSMutableArray = NSMutableArray()
     private lazy var imageHeight = (UIScreen.width - 30) / 3
-    private let imagesSubject = BehaviorRelay<[Data]>(value: [])
+    private let imagesSubject = BehaviorRelay<[Data]?>(value: nil)
     /// 添加图片
     private lazy var provider: BasicProvider<PhotoModel, AddPhotoViewCell> = {
         let dataSource = ArrayDataSource<PhotoModel>(data: [PhotoModel()])
@@ -82,9 +82,6 @@ class PublishViewController: NiblessViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        configureSubviews()
-        configureNavigationBar()
-        configureSignal()
         /// 图片点击事件
         provider.tapHandler = { [weak self] tap in
             guard let self = self else {
@@ -114,11 +111,7 @@ class PublishViewController: NiblessViewController {
         super.viewWillDisappear(animated)
         view.endEditing(true)
     }
-}
-
-
-extension PublishViewController {
-    func configureSubviews() {
+    override func configureSubviews() {
         view.backgroundColor = ColorHelper.default.background
         titleField.snp.makeConstraints({
             $0.top.equalTo(navigation.bar.snp.bottom).offset(10)
@@ -137,16 +130,16 @@ extension PublishViewController {
             $0.bottom.equalToSuperview()
         })
     }
-    func configureNavigationBar() {
-//        navigation.item.title = "编辑记录"
+    override func configureNavigationBar() {
+        //        navigation.item.title = "编辑记录"
         navigation.item.title = "添加日记"
         navigation.item.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"))
         navigation.item.rightBarButtonItem = UIBarButtonItem(title: "发布")
     }
-    func configureSignal() {
+    override func configureSignal() {
         guard let leftBarButtonItem = navigation.item.leftBarButtonItem,
             let rightBarButtonItem = navigation.item.rightBarButtonItem else {
-            return
+                return
         }
         leftBarButtonItem.rx.tap
             .bind(to: rx.goBack)
@@ -157,7 +150,7 @@ extension PublishViewController {
                    content: contentTextView.rx.text.asObservable(),
                    images: imagesSubject.asObservable(),
                    publishTap: rightBarButtonItem.rx.tap.asObservable())
-     
+        
         
         let output = viewModel.transform(input: input)
         
@@ -174,10 +167,7 @@ extension PublishViewController {
         }).drive(rx.goBack).disposed(by: rx.disposeBag)
     }
 }
-
-extension PublishViewController: Actionable {
-    
-}
+// MARK: - TZImagePickerControllerDelegate
 extension PublishViewController: TZImagePickerControllerDelegate {
     func imagePickerController(_ picker: TZImagePickerController!, didFinishPickingPhotos photos: [UIImage]!, sourceAssets assets: [Any]!, isSelectOriginalPhoto: Bool) {
         let originCount = self.photos.count

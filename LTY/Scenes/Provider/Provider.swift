@@ -46,4 +46,21 @@ struct Provider {
             provider.layout = FlowLayout(spacing: 1).inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
             return provider
     }
+    
+    func photoWallProvider(dataSource: ArrayDataSource<PhotoWallViewCellViewModel>) -> BasicProvider<PhotoWallViewCellViewModel, PhotoWallViewCell> {
+        let viewSource = ClosureViewSource<PhotoWallViewCellViewModel, PhotoWallViewCell>(viewUpdater: { (view: PhotoWallViewCell, data: PhotoWallViewCellViewModel, at: Int) in
+            view.update(data)
+        })
+        let sizeSource = { (index: Int, data: PhotoWallViewCellViewModel, collectionSize: CGSize) -> CGSize in
+            return CGSize(width: collectionSize.width, height: collectionSize.width * 0.5)
+        }
+        let provider = BasicProvider<PhotoWallViewCellViewModel, PhotoWallViewCell>(
+            dataSource: dataSource,
+            viewSource: viewSource,
+            sizeSource: sizeSource)
+        provider.layout = FlowLayout(spacing: 10).inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        return provider
+    }
+    
+    
 }

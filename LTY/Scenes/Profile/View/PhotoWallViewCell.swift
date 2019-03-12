@@ -10,7 +10,7 @@ import UIKit
 
 class PhotoWallViewCell: NiblessView {
     /// 图片
-    lazy var imageView: UIImageView = {
+    private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
@@ -18,24 +18,24 @@ class PhotoWallViewCell: NiblessView {
         return imageView
     }()
     /// 标题
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel(nil, font: FontHelper.regular(16), color: UIColor.white)
         bottomView.addSubview(label)
         return label
     }()
     /// 日期
-    lazy var timeLabel: UILabel = {
+    private lazy var timeLabel: UILabel = {
         let label = UILabel(nil, font: FontHelper.regular(13), color: UIColor.white)
         bottomView.addSubview(label)
         return label
     }()
-    lazy var bottomView: UIView = {
+    private lazy var bottomView: UIView = {
         let view = UIView(UIColor(white: 0, alpha: 0.3))
         addSubview(view)
         return view
     }()
     override func initialize() {
-        
+        cornerRadius = 5
         imageView.snp.makeConstraints({
             $0.edges.equalToSuperview()
         })
@@ -60,6 +60,4 @@ extension PhotoWallViewCell: Updatable {
         titleLabel.text = model.title
         timeLabel.text = model.createTimeString
     }
-    
-
 }

@@ -34,8 +34,11 @@ final class ModifyPasswordViewModel {
         if oldPassword == newPassword {
             return  Observable.error(HTTPService.Error.status(code: -100, message: "新密码与旧密码相同, 请重新设置"))
         }
+        
+        
+        
         /// 获取本地旧密码 ,
-        guard let password = UserDefaults.standard.string(forKey: SFConst.passwordKey) else {
+        guard let password = UserService.shared.user?.password else {
             return  Observable.error(HTTPService.Error.status(code: -101, message: "您还没有设置密码"))
         }
         /// 修改成功

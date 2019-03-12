@@ -15,7 +15,7 @@ final class PublishViewModel {
         /// 发布按钮是否能点, 标题不能为空,内容最少10个字或者图片不为空
         let parameters = Observable.combineLatest(input.title, input.content, input.images).map({(title: $0, content: $1, photos: $2)})
         let isPublishEnabled = parameters.map({
-            $0.title.count > 1 && (($0.content ?? "").count > 10 || $0.photos.count > 0)
+            $0.title.count > 1 && (($0.content ?? "").count > 10 || !($0.photos?.isEmpty ?? true))
         })
 
         let uploadState = State()
@@ -47,7 +47,7 @@ extension PublishViewModel: ViewModelType {
     struct Input {
         let title: Observable<String>
         let content: Observable<String?>
-        let images: Observable<[Data]>
+        let images: Observable<[Data]?>
         let publishTap: Observable<Void>
     }
     struct Output {

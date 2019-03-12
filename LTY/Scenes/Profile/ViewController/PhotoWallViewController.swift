@@ -9,36 +9,28 @@
 import UIKit
 import CollectionKit
 import RxCocoa
+import MJRefresh
 final class PhotoWallViewController: UIViewController {
     private let viewModel = PhotoWallViewModel()
     private lazy var collectionView: CollectionView = {
         let tmpView = CollectionView()
         view.addSubview(tmpView)
+        let header = MJRefreshNormalHeader()
+        header.lastUpdatedTimeLabel.isHidden = true
+        tmpView.mj_header = header
+        //设置尾部刷新控件
+        tmpView.mj_footer = MJRefreshBackNormalFooter()
         /// 包装空数据 provider
         let emptyImageView = UIImageView(image: UIImage(named: "home_empty"))
         emptyImageView.contentMode = .center
         let emptyProvider = EmptyStateProvider(emptyStateView: emptyImageView, content: self.provider)
         tmpView.provider = emptyProvider
+      
+        tmpView.provider = emptyProvider
         return tmpView
     }()
-    let collectionDataSource = ArrayDataSource<PhotoWallViewCellViewModel>(data: [])
-    lazy var provider: BasicProvider<PhotoWallViewCellViewModel, PhotoWallViewCell> = {
-        
-        let viewSource = ClosureViewSource<PhotoWallViewCellViewModel, PhotoWallViewCell>(viewUpdater: { (view: PhotoWallViewCell, data: PhotoWallViewCellViewModel, at: Int) in
-            view.update(data)
-        })
-        let sizeSource = { (index: Int, data: PhotoWallViewCellViewModel, collectionSize: CGSize) -> CGSize in
-            return CGSize(width: collectionSize.width, height: collectionSize.width * 0.5)
-        }
-        let provider = BasicProvider<PhotoWallViewCellViewModel, PhotoWallViewCell>(
-            dataSource: collectionDataSource,
-            viewSource: viewSource,
-            sizeSource: sizeSource)
-        provider.layout = FlowLayout(spacing: 10).inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-        
-        provider.animator = FadeAnimator()
-        return provider
-    }()
+    let dataSource = ArrayDataSource<PhotoWallViewCellViewModel>(data: [])
+    lazy var provider = Provider.shared.photoWallProvider(dataSource: dataSource)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -46,8 +38,6 @@ final class PhotoWallViewController: UIViewController {
         configureNavigationBar()
         configureSignal()
     }
-    
-
 }
 
 extension PhotoWallViewController: ControllerConfigurable {
@@ -62,18 +52,27 @@ extension PhotoWallViewController: ControllerConfigurable {
         navigation.item.title = "照片墙"
     }
     func configureSignal() {
-        
-        let input = PhotoWallViewModel.Input(viewWillAppear: rx.viewWillAppear)
+        let input = PhotoWallViewModel.Input(headerRefresh: collectionView.mj_header.rx.refreshing.shareOnce(), footerRefresh: collectionView.mj_footer.rx.refreshing.shareOnce())
         let output = viewModel.transform(input: input)
         
-        output.state.drive(SFToast.rx.state).disposed(by: rx.disposeBag)
-        output.dataSource.bind(to: dataSource).disposed(by: rx.disposeBag)
+        output.dataSource
+            .bind(to: collectionDataSource)
+            .disposed(by: rx.disposeBag)
+        output.refreshState
+            .drive(SFToast.rx.state)
+            .disposed(by: rx.disposeBag)
+        output.endHeaderRefreshing
+            .bind(to: collectionView.mj_header.rx.isRefreshing)
+            .disposed(by: rx.disposeBag)
+        output.endFooterRefreshing
+            .bind(to: collectionView.mj_footer.rx.refreshState)
+            .disposed(by: rx.disposeBag)
         
         
     }
-    var dataSource: Binder<[PhotoWallViewCellViewModel]> {
+    var collectionDataSource: Binder<[PhotoWallViewCellViewModel]> {
         return Binder(self) {this , data in
-            this.collectionDataSource.data = data
+            this.dataSource.data = data
         }
     }
 }
