@@ -23,7 +23,7 @@ final class ModifyPasswordViewController: UIViewController {
         view.addSubview(field)
         return field
     }()
-    
+    // 
     
     private lazy var confirmButton: UIButton = {
         let button = UIButton("确定", color: UIColor.white, font: FontHelper.regular(18))
@@ -34,8 +34,7 @@ final class ModifyPasswordViewController: UIViewController {
         return button
     }()
     private lazy var descLabel: UILabel = {
-        let label = UILabel("首次设置的密码为6位数字,请牢记密码,否则无法找回", font: FontHelper.regular(12), color: ColorHelper.default.lightText)
-        label.numberOfLines = 0
+        let label = UILabel("请牢记密码,否则将无法找回", font: FontHelper.regular(12), color:UIColor(hex: "E84632"))
         view.addSubview(label)
         return label
     }()
@@ -90,7 +89,20 @@ extension ModifyPasswordViewController: ControllerConfigurable {
             $0.left.right.equalTo(confirmButton)
         })
     }
-    
+    func configureField(_ textField: UITextField) {
+        /// 关闭自动联想
+        textField.autocorrectionType = .no
+        /// 关闭首字母大写
+        textField.autocapitalizationType = .none
+        textField.isSecureTextEntry = true
+        textField.rx.delegate.shouldChangeCharacters = { (field, range, string) -> Bool in
+            if string.isEmpty {return true}
+            if !Matcher.numberAndLetter.match(string){return false}
+            guard let text = field.text else { return true }
+            let length = text.count + string.count - range.length
+            return length <= 16
+        }
+    }
     func configureNavigationBar() {
         navigation.item.title = "修改密码"
     }

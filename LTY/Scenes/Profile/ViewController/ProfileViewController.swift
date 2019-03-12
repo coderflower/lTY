@@ -42,10 +42,8 @@ extension ProfileViewController: ControllerConfigurable {
     }
     func configureNavigationBar() {
         navigation.item.title = "个人中心"
-        navigation.item.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settings"))
     }
     func configureSignal() {
-        navigation.item.rightBarButtonItem?.rx.tap.bind(to: rx.goBack).disposed(by: rx.disposeBag)
         let input = ProfileViewModel.Input()
         let output = viewModel.transform(input: input)
         dataSource.data = output.dataSource

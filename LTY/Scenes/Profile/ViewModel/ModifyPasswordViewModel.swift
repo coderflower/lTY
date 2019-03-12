@@ -43,8 +43,7 @@ final class ModifyPasswordViewModel {
             
             /// 判断新密码是否符合规则 8-16位
             if  Matcher.passsword.match(newPassword) {
-                UserDefaults.standard.set(newPassword, forKey: SFConst.passwordKey)
-                UserDefaults.standard.synchronize()
+                UserService.shared.update(password: newPassword)
                 return Observable.just(true)
             } else {
                 return  Observable.error(HTTPService.Error.status(code: -102, message: "新密码必须为6-16位字母和数字"))

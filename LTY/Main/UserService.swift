@@ -13,17 +13,14 @@ struct User: Codable {
     init(_ password: String? = nil) {
         self.password = password
     }
+    mutating func update(_ password: String?) {
+        self.password = password
+    }
 }
 
 
 final class UserService {
     static let shared = UserService()
-    /// 保存用户信息目录
-    let userDataPath: URL = {
-        var pathUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        pathUrl.appendPathComponent("user.data")
-        return pathUrl
-    }()
     var user: User? {
         set {
             do {
@@ -39,12 +36,17 @@ final class UserService {
             return user
         }
     }
-    
+    /// 保存用户信息目录
+    let userDataPath: URL = {
+        var pathUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        pathUrl.appendPathComponent("user.data")
+        return pathUrl
+    }()
     var hasPassword: Bool {
-        return !(user?.password?.isEmpty ?? false)
+        return !(user?.password?.isEmpty ?? true)
     }
-    func deletePassword() {
-        let user = User()
-        self.user = user
+    
+    func update(password: String?) {
+        user?.update(password)
     }
 }
