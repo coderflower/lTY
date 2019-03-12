@@ -25,7 +25,7 @@ class SFTabBarController: ESTabBarController {
     }
     func configureTabBar() {
         tabBar.shadowImage = UIImage(named: "transparent")
-        tabBar.backgroundImage = UIImage(named: "background_dark")
+        tabBar.backgroundColor = ColorHelper.default.theme
         shouldHijackHandler = { _, _, index in
             return index == 1
         }

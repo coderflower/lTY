@@ -94,6 +94,9 @@ extension String {
         charSet.insert(charactersIn: "%")
         return addingPercentEncoding(withAllowedCharacters: charSet) ?? self
     }
+    func asurl() -> URL?{
+        return URL(string: transformURL)
+    }
 }
 
 

@@ -21,7 +21,8 @@ class AboutViewController: UIViewController {
 
 extension AboutViewController: Actionable {
     @IBAction func bottomButtonAction(_ sender: Any) {
-        
+        let web = WebViewController(url: "https://github.com/coderflower")
+        navigationController?.pushViewController(web, animated: true)
     }
 }
 extension AboutViewController: ControllerConfigurable {

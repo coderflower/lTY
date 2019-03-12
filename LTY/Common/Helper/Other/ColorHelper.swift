@@ -10,9 +10,9 @@ import UIKit
 
 final class ColorHelper  {
     static let `default`: ColorHelper = ColorHelper()
-    /// #17959E
+    /// #E78170
     var theme: UIColor = {
-        return UIColor(hex: "17959E")
+        return UIColor(hex: "E78170")
     }()
     /// #EAEAEA
     var line: UIColor = {
