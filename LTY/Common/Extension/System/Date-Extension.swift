@@ -9,6 +9,34 @@
 import Foundation
 
 extension Date {
+    /// 时
+    var hour: Int {
+        return Calendar.init(identifier: .gregorian)
+            .component(Calendar.Component.hour, from: self)
+    }
+    /// 分
+    var minute: Int {
+        return Calendar.init(identifier: .gregorian)
+            .component(Calendar.Component.minute, from: self)
+    }
+    /// 秒
+    var second: Int {
+        return Calendar.init(identifier: .gregorian)
+            .component(Calendar.Component.second, from: self)
+    }
+    
+    var year: Int {
+        return Calendar.init(identifier: .gregorian)
+            .component(Calendar.Component.year, from: self)
+    }
+    var month: Int {
+        return Calendar.init(identifier: .gregorian)
+            .component(Calendar.Component.month, from: self)
+    }
+    var day: Int {
+        return Calendar.init(identifier: .gregorian)
+            .component(Calendar.Component.day, from: self)
+    }
     var isToday: Bool {
         let calendar = Calendar.current
         let unit: Set<Calendar.Component> = [.day, .month, .year]
@@ -52,7 +80,7 @@ extension Date {
     }
 
     /// 转换为当前时区的事件
-    func transformDate() -> Date {
+    var local: Date {
         let zone = NSTimeZone.system
         let interval = zone.secondsFromGMT()
         return addingTimeInterval(TimeInterval(interval))

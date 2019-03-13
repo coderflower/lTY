@@ -30,8 +30,7 @@ final class AddPhotoViewCell: NiblessView {
     private lazy var placeHolderImageView: UIImageView = {
         let tmpImageView = UIImageView()
         tmpImageView.contentMode = .scaleAspectFill
-        tmpImageView.image = UIImage(named: "addImage_button")
-        tmpImageView.tintColor = ColorHelper.default.background
+        tmpImageView.image = UIImage(named: "addImage")
         addSubview(tmpImageView)
         return tmpImageView
     }()

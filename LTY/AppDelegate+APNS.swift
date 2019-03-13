@@ -115,6 +115,11 @@ extension AppDelegate: JPUSHRegisterDelegate {
         }
         // 保存 registrationID
         myLog(registrationID)
+        guard UserService.shared.user != nil else {
+            UserService.shared.user = User()
+            UserService.shared.user?.registrationId = registrationID
+            return
+        }
         UserService.shared.user?.registrationId = registrationID
     }
 

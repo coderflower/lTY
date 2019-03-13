@@ -61,11 +61,15 @@ class LarityContentView: ESTabBarItemContentView {
     }
 
     public override func selectAnimation(animated _: Bool, completion: (() -> Void)?) {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.imageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 0.5)
+        UIView.animate(withDuration: 0.15, animations: {
+            self.imageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         }) { _ in
-            completion?()
-            self.imageView.transform = CGAffineTransform.identity
+            UIView.animate(withDuration: 0.15, animations: {
+                self.imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }) { _ in
+                completion?()
+                self.imageView.transform = CGAffineTransform.identity
+            }
         }
     }
 
