@@ -45,11 +45,13 @@ public struct SFConst {
 
 /// 静态常量
 public extension SFConst {
-    static let bundleShortVersionString = "SFBundleShortVersionString";
 }
 
 
 public extension SFConst {
+    static let pushAppleKey = "f134e0e2fad4dd348ee1a029"
+    static let umAppleKey = "5c88b3683fc1956654000de7"
+    static let bundleShortVersionString = "SFBundleShortVersionString"
     static let passwordKey = "passwordKey";
-    static let hasPasswordKey = "hasPasswordKey";
+    static let hasPasswordKey = "hasPasswordKey"
 }

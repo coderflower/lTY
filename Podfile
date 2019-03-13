@@ -23,6 +23,7 @@ target 'LTY' do
   pod 'WCDB.swift'
   pod 'Kingfisher'
   pod 'SKPhotoBrowser'
+  pod 'JPush'
   # Pods for LTY
 
   target 'LTYTests' do

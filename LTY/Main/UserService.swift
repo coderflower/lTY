@@ -10,11 +10,15 @@ import Foundation
 
 struct User: Codable {
     var password: String?
-    init(_ password: String? = nil) {
+    var registrationId: String?
+    init(_ password: String? = nil, registrationId: String? = nil) {
         self.password = password
     }
     mutating func update(_ password: String?) {
         self.password = password
+    }
+    mutating func update(registrationId: String?) {
+        self.registrationId = registrationId
     }
 }
 

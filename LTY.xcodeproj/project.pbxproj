@@ -87,6 +87,7 @@
 		B84EA6892238B9B200EEC0ED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA6882238B9B200EEC0ED /* DetailViewController.swift */; };
 		B84EA68C2238B9FC00EEC0ED /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA68B2238B9FC00EEC0ED /* CollectionViewController.swift */; };
 		B84EA68E2238CD7E00EEC0ED /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA68D2238CD7E00EEC0ED /* ItemViewController.swift */; };
+		B84EA6942238E39600EEC0ED /* AppDelegate+APNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA6932238E39600EEC0ED /* AppDelegate+APNS.swift */; };
 		B85BAFE02233F3CE00264125 /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BAFDF2233F3CE00264125 /* FPSLabel.swift */; };
 		B85BAFE22233FDF200264125 /* NotifyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BAFE12233FDF200264125 /* NotifyHelper.swift */; };
 		B894B06222324D0D00036A19 /* AddPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */; };
@@ -228,7 +229,6 @@
 		B8457C202230CADC006EC51F /* MoyaPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
 		B8457C252230CC23006EC51F /* NSObject+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Rx.swift"; sourceTree = "<group>"; };
 		B8457C272230CD69006EC51F /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
-		B84EA67D2237AFC400EEC0ED /* LTY.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LTY.entitlements; sourceTree = "<group>"; };
 		B84EA67E2237C1D700EEC0ED /* HTTPService+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPService+Ext.swift"; sourceTree = "<group>"; };
 		B84EA6802237E82D00EEC0ED /* PhotoWallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoWallViewModel.swift; sourceTree = "<group>"; };
 		B84EA6822237EFEB00EEC0ED /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +237,9 @@
 		B84EA6882238B9B200EEC0ED /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B84EA68B2238B9FC00EEC0ED /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B84EA68D2238CD7E00EEC0ED /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		B84EA68F2238E30F00EEC0ED /* LTY-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LTY-Bridging-Header.h"; sourceTree = "<group>"; };
+		B84EA6932238E39600EEC0ED /* AppDelegate+APNS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+APNS.swift"; sourceTree = "<group>"; };
+		B84EA6952238E84200EEC0ED /* LTY.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LTY.entitlements; sourceTree = "<group>"; };
 		B85BAFDF2233F3CE00264125 /* FPSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		B85BAFE12233FDF200264125 /* NotifyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyHelper.swift; sourceTree = "<group>"; };
 		B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewCell.swift; sourceTree = "<group>"; };
@@ -366,8 +369,9 @@
 		B8457B70223003E4006EC51F /* LTY */ = {
 			isa = PBXGroup;
 			children = (
-				B84EA67D2237AFC400EEC0ED /* LTY.entitlements */,
+				B84EA6952238E84200EEC0ED /* LTY.entitlements */,
 				B8457B71223003E4006EC51F /* AppDelegate.swift */,
+				B84EA6932238E39600EEC0ED /* AppDelegate+APNS.swift */,
 				B8457B73223003E4006EC51F /* ViewController.swift */,
 				B8457BB622300B40006EC51F /* Common */,
 				B8457B9F2230062C006EC51F /* Main */,
@@ -376,6 +380,7 @@
 				B8457B78223003E5006EC51F /* Assets.xcassets */,
 				B8457B7A223003E5006EC51F /* LaunchScreen.storyboard */,
 				B8457B7D223003E5006EC51F /* Info.plist */,
+				B84EA68F2238E30F00EEC0ED /* LTY-Bridging-Header.h */,
 			);
 			path = LTY;
 			sourceTree = "<group>";
@@ -801,12 +806,13 @@
 				TargetAttributes = {
 					B8457B6D223003E4006EC51F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1076,6 +1082,7 @@
 				B894B0742232529B00036A19 /* DispatchTime-Extension.swift in Sources */,
 				B894B0762232529B00036A19 /* UITabBar-Extension.swift in Sources */,
 				B894B0772232529B00036A19 /* UIButton-Extension.swift in Sources */,
+				B84EA6942238E39600EEC0ED /* AppDelegate+APNS.swift in Sources */,
 				B8DA1D8F22361E18005464F3 /* PhotoWallViewCell.swift in Sources */,
 				B894B07D2232648700036A19 /* PublishViewModel.swift in Sources */,
 				B8DA1DAE22369B37005464F3 /* PassworManagerViewController.swift in Sources */,
@@ -1299,6 +1306,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = LTY/LTY.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVF4WB423W;
 				INFOPLIST_FILE = LTY/Info.plist;
@@ -1309,6 +1318,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.wj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LTY/LTY-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1320,6 +1331,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = LTY/LTY.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVF4WB423W;
 				INFOPLIST_FILE = LTY/Info.plist;
@@ -1330,6 +1343,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.wj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LTY/LTY-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
