@@ -8,11 +8,10 @@
 
 import UIKit
 public extension UIBarButtonItem {
-    
     convenience init(title: String?) {
         self.init(title: title, style: .plain, target: nil, action: nil)
     }
-    
+
     convenience init(image: UIImage?) {
         self.init(image: image, style: .plain, target: nil, action: nil)
     }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 final class ProfileViewModel {
-    func transform(input: Input) -> Output {
+    func transform(input _: Input) -> Output {
         let models = [ProfileModel(title: "所有日记", actionType: .diary),
                       ProfileModel(title: "密码管理", actionType: .password),
                       ProfileModel(title: "我的相册", actionType: .images),
@@ -19,9 +19,8 @@ final class ProfileViewModel {
 }
 
 extension ProfileViewModel: ViewModelType {
-    struct Input {
-        
-    }
+    struct Input {}
+
     struct Output {
         let dataSource: [ProfileModel]
     }

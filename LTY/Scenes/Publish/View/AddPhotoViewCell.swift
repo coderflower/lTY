@@ -9,7 +9,6 @@
 import UIKit
 
 final class AddPhotoViewCell: NiblessView {
-    
     private lazy var closeButton: UIButton = {
         let tmpButton = UIButton(type: .custom)
         addSubview(tmpButton)
@@ -17,6 +16,7 @@ final class AddPhotoViewCell: NiblessView {
         tmpButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
         return tmpButton
     }()
+
     private lazy var imageView: UIImageView = {
         let tmpImageView = UIImageView()
         tmpImageView.borderColor = ColorHelper.default.line
@@ -26,6 +26,7 @@ final class AddPhotoViewCell: NiblessView {
         addSubview(tmpImageView)
         return tmpImageView
     }()
+
     private lazy var placeHolderImageView: UIImageView = {
         let tmpImageView = UIImageView()
         tmpImageView.contentMode = .scaleAspectFill
@@ -34,6 +35,7 @@ final class AddPhotoViewCell: NiblessView {
         addSubview(tmpImageView)
         return tmpImageView
     }()
+
     var completion: ((Int) -> Void)?
     /// 图片索引
     var index: Int = 0
@@ -51,14 +53,14 @@ final class AddPhotoViewCell: NiblessView {
             $0.width.height.equalTo(30)
         })
     }
-    
-    
 }
+
 extension AddPhotoViewCell: Actionable {
     @objc private func closeButtonAction() {
         completion?(index)
     }
 }
+
 extension AddPhotoViewCell: Updatable {
     func update(_ model: PhotoModel) {
         if let image = model.image {

@@ -12,7 +12,7 @@ extension Bundle {
     public static var nameSpace: String {
         return (Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "") + "."
     }
-    
+
     public static var currentVersion: String {
         return (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0")
     }

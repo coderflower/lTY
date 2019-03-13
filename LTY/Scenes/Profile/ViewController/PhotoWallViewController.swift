@@ -6,10 +6,10 @@
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
 
-import UIKit
 import CollectionKit
-import RxCocoa
 import MJRefresh
+import RxCocoa
+import UIKit
 final class PhotoWallViewController: UIViewController {
     private let viewModel = PhotoWallViewModel()
     private lazy var collectionView: CollectionView = {
@@ -18,17 +18,18 @@ final class PhotoWallViewController: UIViewController {
         let header = MJRefreshNormalHeader()
         header.lastUpdatedTimeLabel.isHidden = true
         tmpView.mj_header = header
-        //设置尾部刷新控件
+        // 设置尾部刷新控件
         tmpView.mj_footer = MJRefreshBackNormalFooter()
         /// 包装空数据 provider
         let emptyImageView = UIImageView(image: UIImage(named: "home_empty"))
         emptyImageView.contentMode = .center
         let emptyProvider = EmptyStateProvider(emptyStateView: emptyImageView, content: self.provider)
         tmpView.provider = emptyProvider
-      
+
         tmpView.provider = emptyProvider
         return tmpView
     }()
+
     let dataSource = ArrayDataSource<PhotoWallViewCellViewModel>(data: [])
     lazy var provider = Provider.shared.photoWallProvider(dataSource: dataSource)
     override func viewDidLoad() {
@@ -37,8 +38,8 @@ final class PhotoWallViewController: UIViewController {
         configureSubviews()
         configureNavigationBar()
         configureSignal()
-        
-        provider.tapHandler = {[weak self] tap in
+
+        provider.tapHandler = { [weak self] tap in
             let detail = DetailViewController(HomeViewCellViewModel(tap.data.model), completion: {
                 self?.collectionView.mj_header.beginRefreshing()
             })
@@ -55,13 +56,15 @@ extension PhotoWallViewController: ControllerConfigurable {
             $0.top.equalTo(navigation.bar.snp.bottom)
         })
     }
+
     func configureNavigationBar() {
         navigation.item.title = "照片墙"
     }
+
     func configureSignal() {
         let input = PhotoWallViewModel.Input(headerRefresh: collectionView.mj_header.rx.refreshing.shareOnce(), footerRefresh: collectionView.mj_footer.rx.refreshing.shareOnce())
         let output = viewModel.transform(input: input)
-        
+
         output.dataSource
             .bind(to: collectionDataSource)
             .disposed(by: rx.disposeBag)
@@ -74,11 +77,10 @@ extension PhotoWallViewController: ControllerConfigurable {
         output.endFooterRefreshing
             .bind(to: collectionView.mj_footer.rx.refreshState)
             .disposed(by: rx.disposeBag)
-        
-        
     }
+
     var collectionDataSource: Binder<[PhotoWallViewCellViewModel]> {
-        return Binder(self) {this , data in
+        return Binder(self) { this, data in
             this.dataSource.data = data
         }
     }

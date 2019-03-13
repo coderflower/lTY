@@ -11,25 +11,26 @@ import WCDBSwift
 /// 以下扩展给业务层使用
 ///
 protocol TableProtocol {
-    var name: String {get} // 表名
-    var select: Select? {get} 
-    var dataBase: Database {get} // 表对应的数据库
+    var name: String { get } // 表名
+    var select: Select? { get }
+    var dataBase: Database { get } // 表对应的数据库
 }
 
 /// 数据库
 protocol DataBaseProtocol {
-    var path: String {get} // 数据库存放路径
-    var tag: Int {get} // 数据库tag 对应唯一数据库
-    var db: Database {get} // 真实数据库
+    var path: String { get } // 数据库存放路径
+    var tag: Int { get } // 数据库tag 对应唯一数据库
+    var db: Database { get } // 真实数据库
 }
+
 enum SFDataBase: String, DataBaseProtocol {
-    
     case user = "user.db"
     case main = "main.db"
     case home = "home.db"
     var path: String {
         return rawValue.document
     }
+
     var tag: Int {
         switch self {
         case .user:
@@ -40,12 +41,12 @@ enum SFDataBase: String, DataBaseProtocol {
             return 3
         }
     }
+
     var db: Database {
-        let db = Database(withPath: self.path)
+        let db = Database(withPath: path)
         db.tag = tag
         return db
     }
-    
 }
 
 enum SFTable: String, TableProtocol {
@@ -59,7 +60,7 @@ enum SFTable: String, TableProtocol {
             return "Hometabel"
         }
     }
-    
+
     var select: Select? {
         switch self {
         case .main:
@@ -68,11 +69,11 @@ enum SFTable: String, TableProtocol {
             return nil
         }
     }
-    
+
     case user
     case main
     case home
-    
+
     var dataBase: Database {
         switch self {
         case .user:
@@ -92,69 +93,64 @@ public struct DBManager {
             try SFDataBase.main.db.run(transaction: {
                 try SFDataBase.main.db.create(table: SFTable.main.name, of: HomeModel.self)
             })
-        } catch  {
+        } catch {
             myLog("初始化数据库及ORMb对应关系建立失败")
         }
     }
-    func createTable<T>(dataBase: SFDataBase, table: TableProtocol = SFTable.main, rootType: T.Type) throws where T : TableDecodable{
+
+    func createTable<T>(dataBase: SFDataBase, table: TableProtocol = SFTable.main, rootType: T.Type) throws where T: TableDecodable {
         try dataBase.db.run(transaction: {
             try dataBase.db.create(table: table.name, of: rootType.self)
         })
     }
 }
 
-
-
 extension DBManager {
-    
-    typealias ErrorType = (WCDBSwift.Error?)->Void
-    
+    typealias ErrorType = (WCDBSwift.Error?) -> Void
+
     func insert<T: TableEncodable>(_ table: TableProtocol, objects: [T], on propertyConvertibleList: [PropertyConvertible]? = nil) throws {
         try table.dataBase.insert(objects: objects, on: propertyConvertibleList, intoTable: table.name)
     }
-    
+
     func insert<T: TableEncodable>(_ table: TableProtocol, object: T, on propertyConvertibleList: [PropertyConvertible]? = nil) throws {
         try insert(table, objects: [object], on: propertyConvertibleList)
     }
-    
-    
-    
+
     func update<T: TableEncodable>(_ table: TableProtocol, object: T, propertys: [PropertyConvertible], condition: Condition? = nil, orderBy: [OrderBy]? = nil, limit: Limit? = nil, offset: Offset? = nil) throws {
-        
         try table.dataBase.update(table: table.name, on: propertys, with: object, where: condition, orderBy: orderBy, limit: limit, offset: offset)
     }
-    
-    func getObjects<T: TableCodable>(_ table:TableProtocol,
+
+    func getObjects<T: TableCodable>(_ table: TableProtocol,
                                      on propertyConvertibleList: [PropertyConvertible],
                                      where condition: Condition? = nil,
                                      orderBy orderList: [OrderBy]? = nil,
                                      limit: Limit? = nil,
-                                     offset: Offset? = nil) throws -> [T]?  {
+                                     offset: Offset? = nil) throws -> [T]? {
         return try table.dataBase.getObjects(on: propertyConvertibleList, fromTable: table.name, where: condition, orderBy: orderList, limit: limit, offset: offset)
     }
+
     func selectAll<T: TableCodable>(_ table: TableProtocol,
                                     condition: Condition? = nil,
-                                    orderBy orderList: [OrderBy]? = nil) throws -> [T]? {
+                                    orderBy _: [OrderBy]? = nil) throws -> [T]? {
         if let condition = condition {
-           return try table.select?.where(condition).allObjects()
+            return try table.select?.where(condition).allObjects()
         }
         return try table.select?.allObjects()
     }
-    
+
     func delete(_ table: TableProtocol,
                 condition: Condition?,
                 orderBy: [OrderBy]? = nil,
                 limit: Limit? = nil,
-                offset: Offset? = nil)  throws  {
-        
+                offset: Offset? = nil) throws {
         try table.dataBase.delete(fromTable: table.name, where: condition, orderBy: orderBy, limit: limit, offset: offset)
-        
     }
-    
+
     func insertOrReplace<T: TableEncodable>(
         _ table: TableProtocol,
         objects: [T],
-        on propertyConvertibleList: [PropertyConvertible]?) throws {
+        on _: [PropertyConvertible]?
+    ) throws {
         try table.dataBase.insertOrReplace(objects: objects, intoTable: table.name)
     }
 }

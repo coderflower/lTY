@@ -6,22 +6,22 @@
 //  Copyright © 2018年 Coder.flower. All rights reserved.
 //
 
-import UIKit
 import Moya
 import RxSwift
+import UIKit
 public protocol ListProtocol {
     // 定义返回类型
     associatedtype Item
     // 返回值
     var items: [Item] { get set }
     /// 偏移
-    var offset: Int {get set}
-    
+    var offset: Int { get set }
+
     func requestList<D: Codable>(_ target: TargetType) -> Observable<D>
 }
+
 extension ListProtocol {
-    func requestList<D: Codable>(_ target: TargetType) -> Observable<D> {
-        
+    func requestList<D: Codable>(_: TargetType) -> Observable<D> {
         return Observable.empty()
     }
 }
@@ -33,21 +33,18 @@ struct ListDataHelper<T: Codable>: ListProtocol {
     var items: [T]
     /// 偏移位置
     var offset: Int = 0
-    
-    func requestList<D: Codable>(_ target: TargetType, responseType: D.Type) -> Observable<D> {
+
+    func requestList<D: Codable>(_ target: TargetType, responseType _: D.Type) -> Observable<D> {
         return target.request().mapObject(D.self).asObservable()
     }
-    
-    
-    
+
     /// 请求分页数据
     ///
     /// - Parameters:
     ///   - state: ui 状态
     ///   - pagesize: 每页多少条数据
     /// - Returns:
-    func fethcItems(offset: Int, pagesize: Int, state: State) -> Observable<ListDataHelper<HomeModel>> {
-        
+    func fethcItems(offset: Int, pagesize: Int, state _: State) -> Observable<ListDataHelper<HomeModel>> {
         return Observable.create({ (observable) -> Disposable in
             do {
                 let order = [HomeModel.Properties.createTime.asOrder(by: .descending)]
@@ -57,21 +54,21 @@ struct ListDataHelper<T: Codable>: ListProtocol {
                     orderBy: order,
                     limit: pagesize,
                     offset: offset
-                    ) ?? []
+                ) ?? []
                 myLog(objects)
                 observable.onNext(ListDataHelper<HomeModel>(items: objects, offset: offset + pagesize))
                 observable.onCompleted()
-            } catch  {
+            } catch {
                 observable.onNext(ListDataHelper<HomeModel>(items: [], offset: offset))
                 observable.onError(error)
             }
             return Disposables.create()
         })
     }
-    
+
     func fethcItems(_ from: [HomeModel], nextTrigger: Observable<Void>, pagesize: Int = 10, state: State) -> Observable<ListDataHelper<HomeModel>> {
         return fethcItems(offset: from.count, pagesize: pagesize, state: state).flatMapLatest { (result) -> Observable<ListDataHelper<HomeModel>> in
-            return Observable.concat([
+            Observable.concat([
                 Observable.just(ListDataHelper<HomeModel>(items: from + result.items,
                                                           offset: result.offset)),
                 Observable.never().takeUntil(nextTrigger),
@@ -79,12 +76,9 @@ struct ListDataHelper<T: Codable>: ListProtocol {
                     from + result.items,
                     nextTrigger: nextTrigger,
                     pagesize: pagesize,
-                    state: state)
-                ])
+                    state: state
+                ),
+            ])
         }
     }
-    
 }
-
-
-

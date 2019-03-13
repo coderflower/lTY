@@ -19,11 +19,11 @@ struct HomeModel: Codable {
     /// 创建时间
     let createTime: Date
     init(title: String, content: String?, images: [Data]? = nil) {
-        self.identifier = nil
+        identifier = nil
         self.title = title
         self.content = content
         self.images = images
-        self.createTime = Date()
+        createTime = Date()
     }
 }
 
@@ -33,7 +33,7 @@ extension HomeModel: TableCodable {
         static let objectRelationalMapping = TableBinding(CodingKeys.self)
         case createTime, title, content, images
         case identifier = "id"
-        //Column constraints for primary key, unique, not null, default value and so on. It is optional.
+        // Column constraints for primary key, unique, not null, default value and so on. It is optional.
         static var columnConstraintBindings: [CodingKeys: ColumnConstraintBinding]? {
             return [
                 .identifier: ColumnConstraintBinding(isPrimary: true, isAutoIncrement: true),
@@ -47,7 +47,3 @@ extension HomeModel: TableCodable {
  let order = [HomeModel.Properties.identifier.asOrder(by: .descending)]
  let condition = HomeModel.Properties.createTime.between(Date().morningDate(), Date().twentyFourDate())
  */
-
-
-
-

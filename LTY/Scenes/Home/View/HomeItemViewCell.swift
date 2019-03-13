@@ -10,14 +10,13 @@ import UIKit
 
 class HomeItemViewCell: UIView {
     /// 标题
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
     /// 文本内容
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet var contentLabel: UILabel!
     /// 图片内容
-    @IBOutlet weak var photoView: PhotoView!
+    @IBOutlet var photoView: PhotoView!
     /// 时间
-    @IBOutlet weak var timeLabel: UILabel!
-   
+    @IBOutlet var timeLabel: UILabel!
 }
 
 extension HomeItemViewCell: Updatable {

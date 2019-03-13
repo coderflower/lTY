@@ -6,8 +6,8 @@
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
 
-import UIKit
 import CollectionKit
+import UIKit
 class ProfileViewController: UIViewController {
     let viewModel = ProfileViewModel()
     private lazy var collectionView: CollectionView = {
@@ -16,22 +16,23 @@ class ProfileViewController: UIViewController {
         tmpView.provider = provider
         return tmpView
     }()
+
     let dataSource = ArrayDataSource<ProfileModel>(data: [])
-    
+
     lazy var provider = Provider.shared.profileProvider(dataSource: dataSource)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         configureSubviews()
         configureNavigationBar()
         configureSignal()
-        provider.tapHandler = {[weak self] tap in
+        provider.tapHandler = { [weak self] tap in
             self?.hanldeAction(by: tap.data.actionType)
         }
     }
-    
 }
+
 extension ProfileViewController: ControllerConfigurable {
     func configureSubviews() {
         view.backgroundColor = ColorHelper.default.background
@@ -40,9 +41,11 @@ extension ProfileViewController: ControllerConfigurable {
             $0.top.equalTo(navigation.bar.snp.bottom)
         })
     }
+
     func configureNavigationBar() {
         navigation.item.title = "个人中心"
     }
+
     func configureSignal() {
         let input = ProfileViewModel.Input()
         let output = viewModel.transform(input: input)
@@ -52,7 +55,6 @@ extension ProfileViewController: ControllerConfigurable {
 
 extension ProfileViewController: Actionable {
     func hanldeAction(by type: ProfileModel.ActionType) {
-        
         switch type {
         case .about:
             navigate(to: AboutViewController())
@@ -68,13 +70,15 @@ extension ProfileViewController: Actionable {
             }
         }
     }
+
     func navigate(to viewController: UIViewController) {
         navigationController?.pushViewController(viewController, animated: true)
     }
+
     func isSetPassword() -> Bool {
         return UserDefaults.standard.string(forKey: SFConst.passwordKey) != nil
     }
-    
+
     func showAlert(completion: @escaping () -> Void) {
         if let password = UserService.shared.user?.password {
             /// 如果本身是关闭的,
@@ -83,12 +87,12 @@ extension ProfileViewController: Actionable {
                                       message: "输入正确的密码才能继续访问",
                                       buttons: [.cancel("取消"), .destructive("确认")],
                                       textFields: [{
-                                        $0.isSecureTextEntry = true
-                                        $0.textAlignment = .center
-                                        }])
-                .subscribe(onSuccess: { (index, input) in
-                    if index == 0 {return}
-                    guard let input = input.first else {return}
+                                          $0.isSecureTextEntry = true
+                                          $0.textAlignment = .center
+            }])
+                .subscribe(onSuccess: { index, input in
+                    if index == 0 { return }
+                    guard let input = input.first else { return }
                     /// 判断是否入旧密码相同
                     if password == input {
                         completion()
@@ -100,6 +104,4 @@ extension ProfileViewController: Actionable {
             completion()
         }
     }
-    
-    
 }

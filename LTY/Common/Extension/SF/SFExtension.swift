@@ -9,11 +9,11 @@
 import UIKit
 
 /// 是否开启日志
-public func myLog(_ item: Any, file: String = #file,funcName: String = #function,lineNum: Int = #line) {
+public func myLog(_ item: Any, file: String = #file, funcName: String = #function, lineNum: Int = #line) {
     #if DEBUG
-    let fileName = (file as NSString).lastPathComponent
-    print("\(fileName)---->第\(lineNum)行 \(funcName)")
-    print(item)
+        let fileName = (file as NSString).lastPathComponent
+        print("\(fileName)---->第\(lineNum)行 \(funcName)")
+        print(item)
     #endif
 }
 
@@ -22,6 +22,7 @@ public extension CGFloat {
         return CGFloat(ceilf(Float(SFConst.scale * self)))
     }
 }
+
 public extension Float {
     var fit: CGFloat {
         return CGFloat(ceilf(Float(SFConst.scale * CGFloat(self))))
@@ -43,7 +44,7 @@ public extension Int {
 public struct SFExtension<Base> {
     /// Base object to extend.
     public let base: Base
-    
+
     /// Creates extensions with base object.
     ///
     /// - parameter base: Base object.
@@ -56,10 +57,10 @@ public struct SFExtension<Base> {
 public protocol SFExtensionCompatible {
     /// Extended type
     associatedtype CompatibleType
-    
+
     /// Reactive extensions.
     static var sf: SFExtension<CompatibleType>.Type { get set }
-    
+
     /// Reactive extensions.
     var sf: SFExtension<CompatibleType> { get set }
 }
@@ -74,7 +75,7 @@ extension SFExtensionCompatible {
             // this enables using Reactive to "mutate" base type
         }
     }
-    
+
     /// Reactive extensions.
     public var sf: SFExtension<Self> {
         get {
@@ -89,14 +90,10 @@ extension SFExtensionCompatible {
 import class Foundation.NSObject
 
 /// Extend NSObject with `sf` proxy.
-extension NSObject: SFExtensionCompatible { }
+extension NSObject: SFExtensionCompatible {}
 
 extension SFExtension where Base: UIButton {
     public var testTitle: String {
         return "testTitle"
     }
 }
-
-
-
-

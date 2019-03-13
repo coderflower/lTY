@@ -11,6 +11,6 @@ import Foundation
 struct NotifyName {
     /// 更新选中
     static let userUploadCompleteNotification = NSNotification.Name("userUploadCompleteNotification")
-    
+
     static let deleteCompleteNotification = NSNotification.Name("deleteCompleteNotification")
 }

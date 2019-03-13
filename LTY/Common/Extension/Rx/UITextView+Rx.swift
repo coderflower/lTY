@@ -6,18 +6,16 @@
 //  Copyright © 2018年 Coder.flower. All rights reserved.
 //
 
-import UIKit
 import RxCocoa
 import RxSwift
+import UIKit
 public extension Reactive where Base: UITextView {
-
     var delegate: TextViewDelegateProxy {
         return TextViewDelegateProxy.proxy(for: base)
     }
 }
 
 public extension UITextView {
-
     var maxLength: Int {
         get { return 0 }
         set {
@@ -33,31 +31,31 @@ public extension UITextView {
 
 public class TextViewDelegateProxy: DelegateProxy<UITextView, UITextViewDelegate>, DelegateProxyType, UITextViewDelegate {
     /// Typed parent object.
-    public weak private(set) var textView: UITextView?
-    
+    public private(set) weak var textView: UITextView?
+
     public init(textView: ParentObject) {
         self.textView = textView
         super.init(parentObject: textView, delegateProxy: TextViewDelegateProxy.self)
     }
-    
+
     public static func registerKnownImplementations() {
-        self.register { TextViewDelegateProxy(textView: $0) }
+        register { TextViewDelegateProxy(textView: $0) }
     }
-   
+
     public static func currentDelegate(for object: UITextView) -> UITextViewDelegate? {
         return object.delegate
     }
-    
+
     public static func setCurrentDelegate(_ delegate: UITextViewDelegate?, to object: UITextView) {
         object.delegate = delegate
     }
-    
+
     /// - parameter textview: Parent object for delegate proxy.
 
     public typealias ShouldChangeText = (UITextView, NSRange, String) -> Bool
-    
+
     public var shouldChangeText: ShouldChangeText = { _, _, _ in true }
-    
+
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         return shouldChangeText(textView, range, text)
     }

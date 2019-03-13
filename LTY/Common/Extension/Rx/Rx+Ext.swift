@@ -7,17 +7,15 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 public extension ObservableConvertibleType {
-    
     func asDriver(onErrorJustReturnClosure: @escaping @autoclosure () -> E) -> Driver<E> {
-
-        return asDriver {_ in
+        return asDriver { _ in
             Driver.just(onErrorJustReturnClosure())
         }
     }
-    
+
     func asDriverOnErrorJustComplete() -> Driver<E> {
         return asDriver { _ in
             Driver.empty()

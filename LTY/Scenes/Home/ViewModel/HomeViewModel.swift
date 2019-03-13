@@ -7,36 +7,38 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 import WCDBSwift
 final class HomeViewModel {
     private let pagesize: Int
     private let condition: Condition?
     init(pageSize: Int = 5, condition: Condition? = nil) {
-        self.pagesize = pageSize
+        pagesize = pageSize
         self.condition = condition
     }
+
     func transform(input: Input) -> Output {
         let refresh = input.headerRefresh.startWith(())
         let refreshState = State()
         let items = refresh.flatMapLatest {
-            return HTTPService.shared
+            HTTPService.shared
                 .fethcItems(
                     SFTable.main,
                     from: [],
                     nextTrigger: input.footerRefresh,
                     pagesize: self.pagesize,
                     state: refreshState,
-                    where: self.condition)
-            }.catchErrorJustComplete().shareOnce()
-        
+                    where: self.condition
+                )
+        }.catchErrorJustComplete().shareOnce()
+
         let dataSource = items.map({
-            $0.items.map({HomeViewCellViewModel($0)})
+            $0.items.map({ HomeViewCellViewModel($0) })
         })
-        //当有数据的时候，表示下拉刷状态为 false
+        // 当有数据的时候，表示下拉刷状态为 false
         let endHeaderRefresh = dataSource.asObservable().map { _ in false }
-        //默认隐藏
+        // 默认隐藏
         let endFooterRefresh = Observable.from(
             [
                 Observable.just(FooterRefreshState.none),
@@ -48,20 +50,23 @@ final class HomeViewModel {
                     } else {
                         return FooterRefreshState.normal
                     }
-                }]
-            ).merge()
+                },
+            ]
+        ).merge()
         return Output(endHeaderRefreshing: endHeaderRefresh, endFooterRefreshing: endFooterRefresh, refreshState: refreshState.asDriver(onErrorJustReturn: .idle), dataSource: dataSource)
     }
 }
+
 extension HomeViewModel: ViewModelType {
     struct Input {
         let headerRefresh: Observable<Void>
         let footerRefresh: Observable<Void>
     }
+
     struct Output {
-        //停止头部刷新状态
+        // 停止头部刷新状态
         let endHeaderRefreshing: Observable<Bool>
-        //停止尾部刷新状态
+        // 停止尾部刷新状态
         let endFooterRefreshing: Observable<FooterRefreshState>
         let refreshState: Driver<UIState>
         let dataSource: Observable<[HomeViewCellViewModel]>

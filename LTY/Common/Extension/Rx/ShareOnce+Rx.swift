@@ -7,7 +7,6 @@
 //
 import RxSwift
 extension ObservableType {
-    
     func shareOnce() -> Observable<E> {
         return share(replay: 1)
     }

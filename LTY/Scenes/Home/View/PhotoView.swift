@@ -6,25 +6,26 @@
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
 
-import UIKit
 import CollectionKit
 import SKPhotoBrowser
+import UIKit
 class PhotoView: UIView {
-    
     let collectionView = CollectionView()
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
     }
+
     func initialize() {
         collectionView.showsVerticalScrollIndicator = false
         addSubview(collectionView)
     }
+
     override func layoutSubviews() {
         collectionView.frame = bounds
     }

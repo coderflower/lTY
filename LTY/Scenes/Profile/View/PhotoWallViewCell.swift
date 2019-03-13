@@ -17,23 +17,27 @@ class PhotoWallViewCell: NiblessView {
         addSubview(imageView)
         return imageView
     }()
+
     /// 标题
     private lazy var titleLabel: UILabel = {
         let label = UILabel(nil, font: FontHelper.regular(16), color: UIColor.white)
         bottomView.addSubview(label)
         return label
     }()
+
     /// 日期
     private lazy var timeLabel: UILabel = {
         let label = UILabel(nil, font: FontHelper.regular(13), color: UIColor.white)
         bottomView.addSubview(label)
         return label
     }()
+
     private lazy var bottomView: UIView = {
         let view = UIView(UIColor(white: 0, alpha: 0.3))
         addSubview(view)
         return view
     }()
+
     override func initialize() {
         cornerRadius = 5
         imageView.snp.makeConstraints({
@@ -51,9 +55,9 @@ class PhotoWallViewCell: NiblessView {
             $0.left.right.bottom.equalToSuperview()
             $0.height.equalTo(35)
         })
-        
     }
 }
+
 extension PhotoWallViewCell: Updatable {
     func update(_ model: PhotoWallViewCellViewModel) {
         imageView.image = model.image

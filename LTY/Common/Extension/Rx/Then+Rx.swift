@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 public extension ObservableType {
     func then(_ closure: @escaping @autoclosure () -> Void) -> Observable<E> {
-        return map{
+        return map {
             closure()
             return $0
         }

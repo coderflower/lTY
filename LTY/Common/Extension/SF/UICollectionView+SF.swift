@@ -9,17 +9,16 @@
 import UIKit
 
 extension SFExtension where Base: UICollectionView {
-    
-    public func cell<T: UICollectionViewCell>(ofType cellType: T.Type,
+    public func cell<T: UICollectionViewCell>(ofType _: T.Type,
                                               indexPath: IndexPath) -> T {
-       guard let cell = base.dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
+        guard let cell = base.dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
             fatalError()
         }
-        
+
         return cell
     }
-    
-    public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofType type: T.Type,
+
+    public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofType _: T.Type,
                                                                               ofKind: String,
                                                                               for indexPath: IndexPath) -> T {
         guard let view = base.dequeueReusableSupplementaryView(ofKind: ofKind, withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
@@ -33,13 +32,15 @@ extension SFExtension where Base: UICollectionView {
     func register<T: UICollectionViewCell>(_ cellType: T.Type, reuseIdentifier: String = T.reuseIdentifier) {
         base.register(cellType, forCellWithReuseIdentifier: reuseIdentifier)
     }
-    
+
     func register<T: UICollectionViewCell>(nibType: T.Type, reuseIdentifier: String = T.reuseIdentifier) {
         base.register(nibType.nib(), forCellWithReuseIdentifier: reuseIdentifier)
     }
+
     func register<T: UICollectionReusableView>(_ viewClass: T.Type, forSupplementaryViewOfKind kind: String, withReuseIdentifier reuseIdentifier: String = T.reuseIdentifier) {
         base.register(viewClass, forSupplementaryViewOfKind: kind, withReuseIdentifier: reuseIdentifier)
     }
+
     func register<T: UICollectionReusableView>(nibType: T.Type, forSupplementaryViewOfKind kind: String, withReuseIdentifier reuseIdentifier: String = T.reuseIdentifier) {
         base.register(nibType, forSupplementaryViewOfKind: kind, withReuseIdentifier: reuseIdentifier)
     }

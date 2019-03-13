@@ -8,11 +8,10 @@
 /// 更新数据协议
 protocol Updatable {
     associatedtype Model
-    
+
     func update(_ model: Model)
 }
-extension Updatable {
-    
-    func update(_ model: Model) {}
-}
 
+extension Updatable {
+    func update(_: Model) {}
+}

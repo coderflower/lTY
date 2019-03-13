@@ -8,7 +8,6 @@
 
 import RxSwift
 public extension Observable where E == String {
-    
     var isEmpty: Observable<Bool> {
         return map { $0.isEmpty }
     }

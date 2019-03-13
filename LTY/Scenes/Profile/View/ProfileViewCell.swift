@@ -14,16 +14,19 @@ final class ProfileViewCell: NiblessView {
         addSubview(label)
         return label
     }()
+
     lazy var subTitleLabel: UILabel = {
         let label = UILabel(font: FontHelper.regular(14), color: ColorHelper.default.blackText)
         addSubview(label)
         return label
     }()
+
     lazy var accessoryView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "icon_more"))
         addSubview(imageView)
         return imageView
     }()
+
     override func initialize() {
         backgroundColor = UIColor.white
         titleLabel.snp.makeConstraints({
@@ -39,8 +42,8 @@ final class ProfileViewCell: NiblessView {
             $0.centerY.equalToSuperview()
         })
     }
-
 }
+
 extension ProfileViewCell: Updatable {
     func update(_ model: ProfileModel) {
         accessoryView.isHidden = model.accessoryType == .none

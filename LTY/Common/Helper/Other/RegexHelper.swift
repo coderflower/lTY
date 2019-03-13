@@ -13,12 +13,13 @@ struct RegexHelper {
     init(_ pattern: String) throws {
         try regex = NSRegularExpression(pattern: pattern, options: .caseInsensitive)
     }
+
     func match(_ input: String) -> Bool {
         let matches = regex.matches(in: input, options: [], range: NSMakeRange(0, input.count))
         return matches.count > 0
     }
-   
 }
+
 enum Matcher: String {
     case phone = "^1[0-9]{10}$"
     case email = "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$"
@@ -31,6 +32,7 @@ enum Matcher: String {
         let predicate = NSPredicate(format: "SELF MATCHES %@", rawValue)
         return predicate.evaluate(with: input)
     }
+
     /// 匹配车牌
     static func match(plate: String) -> String? {
         do {
@@ -45,5 +47,4 @@ enum Matcher: String {
             return nil
         }
     }
-    
 }

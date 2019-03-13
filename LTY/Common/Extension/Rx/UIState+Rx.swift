@@ -6,8 +6,8 @@
 //  Copyright © 2018年 gaoX. All rights reserved.
 //
 
-import RxSwift
 import RxCocoa
+import RxSwift
 typealias State = PublishRelay<UIState>
 
 enum UIState {
@@ -19,7 +19,7 @@ enum UIState {
     case success(String?)
     /// 加载失败
     case failure(String?)
-    
+
     var isSuccess: Bool {
         switch self {
         case .success:
@@ -28,7 +28,7 @@ enum UIState {
             return false
         }
     }
-    
+
     var isFailure: Bool {
         switch self {
         case .failure:
@@ -40,22 +40,20 @@ enum UIState {
 }
 
 struct UIStateToken<E>: Disposable {
-    
     private let _source: Observable<E>
-    
+
     init(source: Observable<E>) {
         _source = source
     }
-    
+
     func asObservable() -> Observable<E> {
         return _source
     }
-    
+
     func dispose() {}
 }
 
 extension ObservableConvertibleType {
-    
     /// Toast
     ///
     /// - Parameters:
@@ -72,7 +70,7 @@ extension ObservableConvertibleType {
             if loading { relay.accept(.loading) }
             return UIStateToken(source: self.asObservable())
         }, observableFactory: {
-            return $0.asObservable().do(onNext: { _ in
+            $0.asObservable().do(onNext: { _ in
                 relay.accept(.success(success))
             }, onError: {
                 relay.accept(.failure(failure($0)))

@@ -6,11 +6,10 @@
 //  Copyright © 2018年 gaoX. All rights reserved.
 //
 
-import RxSwift
 import RxCocoa
+import RxSwift
 
 extension Reactive where Base: UIView {
-    
     var endEditing: Binder<Bool> {
         return Binder(base) { view, force in
             view.endEditing(force)

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 extension UIButton {
     convenience init(_ text: String = "", color: UIColor = ColorHelper.default.darkGray, font: UIFont = FontHelper.regular(14)) {
         self.init()
@@ -17,58 +16,64 @@ extension UIButton {
         titleLabel?.font = font
         sizeToFit()
     }
-    
+
     convenience init(imageName: String) {
         self.init()
-        setImage(UIImage.init(named: "\(imageName)_normal"), for: .normal)
-        setImage(UIImage.init(named: "\(imageName)_highlighted"), for: .highlighted)
-        setImage(UIImage.init(named: "\(imageName)_selected"), for: .selected)
+        setImage(UIImage(named: "\(imageName)_normal"), for: .normal)
+        setImage(UIImage(named: "\(imageName)_highlighted"), for: .highlighted)
+        setImage(UIImage(named: "\(imageName)_selected"), for: .selected)
         sizeToFit()
     }
+
     convenience init(image: UIImage?) {
         self.init()
         setImage(image, for: .normal)
     }
+
     convenience init(backgroundImageName: String) {
         self.init()
-        setBackgroundImage(UIImage.init(named: backgroundImageName), for: .normal)
+        setBackgroundImage(UIImage(named: backgroundImageName), for: .normal)
         sizeToFit()
     }
 }
+
 extension UIButton {
     @IBInspectable var regular: CGFloat {
         get {
             return 1
         }
         set {
-            self.titleLabel?.font = FontHelper.regular(newValue)
+            titleLabel?.font = FontHelper.regular(newValue)
         }
     }
-    
+
     @IBInspectable var light: CGFloat {
         get {
             return 1
         }
         set {
-            self.titleLabel?.font = FontHelper.light(newValue)
+            titleLabel?.font = FontHelper.light(newValue)
         }
     }
+
     @IBInspectable var medium: CGFloat {
         get {
             return 1
         }
         set {
-            self.titleLabel?.font = FontHelper.medium(newValue)
+            titleLabel?.font = FontHelper.medium(newValue)
         }
     }
+
     @IBInspectable var semibold: CGFloat {
         get {
             return 1
         }
         set {
-            self.titleLabel?.font = FontHelper.semibold(newValue)
+            titleLabel?.font = FontHelper.semibold(newValue)
         }
     }
+
 //    open override var isHighlighted: Bool {
 //        set {
 //            super.isHighlighted = newValue

@@ -6,15 +6,15 @@
 //  Copyright © 2018年 Pircate. All rights reserved.
 //
 
-import RxSwift
-import RxCocoa
 import MJRefresh
+import RxCocoa
+import RxSwift
 
 public extension Reactive where Base: MJRefreshComponent {
-    //正在刷新事件
+    // 正在刷新事件
     var refreshing: ControlEvent<Void> {
         let source: Observable<Void> = Observable.create {
-            [weak control = self.base] observer  in
+            [weak control = self.base] observer in
             if let control = control {
                 control.refreshingBlock = {
                     observer.on(.next(()))
@@ -27,16 +27,14 @@ public extension Reactive where Base: MJRefreshComponent {
 }
 
 public extension Reactive where Base: MJRefreshHeader {
-    
-    public var beginRefreshing: Binder<Void> {
+    var beginRefreshing: Binder<Void> {
         return Binder(base) { header, _ in
             header.beginRefreshing()
         }
     }
-    
-    public var isRefreshing: Binder<Bool> {
-        
-        return Binder(self.base) { header, refresh in
+
+    var isRefreshing: Binder<Bool> {
+        return Binder(base) { header, refresh in
             if refresh {
                 header.beginRefreshing()
             } else {
@@ -54,8 +52,8 @@ public extension Reactive where Base: MJRefreshHeader {
  */
 
 public extension Reactive where Base: MJRefreshFooter {
-    public var refreshState: Binder<FooterRefreshState> {
-        return Binder(self.base) { footer, state in
+    var refreshState: Binder<FooterRefreshState> {
+        return Binder(base) { footer, state in
             switch state {
             case .none:
                 footer.isHidden = true
@@ -70,13 +68,13 @@ public extension Reactive where Base: MJRefreshFooter {
     }
 }
 
-/// MARK: - 底部刷新状态
-public enum FooterRefreshState: Int,CustomStringConvertible {
-    
+// MARK: - 底部刷新状态
+
+public enum FooterRefreshState: Int, CustomStringConvertible {
     case normal
     case noMoreData
     case none
-    
+
     public var description: String {
         switch self {
         case .normal:

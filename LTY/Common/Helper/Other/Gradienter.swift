@@ -23,14 +23,14 @@ public struct Gradienter {
         case botomLeftToTopRight
         case custom(CGPoint, CGPoint)
     }
-    
+
     static func linearImage(from starColor: UIColor, to endColor: UIColor, direction: Direction = .leftToRight, size: CGSize = CGSize(width: 200, height: 200)) -> UIImage {
         defer {
             UIGraphicsEndImageContext()
         }
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [starColor.cgColor, endColor.cgColor]
-        gradientLayer.locations = [0,1]
+        gradientLayer.locations = [0, 1]
         switch direction {
         case .leftToRight:
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
@@ -44,7 +44,7 @@ public struct Gradienter {
         case .botomLeftToTopRight:
             gradientLayer.startPoint = CGPoint(x: 0, y: 1)
             gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        case .custom(let startPoint, let endPoint):
+        case let .custom(startPoint, endPoint):
             gradientLayer.startPoint = startPoint
             gradientLayer.endPoint = endPoint
         }
@@ -59,6 +59,4 @@ public struct Gradienter {
         }
         return image
     }
-    
-
 }

@@ -6,25 +6,23 @@
 //  Copyright © 2018年 gaoX. All rights reserved.
 //
 
-import RxSwift
 import RxCocoa
+import RxSwift
 extension ObservableType {
-    
     func map<T>(to element: T) -> Observable<T> {
         return map({ _ in element })
     }
-    
+
     func flatMap<T>(to element: Observable<T>) -> Observable<T> {
         return flatMap({ _ in element })
     }
 }
 
 extension Driver {
-    
     func map<T>(to element: T) -> SharedSequence<S, T> {
         return map({ _ in element })
     }
-    
+
     func flatMap<T>(to element: SharedSequence<S, T>) -> SharedSequence<S, T> {
         return flatMap({ _ in element })
     }

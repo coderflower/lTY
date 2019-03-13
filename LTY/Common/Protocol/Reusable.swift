@@ -16,19 +16,20 @@ extension Reusable {
         return String(describing: self)
     }
 }
+
 protocol SFReusable {
     static var SFreuseIdentifier: String { get }
 }
+
 extension SFReusable {
     static var SFreuseIdentifier: String {
         return String(describing: self)
     }
 }
+
 extension UIViewController: Reusable {}
 extension UITableViewCell: Reusable {}
 extension UITableViewHeaderFooterView: Reusable {}
 extension UICollectionReusableView: Reusable {}
 /// UICollectionViewCell 继承自 UICollectionReusableView
-//extension UICollectionViewCell: Reusable {}
-
-
+// extension UICollectionViewCell: Reusable {}

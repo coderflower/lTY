@@ -6,12 +6,12 @@
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
 
-import UIKit
 import CollectionKit
 import IQKeyboardManagerSwift
-import TZImagePickerController
-import RxSwift
 import RxCocoa
+import RxSwift
+import TZImagePickerController
+import UIKit
 class PublishViewController: NiblessViewController {
     private let viewModel = PublishViewModel()
     /// 用户输入标题
@@ -30,6 +30,7 @@ class PublishViewController: NiblessViewController {
         tf.leftViewMode = .always
         return tf
     }()
+
     /// 输入内容
     private lazy var contentTextView: IQTextView = {
         let textView = IQTextView()
@@ -41,6 +42,7 @@ class PublishViewController: NiblessViewController {
         view.addSubview(textView)
         return textView
     }()
+
     private lazy var collectionView: CollectionView = {
         let tmpView = CollectionView()
         view.addSubview(tmpView)
@@ -48,9 +50,10 @@ class PublishViewController: NiblessViewController {
         tmpView.provider = provider
         return tmpView
     }()
+
     /// 此处如果不用NSMutableArray,用swift 的 array 会闪退
-    private (set) var photos: NSMutableArray = NSMutableArray()
-    private (set) var assets: NSMutableArray = NSMutableArray()
+    private(set) var photos: NSMutableArray = NSMutableArray()
+    private(set) var assets: NSMutableArray = NSMutableArray()
     private lazy var imageHeight = (UIScreen.width - 30) / 3
     private let imagesSubject = BehaviorRelay<[Data]?>(value: nil)
     /// 添加图片
@@ -65,19 +68,18 @@ class PublishViewController: NiblessViewController {
                 self.updateCollectionView(photos: self.photos, assets: self.assets, originCount: self.photos.count)
             }
         })
-        let sizeSource = { (index: Int, data: PhotoModel, collectionSize: CGSize) -> CGSize in
-            return CGSize(width: self.imageHeight, height: self.imageHeight)
+        let sizeSource = { (_: Int, _: PhotoModel, _: CGSize) -> CGSize in
+            CGSize(width: self.imageHeight, height: self.imageHeight)
         }
         let provider = BasicProvider<PhotoModel, AddPhotoViewCell>(
             dataSource: dataSource,
             viewSource: viewSource,
-            sizeSource: sizeSource)
+            sizeSource: sizeSource
+        )
         provider.layout = FlowLayout(spacing: 5)
         return provider
     }()
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         titleField.becomeFirstResponder()
@@ -109,6 +111,7 @@ class PublishViewController: NiblessViewController {
         super.viewWillDisappear(animated)
         view.endEditing(true)
     }
+
     override func configureSubviews() {
         view.backgroundColor = ColorHelper.default.background
         titleField.snp.makeConstraints({
@@ -128,34 +131,35 @@ class PublishViewController: NiblessViewController {
             $0.bottom.equalToSuperview()
         })
     }
+
     override func configureNavigationBar() {
         //        navigation.item.title = "编辑记录"
         navigation.item.title = "添加日记"
         navigation.item.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"))
         navigation.item.rightBarButtonItem = UIBarButtonItem(title: "发布")
     }
+
     override func configureSignal() {
         guard let leftBarButtonItem = navigation.item.leftBarButtonItem,
             let rightBarButtonItem = navigation.item.rightBarButtonItem else {
-                return
+            return
         }
         leftBarButtonItem.rx.tap
             .bind(to: rx.goBack)
             .disposed(by: rx.disposeBag)
-        
+
         let input = PublishViewModel
             .Input(title: titleField.rx.text.orEmpty.asObservable(),
                    content: contentTextView.rx.text.asObservable(),
                    images: imagesSubject.asObservable(),
                    publishTap: rightBarButtonItem.rx.tap.asObservable())
-        
-        
+
         let output = viewModel.transform(input: input)
-        
+
         output.isPublishEnabled
             .bind(to: rightBarButtonItem.rx.isEnabled)
             .disposed(by: rx.disposeBag)
-        
+
         output.uploadState
             .drive(SFToast.rx.state)
             .disposed(by: rx.disposeBag)
@@ -165,26 +169,26 @@ class PublishViewController: NiblessViewController {
         }).drive(rx.goBack).disposed(by: rx.disposeBag)
     }
 }
+
 // MARK: - TZImagePickerControllerDelegate
+
 extension PublishViewController: TZImagePickerControllerDelegate {
-    func imagePickerController(_ picker: TZImagePickerController!, didFinishPickingPhotos photos: [UIImage]!, sourceAssets assets: [Any]!, isSelectOriginalPhoto: Bool) {
+    func imagePickerController(_: TZImagePickerController!, didFinishPickingPhotos photos: [UIImage]!, sourceAssets assets: [Any]!, isSelectOriginalPhoto _: Bool) {
         let originCount = self.photos.count
         self.photos.removeAllObjects()
         self.assets.removeAllObjects()
         self.photos.addObjects(from: photos)
         self.assets.addObjects(from: assets)
         updateCollectionView(photos: self.photos, assets: self.assets, originCount: originCount)
-        
     }
-    
-    private func updateCollectionView(photos: NSMutableArray, assets: NSMutableArray, originCount: Int) {
-        
+
+    private func updateCollectionView(photos: NSMutableArray, assets _: NSMutableArray, originCount _: Int) {
         if let photos = photos as? [UIImage] {
             /// 完成添加图片 , compactMap 过滤 nil
-            imagesSubject.accept(photos.compactMap{$0.pngData()})
+            imagesSubject.accept(photos.compactMap { $0.pngData() })
         }
-        
-        var models = photos.map({PhotoModel(image: $0 as? UIImage)})
+
+        var models = photos.map({ PhotoModel(image: $0 as? UIImage) })
         if models.count < 9 {
             models.append(PhotoModel())
         }

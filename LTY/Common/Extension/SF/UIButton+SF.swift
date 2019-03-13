@@ -7,9 +7,8 @@
 //
 
 import UIKit
-extension SFExtension where Base: UIButton{
+extension SFExtension where Base: UIButton {
     func setBackgroundColor(_ color: UIColor, for state: UIControl.State...) {
-        state.forEach({base.setBackgroundImage(UIImage.sf.image(color), for: $0)})
-        
+        state.forEach({ base.setBackgroundImage(UIImage.sf.image(color), for: $0) })
     }
 }

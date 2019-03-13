@@ -9,7 +9,6 @@
 import UIKit
 
 class WebViewController: NiblessViewController {
-    
     lazy var webView: UIWebView = {
         let tmpView = UIWebView()
         tmpView.delegate = self
@@ -17,11 +16,13 @@ class WebViewController: NiblessViewController {
         view.addSubview(tmpView)
         return tmpView
     }()
+
     private let url: String
     init(url: String) {
         self.url = url
         super.init(nibName: nil, bundle: nil)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,13 +33,12 @@ class WebViewController: NiblessViewController {
         } else {
             SFToast.show(info: "url访问错误")
         }
-        
     }
-    
+
     func loadLocal(html: String) {
         webView.loadHTMLString(html, baseURL: nil)
     }
-    
+
     override func configureSubviews() {
         webView.snp.makeConstraints({
             $0.top.equalTo(navigation.bar.snp.bottom)
@@ -46,23 +46,23 @@ class WebViewController: NiblessViewController {
         })
     }
 }
+
 extension WebViewController: UIWebViewDelegate {
-    func webViewDidStartLoad(_ webView: UIWebView) {
+    func webViewDidStartLoad(_: UIWebView) {
         myLog("开始加载")
         SFToast.loading()
     }
-    
+
     func webViewDidFinishLoad(_ webView: UIWebView) {
         myLog("加载完成")
         SFToast.hideActivity()
         let title = webView.stringByEvaluatingJavaScript(from: "document.title")
         navigation.item.title = title
     }
-    
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+
+    func webView(_: UIWebView, didFailLoadWithError error: Error) {
         SFToast.hideActivity()
         SFToast.show(info: "网络加载失败")
         myLog("加载失败\(error.localizedDescription)")
     }
 }
-

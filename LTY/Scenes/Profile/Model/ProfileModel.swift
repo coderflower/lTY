@@ -13,14 +13,13 @@ struct ProfileModel {
     let subTitle: String?
     let accessoryType: AccessoryType
     let actionType: ActionType
-    enum AccessoryType : Int {
-        
+    enum AccessoryType: Int {
         case none // don't show any accessory view
-        
+
         case disclosureIndicator // regular chevron. doesn't track
-        
     }
-    enum ActionType : String {
+
+    enum ActionType: String {
         /// 打开所有日记
         case diary
         /// 设置密码
@@ -30,6 +29,7 @@ struct ProfileModel {
         /// 关于我们
         case about
     }
+
     init(title: String,
          subTitle: String? = nil,
          accessoryType: AccessoryType = .disclosureIndicator,

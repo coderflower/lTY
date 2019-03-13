@@ -6,13 +6,13 @@
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import CollectionKit
-import SKPhotoBrowser
-import RxSwift
-import WCDBSwift
+import Foundation
 import RxCocoa
+import RxSwift
+import SKPhotoBrowser
+import UIKit
+import WCDBSwift
 final class HomeViewCellViewModel {
     lazy var condition = HomeModel.Properties.identifier == (model.identifier ?? 0)
     private let model: HomeModel
@@ -39,64 +39,63 @@ final class HomeViewCellViewModel {
     static let space: CGFloat = 5
     init(_ model: HomeModel) {
         self.model = model
-        self.title = model.title
-        self.isHiddenContent = model.content != nil
-        self.timeString = HomeViewCellViewModel.formatDate(model.createTime)
-        let images = model.images?.compactMap({UIImage(data: $0)})
+        title = model.title
+        isHiddenContent = model.content != nil
+        timeString = HomeViewCellViewModel.formatDate(model.createTime)
+        let images = model.images?.compactMap({ UIImage(data: $0) })
         self.images = images ?? []
-        self.isHiddenPhotoView = images?.count == 0
-        (self.cellHeight, self.textHeight) = HomeViewCellViewModel.calculateViewHeight(content: model.content, imagesCount: images?.count ?? 0)
+        isHiddenPhotoView = images?.count == 0
+        (cellHeight, textHeight) = HomeViewCellViewModel.calculateViewHeight(content: model.content, imagesCount: images?.count ?? 0)
         self.provider = HomeViewCellViewModel.createProvider(images: images, content: model.content)
         if let content = model.content {
             let attributed = TextSizeHelper.fixLineHeightAttributed(5, font: UIFont.systemFont(ofSize: 15))
-            self.attributedText = NSAttributedString(string: content, attributes: attributed)
+            attributedText = NSAttributedString(string: content, attributes: attributed)
         } else {
-            self.attributedText = nil
+            attributedText = nil
         }
-        
-        guard let provider = provider else  {
+
+        guard let provider = provider else {
             return
         }
-        
-        provider.tapHandler = { (tap) in
-            let photos = model.images?.compactMap{UIImage(data: $0)}
-            guard let images = photos?.compactMap({SKPhoto.photoWithImage($0)}) else {return}
+
+        provider.tapHandler = { tap in
+            let photos = model.images?.compactMap { UIImage(data: $0) }
+            guard let images = photos?.compactMap({ SKPhoto.photoWithImage($0) }) else { return }
             let browser = SKPhotoBrowser(photos: images)
             browser.initializePageIndex(tap.index)
             UIApplication.shared.sf.navigationController?.present(browser, animated: true, completion: {})
         }
     }
-    
 
     /// 图片布局,
-    static func caluclateSizeSource(imagesCount: Int) -> (Int, UIImage, CGSize) -> CGSize{
-        return { (index: Int, data: UIImage, collectionSize: CGSize) -> CGSize in            
-            
+    static func caluclateSizeSource(imagesCount: Int) -> (Int, UIImage, CGSize) -> CGSize {
+        return { (_: Int, _: UIImage, collectionSize: CGSize) -> CGSize in
+
             switch imagesCount {
             case 1:
                 return CGSize(width: collectionSize.width, height: singleItemHeight)
-            case 2,3,4:
+            case 2, 3, 4:
                 return CGSize(width: doubleItemHeight, height: doubleItemHeight)
             default:
                 return CGSize(width: itemHeight, height: itemHeight)
             }
         }
     }
-    
+
     static func createProvider(images: [UIImage]?, content: String?) -> BasicProvider<UIImage, UIImageView>? {
         guard let images = images, !images.isEmpty else {
             return nil
         }
         let dataSource = ArrayDataSource<UIImage>(data: images)
         let sizeSource = caluclateSizeSource(imagesCount: images.count)
-        let viewSource = ClosureViewSource(viewGenerator: { (data, index) -> UIImageView in
+        let viewSource = ClosureViewSource(viewGenerator: { (_, _) -> UIImageView in
             let imageView = UIImageView()
             imageView.borderWidth = 1
             imageView.borderColor = ColorHelper.default.background
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             return imageView
-        }, viewUpdater: {(view: UIImageView, data: UIImage, at: Int) in
+        }, viewUpdater: { (view: UIImageView, data: UIImage, _: Int) in
             view.image = data
         })
         let provider = BasicProvider(dataSource: dataSource, viewSource: viewSource, sizeSource: sizeSource)
@@ -106,29 +105,29 @@ final class HomeViewCellViewModel {
         } else {
             provider.layout = FlowLayout(spacing: 5).inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         }
-        
-        
+
         return provider
     }
+
     static let formatter = DateFormatter()
     static func formatDate(_ date: Date) -> String {
         if date.isToday {
-            //是今天
+            // 是今天
             formatter.dateFormat = "今天 HH:mm"
             return formatter.string(from: date)
-        }else if date.isYesterday{
-            //是昨天
+        } else if date.isYesterday {
+            // 是昨天
             formatter.dateFormat = "昨天 HH:mm"
             return formatter.string(from: date)
         } else if date.isTheSameYear {
             formatter.dateFormat = "M月-d日 HH:mm"
             return formatter.string(from: date)
-        } else{
+        } else {
             formatter.dateFormat = "yyyy年-M月-d日 HH:mm"
             return formatter.string(from: date)
         }
     }
-    
+
     /// 计算 view 高度
     static func calculateViewHeight(content: String?, imagesCount: Int = 0) -> (cellHeight: CGFloat, textHeigh: CGFloat) {
         var height: CGFloat = 50
@@ -151,7 +150,7 @@ final class HomeViewCellViewModel {
             imageHeight = doubleItemHeight
         case 3, 4:
             imageHeight = doubleItemHeight * 2 + space
-        case 5 , 6:
+        case 5, 6:
             /// 图片距离文字底部间距
             /// 2个 item 高度, 间距5
             imageHeight = (itemHeight * 2 + space)
@@ -171,21 +170,22 @@ final class HomeViewCellViewModel {
     }
 }
 
-
 extension HomeViewCellViewModel: ViewModelType {
     struct Input {
         let deleteTap: Observable<Void>
     }
+
     struct Output {
         let result: Driver<Bool>
         let deleteState: Driver<UIState>
     }
+
     func transform(input: HomeViewCellViewModel.Input) -> HomeViewCellViewModel.Output {
         let deleteState = State()
         let result = input.deleteTap.withLatestFrom(Observable.just(model)).flatMapLatest({
             HTTPService.shared.delete(item: $0, where: self.condition).trackState(deleteState).asDriverOnErrorJustComplete()
         }).asDriverOnErrorJustComplete()
-       
+
         return Output(result: result,
                       deleteState: deleteState.asDriver(onErrorJustReturn: .idle))
     }

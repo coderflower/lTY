@@ -16,12 +16,12 @@ protocol ControllerConfigurable {
     /// transform input to output
     func configureSignal()
 }
+
 extension ControllerConfigurable {
     /// 配置子控件
-    func configureSubviews(){}
+    func configureSubviews() {}
     /// 配置导航栏
-    func configureNavigationBar(){}
+    func configureNavigationBar() {}
     /// transform input to output
-    func configureSignal(){}
+    func configureSignal() {}
 }
-

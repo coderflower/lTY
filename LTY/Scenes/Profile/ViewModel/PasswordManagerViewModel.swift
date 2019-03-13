@@ -7,26 +7,22 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 final class PasswordManagerViewModel {
     func transform(input: Input) -> Output {
-        
-        
-        let isHiddenChangeView = input.isOn.map({!$0})
-        
-        
-        
+        let isHiddenChangeView = input.isOn.map({ !$0 })
+
         return Output(isHiddenChangeView: isHiddenChangeView)
     }
 }
 
 extension PasswordManagerViewModel: ViewModelType {
-    
     struct Input {
         let isOn: Observable<Bool>
         let changePasswordTap: Observable<Void>
     }
+
     struct Output {
         let isHiddenChangeView: Observable<Bool>
     }

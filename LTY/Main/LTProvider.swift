@@ -6,6 +6,5 @@
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
 
-import Foundation
 import CollectionKit
-
+import Foundation

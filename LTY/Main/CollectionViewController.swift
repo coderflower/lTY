@@ -6,9 +6,9 @@
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
 
-import UIKit
 import CollectionKit
 import MJRefresh
+import UIKit
 class CollectionViewController: NiblessViewController {
     private lazy var collectionView: CollectionView = {
         let tmpView = CollectionView()
@@ -16,7 +16,7 @@ class CollectionViewController: NiblessViewController {
         let header = MJRefreshNormalHeader()
         header.lastUpdatedTimeLabel.isHidden = true
         tmpView.mj_header = header
-        //设置尾部刷新控件
+        // 设置尾部刷新控件
         tmpView.mj_footer = MJRefreshBackNormalFooter()
         /// 包装空数据 provider
         let emptyImageView = UIImageView(image: UIImage(named: "home_empty"))
@@ -25,15 +25,16 @@ class CollectionViewController: NiblessViewController {
         tmpView.provider = emptyProvider
         return tmpView
     }()
+
     let provider: CollectionKit.Provider
     init(provider: CollectionKit.Provider) {
         self.provider = provider
         super.init(nibName: nil, bundle: nil)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
     }
 
     override func configureSubviews() {
@@ -43,6 +44,4 @@ class CollectionViewController: NiblessViewController {
             $0.top.equalTo(navigation.bar.snp.bottom)
         })
     }
-    
 }
-

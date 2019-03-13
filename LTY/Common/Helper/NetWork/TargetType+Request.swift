@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import RxSwift
 import Moya
+import RxSwift
 
 extension TargetType {
     func request() -> Single<Response> {

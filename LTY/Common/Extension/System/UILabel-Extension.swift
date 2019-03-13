@@ -9,15 +9,14 @@
 import UIKit
 
 extension UILabel {
-    convenience init(_ text: String? = nil, font: UIFont = FontHelper.regular(12), color: UIColor = UIColor.init(hex: "333333"), textAlignment: NSTextAlignment = .center) {
+    convenience init(_ text: String? = nil, font: UIFont = FontHelper.regular(12), color: UIColor = UIColor(hex: "333333"), textAlignment: NSTextAlignment = .center) {
         self.init()
         self.text = text
         self.font = font
-        self.textColor = color
-        self.sizeToFit()
+        textColor = color
+        sizeToFit()
         self.textAlignment = textAlignment
     }
-    
 }
 
 extension UILabel {
@@ -30,7 +29,7 @@ extension UILabel {
         paragraphStyle.minimumLineHeight = lineSpacing
         let baselineOffset = lineSpacing / 4
         return [.paragraphStyle: paragraphStyle,
-                .baselineOffset: baselineOffset,]
+                .baselineOffset: baselineOffset]
     }
 }
 
@@ -49,33 +48,34 @@ extension UILabel {
             return 1
         }
         set {
-            self.font = FontHelper.regular(newValue)
+            font = FontHelper.regular(newValue)
         }
     }
-    
+
     @IBInspectable var light: CGFloat {
         get {
             return 1
         }
         set {
-            self.font = FontHelper.light(newValue)
+            font = FontHelper.light(newValue)
         }
     }
+
     @IBInspectable var medium: CGFloat {
         get {
             return 1
         }
         set {
-            self.font = FontHelper.medium(newValue)
+            font = FontHelper.medium(newValue)
         }
     }
+
     @IBInspectable var semibold: CGFloat {
         get {
             return 1
         }
         set {
-            self.font = FontHelper.semibold(newValue)
+            font = FontHelper.semibold(newValue)
         }
     }
-    
 }

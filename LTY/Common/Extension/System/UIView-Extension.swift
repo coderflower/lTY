@@ -8,12 +8,12 @@
 
 import UIKit
 
-
 extension UIView {
     convenience init(_ backgroundColor: UIColor = UIColor.white) {
         self.init()
         self.backgroundColor = backgroundColor
     }
+
 //    //将当前视图转为UIImage
 //    func asImage() -> UIImage {
 //        if #available(iOS 10.0, *) {
@@ -27,16 +27,16 @@ extension UIView {
 //    }
 }
 
-
 extension UIView {
     @IBInspectable var borderColor: UIColor {
         set {
             layer.borderColor = newValue.cgColor
         }
         get {
-             return UIColor(cgColor: layer.borderColor ?? UIColor.white.cgColor)
+            return UIColor(cgColor: layer.borderColor ?? UIColor.white.cgColor)
         }
     }
+
     @IBInspectable var borderWidth: CGFloat {
         set {
             layer.borderWidth = newValue
@@ -45,6 +45,7 @@ extension UIView {
             return layer.borderWidth
         }
     }
+
     @IBInspectable var cornerRadius: CGFloat {
         set {
             layer.masksToBounds = newValue > 0

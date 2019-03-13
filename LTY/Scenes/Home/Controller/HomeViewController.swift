@@ -6,10 +6,9 @@
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
 
-import UIKit
 import RxCocoa
+import UIKit
 class HomeViewController: ItemViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -29,6 +28,7 @@ class HomeViewController: ItemViewController {
         navigation.item.title = "今日列表"
         navigation.item.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     }
+
     override func configureSignal() {
         super.configureSignal()
         navigation.item.rightBarButtonItem?.rx.tap.asObservable().bind(to: publishTap).disposed(by: rx.disposeBag)
@@ -36,18 +36,17 @@ class HomeViewController: ItemViewController {
 }
 
 extension HomeViewController {
-    
     var publishTap: Binder<Void> {
-        return Binder(self) {this ,_ in
+        return Binder(self) { this, _ in
             /// 执行操作
             let publish = PublishViewController()
-            let nav = SFNavigationController(rootViewController:publish)
-            this.present(nav,animated: true, completion: nil)
+            let nav = SFNavigationController(rootViewController: publish)
+            this.present(nav, animated: true, completion: nil)
         }
     }
-    
+
     var shouldRefreshNotification: Binder<Notification> {
-        return Binder(self) {this ,_ in
+        return Binder(self) { this, _ in
             this.collectionView.mj_header.beginRefreshing()
         }
     }

@@ -7,26 +7,24 @@
 //  fork https://github.com/RxSwiftCommunity/NSObject-Rx
 
 import Foundation
-import RxSwift
-import RxCocoa
 import ObjectiveC
+import RxCocoa
+import RxSwift
 
-
-fileprivate var disposeBagContext: UInt8 = 0
+private var disposeBagContext: UInt8 = 0
 
 extension Reactive where Base: AnyObject {
-    func synchronizedBag<T>( _ action: () -> T) -> T {
-        objc_sync_enter(self.base)
+    func synchronizedBag<T>(_ action: () -> T) -> T {
+        objc_sync_enter(base)
         let result = action()
-        objc_sync_exit(self.base)
+        objc_sync_exit(base)
         return result
     }
 }
 
 public extension Reactive where Base: AnyObject {
-    
     /// a unique DisposeBag that is related to the Reactive.Base instance only for Reference type
-    public var disposeBag: DisposeBag {
+    var disposeBag: DisposeBag {
         get {
             return synchronizedBag {
                 if let disposeObject = objc_getAssociatedObject(base, &disposeBagContext) as? DisposeBag {
@@ -37,7 +35,7 @@ public extension Reactive where Base: AnyObject {
                 return disposeObject
             }
         }
-        
+
         set {
             synchronizedBag {
                 objc_setAssociatedObject(base, &disposeBagContext, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -45,6 +43,3 @@ public extension Reactive where Base: AnyObject {
         }
     }
 }
-
-
-

@@ -14,16 +14,16 @@ final class PhotoWallViewCellViewModel {
     let createTimeString: String
     let image: UIImage?
     let images: [UIImage]
-    init(_ model: HomeModel ) {
+    init(_ model: HomeModel) {
         self.model = model
-        self.title = model.title
+        title = model.title
         if let images = model.images {
-            self.images = images.compactMap({UIImage(data: $0)})
-            self.image = self.images.first
+            self.images = images.compactMap({ UIImage(data: $0) })
+            image = self.images.first
         } else {
-            self.images = []
-            self.image = nil
+            images = []
+            image = nil
         }
-        self.createTimeString = HomeViewCellViewModel.formatDate(model.createTime)
+        createTimeString = HomeViewCellViewModel.formatDate(model.createTime)
     }
 }
