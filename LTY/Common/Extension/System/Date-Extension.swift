@@ -38,7 +38,7 @@ extension Date {
             .component(Calendar.Component.day, from: self)
     }
     var isToday: Bool {
-        let calendar = Calendar.current
+        let calendar = Calendar.init(identifier: .gregorian)
         let unit: Set<Calendar.Component> = [.day, .month, .year]
         let nowComps = calendar.dateComponents(unit, from: Date())
         let selfCmps = calendar.dateComponents(unit, from: self)
@@ -49,7 +49,7 @@ extension Date {
     }
 
     var isYesterday: Bool {
-        let calendar = Calendar.current
+        let calendar = Calendar.init(identifier: .gregorian)
         // 当前时间
         let nowComponents = calendar.dateComponents([.day], from: Date())
         // self
@@ -59,7 +59,7 @@ extension Date {
     }
 
     var isTheSameYear: Bool {
-        let calendar = Calendar.current
+        let calendar = Calendar.init(identifier: .gregorian)
         let unit: Set<Calendar.Component> = [.day, .month, .year]
         let nowComps = calendar.dateComponents(unit, from: Date())
         let selfCmps = calendar.dateComponents(unit, from: self)
@@ -68,7 +68,7 @@ extension Date {
 
     /// 获取对应时间的零点时间..
     var morningDate: Date {
-        let calendar = Calendar.current
+        let calendar = Calendar.init(identifier: .gregorian)
         let components = calendar.dateComponents([.year, .month, .day], from: self)
         return (calendar.date(from: components))!
     }

@@ -51,7 +51,9 @@ extension HTTPService {
             table,
             offset: from.count,
             pagesize: pagesize,
-            state: state
+            state: state,
+            on: propertyConvertibleList,
+            where: condition
         ).flatMapLatest {
             Observable.concat([
                 Observable.just(ListDataHelper<HomeModel>(items: from + $0.items, offset: $0.offset)),
