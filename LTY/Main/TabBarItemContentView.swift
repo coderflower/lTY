@@ -13,11 +13,11 @@ final class TabBarItemContentView: ESTabBarItemContentView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         textColor = UIColor.white
-        highlightTextColor = ColorHelper.default.theme
+        highlightTextColor = UIColor.white
         iconColor = UIColor.white
-        highlightIconColor = ColorHelper.default.theme
-        backdropColor = UIColor(hex: "0A425B")
-        highlightBackdropColor = UIColor(hex: "0A425B")
+        highlightIconColor = UIColor.white
+        backdropColor = ColorHelper.default.theme
+        highlightBackdropColor = ColorHelper.default.theme
     }
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -29,7 +29,7 @@ class LarityContentView: ESTabBarItemContentView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.imageView.backgroundColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
+        self.imageView.backgroundColor = ColorHelper.default.theme
         self.imageView.layer.borderWidth = 3.0
         self.imageView.layer.borderColor = UIColor.init(white: 235 / 255.0, alpha: 1.0).cgColor
         self.imageView.layer.cornerRadius = 35

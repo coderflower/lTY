@@ -80,10 +80,11 @@ class PublishViewController: NiblessViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        titleField.becomeFirstResponder()
         // Do any additional setup after loading the view.
         /// 图片点击事件
         provider.tapHandler = { [weak self] tap in
+            self?.view.endEditing(true)
             guard let self = self else {
                 return
             }
@@ -103,10 +104,7 @@ class PublishViewController: NiblessViewController {
             self.navigationController?.present(imagePicker, animated: true, completion: nil)
         }
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        titleField.becomeFirstResponder()
-    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         view.endEditing(true)

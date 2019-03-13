@@ -96,6 +96,11 @@ public struct DBManager {
             myLog("初始化数据库及ORMb对应关系建立失败")
         }
     }
+    func createTable<T>(dataBase: SFDataBase, table: TableProtocol = SFTable.main, rootType: T.Type) throws where T : TableDecodable{
+        try dataBase.db.run(transaction: {
+            try dataBase.db.create(table: table.name, of: rootType.self)
+        })
+    }
 }
 
 

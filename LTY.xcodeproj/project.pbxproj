@@ -1286,6 +1286,7 @@
 			baseConfigurationReference = 293A8661A51BB5A055D196DD /* Pods-LTY.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVF4WB423W;
 				INFOPLIST_FILE = LTY/Info.plist;
@@ -1306,6 +1307,7 @@
 			baseConfigurationReference = CA6A4058C100080C23A0B791 /* Pods-LTY.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVF4WB423W;
 				INFOPLIST_FILE = LTY/Info.plist;

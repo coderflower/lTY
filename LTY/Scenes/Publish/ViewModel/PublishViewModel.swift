@@ -21,7 +21,10 @@ final class PublishViewModel {
         let uploadState = State()
         
         let result = input.publishTap.withLatestFrom(parameters).flatMapFirst({
-            self.upload(title: $0.title, content: $0.content, photos: $0.photos).trackState(uploadState).catchErrorJustComplete()
+            HTTPService.shared
+                .insert(objects: [HomeModel(title: $0.title, content: $0.content, images: $0.photos)])
+                .trackState(uploadState)
+                .catchErrorJustComplete()
         }).asDriverOnErrorJustComplete()
         return Output(isPublishEnabled: isPublishEnabled, result: result, uploadState: uploadState.asDriver(onErrorJustReturn: .idle))
     }

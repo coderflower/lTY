@@ -29,7 +29,7 @@ final class HomeViewModel {
                     pagesize: self.pagesize,
                     state: refreshState,
                     where: self.condition)
-            }.shareOnce()
+            }.catchErrorJustComplete().shareOnce()
         
         let dataSource = items.map({
             $0.items.map({HomeViewCellViewModel($0)})

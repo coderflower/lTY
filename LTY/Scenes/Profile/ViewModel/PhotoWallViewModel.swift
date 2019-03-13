@@ -26,7 +26,7 @@ final class PhotoWallViewModel {
                     pagesize: self.pagesize,
                     state: refreshState,
                     where: self.condition)
-            }.shareOnce()
+            }.catchErrorJustComplete().shareOnce()
         
         
         /// 过滤没有图片的

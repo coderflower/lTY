@@ -35,11 +35,12 @@ extension HTTPService {
                 observable.onNext(ListDataHelper<HomeModel>(items: objects, offset: offset + pagesize))
                 observable.onCompleted()
             } catch  {
-                observable.onNext(ListDataHelper<HomeModel>(items: [], offset: offset))
                 observable.onError(error)
             }
             return Disposables.create()
         })
+            .trackState(state)
+            .catchErrorJustReturn(ListDataHelper<HomeModel>(items: [], offset: offset))
     }
     
     func fethcItems(_ table:TableProtocol,
@@ -69,6 +70,19 @@ extension HTTPService {
                         where: condition)
                     ])
         }
+    }
+    
+    public func insert<T: TableCodable>(objects: [T], on propertyConvertibleList: [PropertyConvertible]? = nil, intoTable table:TableProtocol = SFTable.main) -> Observable<Bool> {
+        return Observable.create({ (observable) -> Disposable in
+            do {
+                try table.dataBase.insert(objects: objects, on: propertyConvertibleList, intoTable: table.name)
+                observable.onNext(true)
+                observable.onCompleted()
+            } catch {
+                observable.onError(error)
+            }
+            return Disposables.create()
+        })
     }
 }
 

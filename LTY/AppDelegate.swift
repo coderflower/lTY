@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         initWindow()
         configKeyboard()
+//        try? DBManager.shared.createTable(dataBase: SFDataBase.main, rootType: HomeModel.self)
         return true
     }
 
