@@ -75,9 +75,9 @@ extension ProfileViewController: Actionable {
     private func toComment() {
         let urlString: String
         if #available(iOS 11.0, *) {
-            urlString = "itms-apps://itunes.apple.com/cn/app/id1421830286?mt=8&action=write-review"
+            urlString = "itms-apps://itunes.apple.com/cn/app/id1455955058?mt=8&action=write-review"
         } else {
-            urlString = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1421830286"
+            urlString = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1455955058"
         }
         guard let url = URL(string: urlString),UIApplication.shared.canOpenURL(url)  else {
             return
