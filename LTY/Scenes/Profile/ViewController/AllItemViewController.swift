@@ -11,9 +11,17 @@ import CollectionKit
 import MJRefresh
 import RxCocoa
 
-class AllItemViewController: HomeViewController {
+class AllItemViewController: ItemViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        provider.tapHandler = { [weak self]tap in
+            let vc = DetailViewController(tap.data){ [weak self] in
+                self?.collectionView.mj_header.beginRefreshing()
+            }
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     override func configureNavigationBar() {

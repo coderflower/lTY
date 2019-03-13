@@ -13,7 +13,7 @@ import WCDBSwift
 final class HomeViewModel {
     private let pagesize: Int
     private let condition: Condition?
-    init(pageSize: Int = 2, condition: Condition? = nil) {
+    init(pageSize: Int = 5, condition: Condition? = nil) {
         self.pagesize = pageSize
         self.condition = condition
     }

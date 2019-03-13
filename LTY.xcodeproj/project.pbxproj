@@ -84,6 +84,9 @@
 		B84EA6842237EFEB00EEC0ED /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA6822237EFEB00EEC0ED /* AboutViewController.swift */; };
 		B84EA6852237EFEB00EEC0ED /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B84EA6832237EFEB00EEC0ED /* AboutViewController.xib */; };
 		B84EA6872237F6F700EEC0ED /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA6862237F6F700EEC0ED /* WebViewController.swift */; };
+		B84EA6892238B9B200EEC0ED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA6882238B9B200EEC0ED /* DetailViewController.swift */; };
+		B84EA68C2238B9FC00EEC0ED /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA68B2238B9FC00EEC0ED /* CollectionViewController.swift */; };
+		B84EA68E2238CD7E00EEC0ED /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA68D2238CD7E00EEC0ED /* ItemViewController.swift */; };
 		B85BAFE02233F3CE00264125 /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BAFDF2233F3CE00264125 /* FPSLabel.swift */; };
 		B85BAFE22233FDF200264125 /* NotifyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BAFE12233FDF200264125 /* NotifyHelper.swift */; };
 		B894B06222324D0D00036A19 /* AddPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */; };
@@ -231,6 +234,9 @@
 		B84EA6822237EFEB00EEC0ED /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B84EA6832237EFEB00EEC0ED /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		B84EA6862237F6F700EEC0ED /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		B84EA6882238B9B200EEC0ED /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B84EA68B2238B9FC00EEC0ED /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		B84EA68D2238CD7E00EEC0ED /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		B85BAFDF2233F3CE00264125 /* FPSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		B85BAFE12233FDF200264125 /* NotifyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyHelper.swift; sourceTree = "<group>"; };
 		B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewCell.swift; sourceTree = "<group>"; };
@@ -399,6 +405,7 @@
 				B8457BCF2230BE5C006EC51F /* TabBarItemContentView.swift */,
 				B8457BB422300B24006EC51F /* SFNavigationController.swift */,
 				B8249C7722377B6D007C67A6 /* UserService.swift */,
+				B84EA68B2238B9FC00EEC0ED /* CollectionViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -460,6 +467,7 @@
 		B8457BA52230091F006EC51F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B84EA68D2238CD7E00EEC0ED /* ItemViewController.swift */,
 				B8457BAA22300A40006EC51F /* HomeViewController.swift */,
 			);
 			path = Controller;
@@ -494,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				B8457BB022300A94006EC51F /* ProfileViewController.swift */,
+				B84EA6882238B9B200EEC0ED /* DetailViewController.swift */,
 				B8DA1D9F22364CB8005464F3 /* AllItemViewController.swift */,
 				B8DA1DAC22369B37005464F3 /* PassworManagerViewController.swift */,
 				B8DA1DAD22369B37005464F3 /* PassworManagerViewController.xib */,
@@ -1037,6 +1046,7 @@
 				B8457C232230CADC006EC51F /* HTTPService+Rx.swift in Sources */,
 				B894B06722324EF700036A19 /* NiblessView.swift in Sources */,
 				B8457BEE2230CA2B006EC51F /* UICollectionView+SF.swift in Sources */,
+				B84EA68C2238B9FC00EEC0ED /* CollectionViewController.swift in Sources */,
 				B8457B72223003E4006EC51F /* AppDelegate.swift in Sources */,
 				B85BAFE02233F3CE00264125 /* FPSLabel.swift in Sources */,
 				B8457BC922300CD7006EC51F /* RegexHelper.swift in Sources */,
@@ -1058,6 +1068,7 @@
 				B894B0832232825600036A19 /* String-Extension.swift in Sources */,
 				B85BAFE22233FDF200264125 /* NotifyHelper.swift in Sources */,
 				B8DA1D9A22362D09005464F3 /* SetPasswordViewModel.swift in Sources */,
+				B84EA68E2238CD7E00EEC0ED /* ItemViewController.swift in Sources */,
 				B8457C092230CA66006EC51F /* UIResponder+Rx.swift in Sources */,
 				B8457BC622300CD7006EC51F /* Gradienter.swift in Sources */,
 				B8249C7822377B6D007C67A6 /* UserService.swift in Sources */,
@@ -1079,6 +1090,7 @@
 				B8DA1D872236129E005464F3 /* ProfileViewModel.swift in Sources */,
 				B894B0872232AC4200036A19 /* HomeItemViewCell.swift in Sources */,
 				B894B0912232B99100036A19 /* Date-Extension.swift in Sources */,
+				B84EA6892238B9B200EEC0ED /* DetailViewController.swift in Sources */,
 				B894B0792232529B00036A19 /* Sequence+Extension.swift in Sources */,
 				B8457BD92230C716006EC51F /* Toastable.swift in Sources */,
 				B8457BB522300B24006EC51F /* SFNavigationController.swift in Sources */,

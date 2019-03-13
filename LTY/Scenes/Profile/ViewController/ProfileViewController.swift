@@ -64,7 +64,7 @@ extension ProfileViewController: Actionable {
             }
         case .diary:
             showAlert { [weak self] in
-                self?.navigate(to: AllItemViewController(HomeViewModel(pageSize: 1)))
+                self?.navigate(to: AllItemViewController(HomeViewModel(pageSize: 5)))
             }
         }
     }

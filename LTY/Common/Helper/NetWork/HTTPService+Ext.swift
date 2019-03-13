@@ -84,8 +84,20 @@ extension HTTPService {
             return Disposables.create()
         })
     }
+    
+    func delete(item: HomeModel, where condition: Condition?) -> Observable<Bool>{
+        myLog(item.identifier)
+        return Observable.create { (observable) -> Disposable in
+            do {
+                try SFTable.main.dataBase.delete(fromTable: SFTable.main.name, where:condition)
+                observable.onNext(true)
+                observable.onCompleted()
+            } catch {
+                observable.onError(error)
+            }
+            return Disposables.create()
+        }
+    }
 }
-
-
 
 

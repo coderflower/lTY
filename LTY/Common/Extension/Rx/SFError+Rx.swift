@@ -25,7 +25,7 @@ extension Swift.Error {
 
 extension WCDBSwift.Error: SFError {
     var errorMessage: String {
-        return type.description
+        return message ?? "数据库失败"
     }
 }
 

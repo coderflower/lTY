@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 import CollectionKit
 import SKPhotoBrowser
+import RxSwift
+import WCDBSwift
+import RxCocoa
 final class HomeViewCellViewModel {
     private let model: HomeModel
     /// item 高度
@@ -24,7 +27,10 @@ final class HomeViewCellViewModel {
     let timeString: String
     /// 内容
     let attributedText: NSAttributedString?
+    /// 图片
+    let images: [UIImage]
     let provider: BasicProvider<UIImage, UIImageView>?
+    lazy var condition = HomeModel.Properties.identifier.intValue == model.identifier
     static let maxWidth: CGFloat = (UIScreen.width - 40)
     static let singleItemHeight: CGFloat = CGFloat(floor(Float(maxWidth * 0.5)))
     static let doubleItemHeight: CGFloat = CGFloat(floor(Float(maxWidth * 0.4)))
@@ -36,6 +42,7 @@ final class HomeViewCellViewModel {
         self.isHiddenContent = model.content != nil
         self.timeString = HomeViewCellViewModel.formatDate(model.createTime)
         let images = model.images?.compactMap({UIImage(data: $0)})
+        self.images = images ?? []
         self.isHiddenPhotoView = images?.count == 0
         self.cellHeight = HomeViewCellViewModel.calculateViewHeight(content: model.content, imagesCount: images?.count ?? 0)
         self.provider = HomeViewCellViewModel.createProvider(images: images, content: model.content)
@@ -59,7 +66,7 @@ final class HomeViewCellViewModel {
         }
     }
     
-    
+
     /// 图片布局,
     static func caluclateSizeSource(imagesCount: Int) -> (Int, UIImage, CGSize) -> CGSize{
         return { (index: Int, data: UIImage, collectionSize: CGSize) -> CGSize in            
@@ -123,7 +130,7 @@ final class HomeViewCellViewModel {
     
     /// 计算 view 高度
     static func calculateViewHeight(content: String?, imagesCount: Int = 0) -> CGFloat {
-         var height: CGFloat = 50
+        var height: CGFloat = 50
         /// 计算文本高度
         if let content = content, content.count > 0 {
             let textHeight = TextSizeHelper.size(content, font: UIFont.systemFont(ofSize: 15), width: maxWidth, lineSpacing: 5).height
@@ -136,7 +143,7 @@ final class HomeViewCellViewModel {
         switch imagesCount {
         case 1:
             /// 图片距离文字底部间距
-           imageHeight = singleItemHeight
+            imageHeight = singleItemHeight
         case 2:
             /// 图片距离文字底部间距
             imageHeight = doubleItemHeight
@@ -162,3 +169,22 @@ final class HomeViewCellViewModel {
     }
 }
 
+
+extension HomeViewCellViewModel: ViewModelType {
+    struct Input {
+        let deleteTap: Observable<Void>
+    }
+    struct Output {
+        let result: Driver<Bool>
+        let deleteState: Driver<UIState>
+    }
+    func transform(input: HomeViewCellViewModel.Input) -> HomeViewCellViewModel.Output {
+        let deleteState = State()
+        let result = input.deleteTap.withLatestFrom(Observable.just(model)).flatMapLatest({
+            HTTPService.shared.delete(item: $0, where: self.condition).trackState(deleteState).asDriverOnErrorJustComplete()
+        }).asDriverOnErrorJustComplete()
+       
+        return Output(result: result,
+                      deleteState: deleteState.asDriver(onErrorJustReturn: .idle))
+    }
+}
