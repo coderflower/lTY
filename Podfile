@@ -24,6 +24,10 @@ target 'LTY' do
   pod 'Kingfisher'
   pod 'SKPhotoBrowser'
   pod 'JPush'
+  #pod 'UMCCommon'
+  #pod 'UMCSecurityPlugins'
+  pod 'UMCAnalytics'
+  pod 'UMCCommonLog'
   # Pods for LTY
 
   target 'LTYTests' do

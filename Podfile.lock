@@ -47,6 +47,10 @@ PODS:
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - Toast-Swift (4.0.1)
   - TZImagePickerController (3.2.0)
+  - UMCAnalytics (6.0.2):
+    - UMCCommon
+  - UMCCommon (2.0.0)
+  - UMCCommonLog (1.0.0)
   - WCDB.swift (1.0.7.5):
     - SQLiteRepairKit (~> 1.2.0)
     - WCDBOptimizedSQLCipher (~> 1.2.0)
@@ -72,6 +76,8 @@ DEPENDENCIES:
   - SnapKit
   - Toast-Swift
   - TZImagePickerController
+  - UMCAnalytics
+  - UMCCommonLog
   - WCDB.swift
 
 SPEC REPOS:
@@ -101,6 +107,9 @@ SPEC REPOS:
     - SQLiteRepairKit
     - Toast-Swift
     - TZImagePickerController
+    - UMCAnalytics
+    - UMCCommon
+    - UMCCommonLog
     - WCDB.swift
     - WCDBOptimizedSQLCipher
 
@@ -130,9 +139,12 @@ SPEC CHECKSUMS:
   SQLiteRepairKit: 4d21bab9eff6a273f63da6815a0d1659e53f5bde
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TZImagePickerController: 7850b158d025065b162a1a963d445040b828abc9
+  UMCAnalytics: 901960ede5a8a85f208bd37689ad3e607b433930
+  UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
+  UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   WCDB.swift: 87aee41f5ca3aded9c6f9b68b0ef3e88918a5ee2
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: eee33b785e662f1320047d94e18b98643b7633f9
+PODFILE CHECKSUM: 70743b05a5fd419ca2b39ac7a761e85565173af7
 
 COCOAPODS: 1.6.0.beta.2

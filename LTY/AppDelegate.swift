@@ -18,11 +18,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         initWindow()
         configKeyboard()
-        initJPUSH(launchOptions)
+        
+        configureVender(launchOptions)
         try? DBManager.shared.createTable(dataBase: SFDataBase.main, rootType: HomeModel.self)
         return true
     }
-
+    private func configureVender(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        initJPUSH(launchOptions)
+        #if DEBUG
+        UMCommonLogManager.setUp()
+        UMConfigure.setLogEnabled(true)
+        #endif
+        MobClick.setCrashReportEnabled(true)
+        UMConfigure.initWithAppkey(SFConst.umAppleKey, channel: "App store")
+       
+    }
+    
     /// 初始化窗口
     private func initWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
