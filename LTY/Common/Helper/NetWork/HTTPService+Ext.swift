@@ -86,7 +86,6 @@ extension HTTPService {
     }
     
     func delete(item: HomeModel, where condition: Condition?) -> Observable<Bool>{
-        myLog(item.identifier)
         return Observable.create { (observable) -> Disposable in
             do {
                 try SFTable.main.dataBase.delete(fromTable: SFTable.main.name, where:condition)

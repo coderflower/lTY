@@ -14,6 +14,7 @@ import RxSwift
 import WCDBSwift
 import RxCocoa
 final class HomeViewCellViewModel {
+    lazy var condition = HomeModel.Properties.identifier == (model.identifier ?? 0)
     private let model: HomeModel
     /// item 高度
     let cellHeight: CGFloat
@@ -30,7 +31,7 @@ final class HomeViewCellViewModel {
     /// 图片
     let images: [UIImage]
     let provider: BasicProvider<UIImage, UIImageView>?
-    lazy var condition = HomeModel.Properties.identifier.intValue == model.identifier
+    
     static let maxWidth: CGFloat = (UIScreen.width - 40)
     static let singleItemHeight: CGFloat = CGFloat(floor(Float(maxWidth * 0.5)))
     static let doubleItemHeight: CGFloat = CGFloat(floor(Float(maxWidth * 0.4)))
