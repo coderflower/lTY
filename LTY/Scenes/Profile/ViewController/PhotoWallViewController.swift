@@ -37,6 +37,13 @@ final class PhotoWallViewController: UIViewController {
         configureSubviews()
         configureNavigationBar()
         configureSignal()
+        
+        provider.tapHandler = {[weak self] tap in
+            let detail = DetailViewController(HomeViewCellViewModel(tap.data.model), completion: {
+                self?.collectionView.mj_header.beginRefreshing()
+            })
+            self?.navigationController?.pushViewController(detail, animated: true)
+        }
     }
 }
 

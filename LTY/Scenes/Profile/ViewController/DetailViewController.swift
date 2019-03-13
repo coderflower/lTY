@@ -9,6 +9,7 @@
 import UIKit
 import CollectionKit
 import RxCocoa
+import SKPhotoBrowser
 final class DetailViewController: NiblessViewController {
     private let viewModel: HomeViewCellViewModel
     private lazy var collectionView: CollectionView = {
@@ -51,6 +52,13 @@ final class DetailViewController: NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        provider.tapHandler = { [weak self] tap in
+            guard let images = self?.viewModel.images
+                .compactMap({SKPhoto.photoWithImage($0)}) else {return}
+            let browser = SKPhotoBrowser(photos: images)
+            browser.initializePageIndex(tap.index)
+            UIApplication.shared.sf.navigationController?.present(browser, animated: true, completion: {})
+        }
     }
     override func configureSubviews() {
         view.backgroundColor = ColorHelper.default.background

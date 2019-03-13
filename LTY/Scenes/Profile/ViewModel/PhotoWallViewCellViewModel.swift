@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 final class PhotoWallViewCellViewModel {
-    private let model: HomeModel
+    let model: HomeModel
     let title: String
     let createTimeString: String
     let image: UIImage?
