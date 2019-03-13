@@ -44,9 +44,9 @@ extension PassworManagerViewController: Actionable {
             navigationController?.pushViewController(vc, animated: true)
         }
         else {
-            /// 如果本身是关闭的,
             UIAlertController.rx.show(in: self, title: "是否确认关闭密码", message: nil, buttons: [.cancel("取消"), .destructive("确认关闭")], textFields: [{
                 $0.textAlignment = .center
+                $0.isSecureTextEntry = true
                 }]).subscribe(onSuccess: { [weak self](index, input) in
                     myLog(input)
                     if index == 0 {

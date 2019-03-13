@@ -31,7 +31,7 @@ final class HomeViewCellViewModel {
     /// 图片
     let images: [UIImage]
     let provider: BasicProvider<UIImage, UIImageView>?
-    
+    let textHeight: CGFloat
     static let maxWidth: CGFloat = (UIScreen.width - 40)
     static let singleItemHeight: CGFloat = CGFloat(floor(Float(maxWidth * 0.5)))
     static let doubleItemHeight: CGFloat = CGFloat(floor(Float(maxWidth * 0.4)))
@@ -45,7 +45,7 @@ final class HomeViewCellViewModel {
         let images = model.images?.compactMap({UIImage(data: $0)})
         self.images = images ?? []
         self.isHiddenPhotoView = images?.count == 0
-        self.cellHeight = HomeViewCellViewModel.calculateViewHeight(content: model.content, imagesCount: images?.count ?? 0)
+        (self.cellHeight, self.textHeight) = HomeViewCellViewModel.calculateViewHeight(content: model.content, imagesCount: images?.count ?? 0)
         self.provider = HomeViewCellViewModel.createProvider(images: images, content: model.content)
         if let content = model.content {
             let attributed = TextSizeHelper.fixLineHeightAttributed(5, font: UIFont.systemFont(ofSize: 15))
@@ -130,11 +130,12 @@ final class HomeViewCellViewModel {
     }
     
     /// 计算 view 高度
-    static func calculateViewHeight(content: String?, imagesCount: Int = 0) -> CGFloat {
+    static func calculateViewHeight(content: String?, imagesCount: Int = 0) -> (cellHeight: CGFloat, textHeigh: CGFloat) {
         var height: CGFloat = 50
         /// 计算文本高度
+        var textHeight: CGFloat = 0
         if let content = content, content.count > 0 {
-            let textHeight = TextSizeHelper.size(content, font: UIFont.systemFont(ofSize: 15), width: maxWidth, lineSpacing: 5).height
+            textHeight = TextSizeHelper.size(content, font: UIFont.systemFont(ofSize: 15), width: maxWidth, lineSpacing: 5).height
             height += textHeight
             /// 文字底部10
             height += 10
@@ -166,7 +167,7 @@ final class HomeViewCellViewModel {
             height += imageHeight
             height += 10
         }
-        return height
+        return (height, textHeight)
     }
 }
 

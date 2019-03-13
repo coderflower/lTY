@@ -13,6 +13,7 @@ import Foundation
 
 
 public struct SFConst {
+    static let margin: CGFloat = 10
     /// 导航栏高度
     public static let navigationBarHeight: CGFloat = {
         return 44
