@@ -28,6 +28,8 @@ struct ProfileModel {
         case images
         /// 关于我们
         case about
+        /// 去评论
+        case comment
     }
 
     init(title: String,

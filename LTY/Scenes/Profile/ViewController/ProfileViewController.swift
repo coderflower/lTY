@@ -68,9 +68,22 @@ extension ProfileViewController: Actionable {
             showAlert { [weak self] in
                 self?.navigate(to: AllItemViewController(HomeViewModel(pageSize: 5)))
             }
+        case .comment:
+            toComment()
         }
     }
-
+    private func toComment() {
+        let urlString: String
+        if #available(iOS 11.0, *) {
+            urlString = "itms-apps://itunes.apple.com/cn/app/id1421830286?mt=8&action=write-review"
+        } else {
+            urlString = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1421830286"
+        }
+        guard let url = URL(string: urlString),UIApplication.shared.canOpenURL(url)  else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
     func navigate(to viewController: UIViewController) {
         navigationController?.pushViewController(viewController, animated: true)
     }

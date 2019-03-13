@@ -76,6 +76,7 @@ extension DetailViewController {
 
     func createTextProvider(dataSource: ArrayDataSource<HomeViewCellViewModel>) -> BasicProvider<HomeViewCellViewModel, UILabel> {
         let viewSource = ClosureViewSource<HomeViewCellViewModel, UILabel>(viewUpdater: { (view: UILabel, data: HomeViewCellViewModel, _: Int) in
+            view.numberOfLines = 0
             view.textColor = ColorHelper.default.lightText
             view.attributedText = data.attributedText
         })
