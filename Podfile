@@ -28,6 +28,7 @@ target 'LTY' do
   #pod 'UMCSecurityPlugins'
   pod 'UMCAnalytics'
   pod 'UMCCommonLog'
+  pod 'FWRouter'
   # Pods for LTY
 
   target 'LTYTests' do
@@ -62,6 +63,7 @@ target 'LTY' do
     #pod 'UMCSecurityPlugins'
     pod 'UMCAnalytics'
     pod 'UMCCommonLog'
+    pod 'FWRouter'
   end
 
 end

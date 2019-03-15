@@ -9,7 +9,9 @@
 import XCTest
 
 class App: XCUIApplication {
-
+    
+    
+    
     func navigateToAllSecondPage() {
         XCTContext.runActivity(named: "跳转所有二级页面") { _ in
             

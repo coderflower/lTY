@@ -8,6 +8,7 @@ PODS:
   - Differentiator (3.1.0)
   - EachNavigationBar (1.9.2)
   - ESTabBarController-swift (2.6.4)
+  - FWRouter (0.1.0)
   - IQKeyboardManagerSwift (6.2.0)
   - JCore (1.2.6)
   - JPush (3.1.2):
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - CollectionKit
   - EachNavigationBar
   - ESTabBarController-swift
+  - FWRouter
   - IQKeyboardManagerSwift
   - JPush
   - Kingfisher
@@ -89,6 +91,7 @@ SPEC REPOS:
     - Differentiator
     - EachNavigationBar
     - ESTabBarController-swift
+    - FWRouter
     - IQKeyboardManagerSwift
     - JCore
     - JPush
@@ -121,6 +124,7 @@ SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   EachNavigationBar: 4978d1327a85d7c50d070b0a387f6e30fa089cfc
   ESTabBarController-swift: 58cca4ab7de980657d99a02181c1ff310983e975
+  FWRouter: 227ebcb74fdf7961f448c7723265eb3eb156fcee
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
   JPush: d0cead70ba223a6a3b52749899ebda830dfbc49a
@@ -145,6 +149,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 87aee41f5ca3aded9c6f9b68b0ef3e88918a5ee2
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 1f9009b5deeed0a486562851427fe4dcf67c24e3
+PODFILE CHECKSUM: 4b299e44f69ea8f3e6d4cc01d4c7d137235327ae
 
 COCOAPODS: 1.6.0.beta.2
