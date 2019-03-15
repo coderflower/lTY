@@ -2,7 +2,7 @@
 //  LTYUITests.swift
 //  LTYUITests
 //
-//  Created by 花菜 on 2019/3/6.
+//  Created by 花菜 on 2019/3/15.
 //  Copyright © 2019 Coder.flower. All rights reserved.
 //
 
@@ -29,6 +29,13 @@ class LTYUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
     }
+    func testNavigateToSecondPage() {
+        App().navigateToAllSecondPage()
 
+    }
+    
 }
+
+

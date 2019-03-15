@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B62FF724AEF10B259DEA04B /* Pods_LTYUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA13C73BABF0CB00D18DE18 /* Pods_LTYUITests.framework */; };
-		261AC72BA32BBAFD44AC5135 /* Pods_LTYTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AFD60D2BDE117D5AC604542 /* Pods_LTYTests.framework */; };
 		691906FBB043EFAE42BEEFBF /* Pods_LTY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B691CDDB4AA78B8924A7DE45 /* Pods_LTY.framework */; };
 		B8249C7622376B76007C67A6 /* SetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8249C7522376B76007C67A6 /* SetPasswordViewController.xib */; };
 		B8249C7822377B6D007C67A6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8249C7722377B6D007C67A6 /* UserService.swift */; };
@@ -18,8 +16,6 @@
 		B8457B77223003E4006EC51F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8457B75223003E4006EC51F /* Main.storyboard */; };
 		B8457B79223003E5006EC51F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8457B78223003E5006EC51F /* Assets.xcassets */; };
 		B8457B7C223003E5006EC51F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8457B7A223003E5006EC51F /* LaunchScreen.storyboard */; };
-		B8457B87223003E5006EC51F /* LTYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457B86223003E5006EC51F /* LTYTests.swift */; };
-		B8457B92223003E5006EC51F /* LTYUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457B91223003E5006EC51F /* LTYUITests.swift */; };
 		B8457BA922300955006EC51F /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457BA822300955006EC51F /* HomeModel.swift */; };
 		B8457BAB22300A40006EC51F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457BAA22300A40006EC51F /* HomeViewController.swift */; };
 		B8457BAF22300A89006EC51F /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8457BAE22300A89006EC51F /* PublishViewController.swift */; };
@@ -90,6 +86,8 @@
 		B84EA6942238E39600EEC0ED /* AppDelegate+APNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EA6932238E39600EEC0ED /* AppDelegate+APNS.swift */; };
 		B85BAFE02233F3CE00264125 /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BAFDF2233F3CE00264125 /* FPSLabel.swift */; };
 		B85BAFE22233FDF200264125 /* NotifyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BAFE12233FDF200264125 /* NotifyHelper.swift */; };
+		B87946BE223B7434008068B4 /* LTYUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87946BD223B7434008068B4 /* LTYUITests.swift */; };
+		B87946C6223B7A91008068B4 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87946C5223B7A91008068B4 /* App.swift */; };
 		B894B06222324D0D00036A19 /* AddPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */; };
 		B894B06422324DA000036A19 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06322324DA000036A19 /* UIView-Extension.swift */; };
 		B894B06722324EF700036A19 /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06622324EF700036A19 /* NiblessView.swift */; };
@@ -131,14 +129,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B8457B83223003E5006EC51F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B8457B66223003E4006EC51F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B8457B6D223003E4006EC51F;
-			remoteInfo = LTY;
-		};
-		B8457B8E223003E5006EC51F /* PBXContainerItemProxy */ = {
+		B87946C0223B7434008068B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B8457B66223003E4006EC51F /* Project object */;
 			proxyType = 1;
@@ -164,12 +155,6 @@
 		B8457B78223003E5006EC51F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8457B7B223003E5006EC51F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8457B7D223003E5006EC51F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8457B82223003E5006EC51F /* LTYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8457B86223003E5006EC51F /* LTYTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTYTests.swift; sourceTree = "<group>"; };
-		B8457B88223003E5006EC51F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8457B8D223003E5006EC51F /* LTYUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTYUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8457B91223003E5006EC51F /* LTYUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTYUITests.swift; sourceTree = "<group>"; };
-		B8457B93223003E5006EC51F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8457BA822300955006EC51F /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		B8457BAA22300A40006EC51F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B8457BAE22300A89006EC51F /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +227,10 @@
 		B84EA6952238E84200EEC0ED /* LTY.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LTY.entitlements; sourceTree = "<group>"; };
 		B85BAFDF2233F3CE00264125 /* FPSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		B85BAFE12233FDF200264125 /* NotifyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyHelper.swift; sourceTree = "<group>"; };
+		B87946BB223B7434008068B4 /* LTYUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTYUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B87946BD223B7434008068B4 /* LTYUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTYUITests.swift; sourceTree = "<group>"; };
+		B87946BF223B7434008068B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B87946C5223B7A91008068B4 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewCell.swift; sourceTree = "<group>"; };
 		B894B06322324DA000036A19 /* UIView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 		B894B06622324EF700036A19 /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
@@ -294,19 +283,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8457B7F223003E5006EC51F /* Frameworks */ = {
+		B87946B8223B7434008068B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				261AC72BA32BBAFD44AC5135 /* Pods_LTYTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B8457B8A223003E5006EC51F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0B62FF724AEF10B259DEA04B /* Pods_LTYUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,8 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				B8457B70223003E4006EC51F /* LTY */,
-				B8457B85223003E5006EC51F /* LTYTests */,
-				B8457B90223003E5006EC51F /* LTYUITests */,
+				B87946BC223B7434008068B4 /* LTYUITests */,
 				B8457B6F223003E4006EC51F /* Products */,
 				743FC9560C7CDEBD107078A7 /* Pods */,
 				977370ABA8DF97A10A8092A2 /* Frameworks */,
@@ -360,8 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				B8457B6E223003E4006EC51F /* LTY.app */,
-				B8457B82223003E5006EC51F /* LTYTests.xctest */,
-				B8457B8D223003E5006EC51F /* LTYUITests.xctest */,
+				B87946BB223B7434008068B4 /* LTYUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,24 +361,6 @@
 				B84EA68F2238E30F00EEC0ED /* LTY-Bridging-Header.h */,
 			);
 			path = LTY;
-			sourceTree = "<group>";
-		};
-		B8457B85223003E5006EC51F /* LTYTests */ = {
-			isa = PBXGroup;
-			children = (
-				B8457B86223003E5006EC51F /* LTYTests.swift */,
-				B8457B88223003E5006EC51F /* Info.plist */,
-			);
-			path = LTYTests;
-			sourceTree = "<group>";
-		};
-		B8457B90223003E5006EC51F /* LTYUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B8457B91223003E5006EC51F /* LTYUITests.swift */,
-				B8457B93223003E5006EC51F /* Info.plist */,
-			);
-			path = LTYUITests;
 			sourceTree = "<group>";
 		};
 		B8457B9F2230062C006EC51F /* Main */ = {
@@ -661,6 +621,16 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
+		B87946BC223B7434008068B4 /* LTYUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B87946BD223B7434008068B4 /* LTYUITests.swift */,
+				B87946C5223B7A91008068B4 /* App.swift */,
+				B87946BF223B7434008068B4 /* Info.plist */,
+			);
+			path = LTYUITests;
+			sourceTree = "<group>";
+		};
 		B894B06022324CF100036A19 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,42 +727,22 @@
 			productReference = B8457B6E223003E4006EC51F /* LTY.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B8457B81223003E5006EC51F /* LTYTests */ = {
+		B87946BA223B7434008068B4 /* LTYUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8457B99223003E5006EC51F /* Build configuration list for PBXNativeTarget "LTYTests" */;
+			buildConfigurationList = B87946C2223B7434008068B4 /* Build configuration list for PBXNativeTarget "LTYUITests" */;
 			buildPhases = (
-				26A3099F60E76EB32EF7BDA5 /* [CP] Check Pods Manifest.lock */,
-				B8457B7E223003E5006EC51F /* Sources */,
-				B8457B7F223003E5006EC51F /* Frameworks */,
-				B8457B80223003E5006EC51F /* Resources */,
+				B87946B7223B7434008068B4 /* Sources */,
+				B87946B8223B7434008068B4 /* Frameworks */,
+				B87946B9223B7434008068B4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B8457B84223003E5006EC51F /* PBXTargetDependency */,
-			);
-			name = LTYTests;
-			productName = LTYTests;
-			productReference = B8457B82223003E5006EC51F /* LTYTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		B8457B8C223003E5006EC51F /* LTYUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B8457B9C223003E5006EC51F /* Build configuration list for PBXNativeTarget "LTYUITests" */;
-			buildPhases = (
-				FA456BEA6265AC6B9FF46D2C /* [CP] Check Pods Manifest.lock */,
-				B8457B89223003E5006EC51F /* Sources */,
-				B8457B8A223003E5006EC51F /* Frameworks */,
-				B8457B8B223003E5006EC51F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B8457B8F223003E5006EC51F /* PBXTargetDependency */,
+				B87946C1223B7434008068B4 /* PBXTargetDependency */,
 			);
 			name = LTYUITests;
 			productName = LTYUITests;
-			productReference = B8457B8D223003E5006EC51F /* LTYUITests.xctest */;
+			productReference = B87946BB223B7434008068B4 /* LTYUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -801,6 +751,7 @@
 		B8457B66223003E4006EC51F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Original;
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Coder.flower;
@@ -817,11 +768,7 @@
 							};
 						};
 					};
-					B8457B81223003E5006EC51F = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = B8457B6D223003E4006EC51F;
-					};
-					B8457B8C223003E5006EC51F = {
+					B87946BA223B7434008068B4 = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = B8457B6D223003E4006EC51F;
 					};
@@ -841,8 +788,7 @@
 			projectRoot = "";
 			targets = (
 				B8457B6D223003E4006EC51F /* LTY */,
-				B8457B81223003E5006EC51F /* LTYTests */,
-				B8457B8C223003E5006EC51F /* LTYUITests */,
+				B87946BA223B7434008068B4 /* LTYUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -862,14 +808,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8457B80223003E5006EC51F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B8457B8B223003E5006EC51F /* Resources */ = {
+		B87946B9223B7434008068B4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -971,28 +910,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		26A3099F60E76EB32EF7BDA5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LTYTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		50F299C6F4DA3E02CA1D0928 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1013,28 +930,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LTY/Pods-LTY-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA456BEA6265AC6B9FF46D2C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LTYUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1156,34 +1051,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8457B7E223003E5006EC51F /* Sources */ = {
+		B87946B7223B7434008068B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8457B87223003E5006EC51F /* LTYTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B8457B89223003E5006EC51F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B8457B92223003E5006EC51F /* LTYUITests.swift in Sources */,
+				B87946BE223B7434008068B4 /* LTYUITests.swift in Sources */,
+				B87946C6223B7A91008068B4 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B8457B84223003E5006EC51F /* PBXTargetDependency */ = {
+		B87946C1223B7434008068B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B8457B6D223003E4006EC51F /* LTY */;
-			targetProxy = B8457B83223003E5006EC51F /* PBXContainerItemProxy */;
-		};
-		B8457B8F223003E5006EC51F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B8457B6D223003E4006EC51F /* LTY */;
-			targetProxy = B8457B8E223003E5006EC51F /* PBXContainerItemProxy */;
+			targetProxy = B87946C0223B7434008068B4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1372,55 +1255,9 @@
 			};
 			name = Release;
 		};
-		B8457B9A223003E5006EC51F /* Debug */ = {
+		B87946C3223B7434008068B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 734DC79C5B868C7B811DB3E5 /* Pods-LTYTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JVF4WB423W;
-				INFOPLIST_FILE = LTYTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.LTYTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LTY.app/LTY";
-			};
-			name = Debug;
-		};
-		B8457B9B223003E5006EC51F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DA7420060BB86BB6241ADB8 /* Pods-LTYTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JVF4WB423W;
-				INFOPLIST_FILE = LTYTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.LTYTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LTY.app/LTY";
-			};
-			name = Release;
-		};
-		B8457B9D223003E5006EC51F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7FBCF0E367C29C9DE16C756 /* Pods-LTYUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVF4WB423W;
 				INFOPLIST_FILE = LTYUITests/Info.plist;
@@ -1437,11 +1274,9 @@
 			};
 			name = Debug;
 		};
-		B8457B9E223003E5006EC51F /* Release */ = {
+		B87946C4223B7434008068B4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 163128B2DEE3844C892BFBE6 /* Pods-LTYUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVF4WB423W;
 				INFOPLIST_FILE = LTYUITests/Info.plist;
@@ -1479,20 +1314,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8457B99223003E5006EC51F /* Build configuration list for PBXNativeTarget "LTYTests" */ = {
+		B87946C2223B7434008068B4 /* Build configuration list for PBXNativeTarget "LTYUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B8457B9A223003E5006EC51F /* Debug */,
-				B8457B9B223003E5006EC51F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B8457B9C223003E5006EC51F /* Build configuration list for PBXNativeTarget "LTYUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B8457B9D223003E5006EC51F /* Debug */,
-				B8457B9E223003E5006EC51F /* Release */,
+				B87946C3223B7434008068B4 /* Debug */,
+				B87946C4223B7434008068B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

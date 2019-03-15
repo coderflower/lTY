@@ -20,7 +20,7 @@ class SFTabBarController: ESTabBarController {
         addAllChild()
         configureTabBar()
         #if DEBUG
-//        view.addSubview(fpsLabel)
+        view.addSubview(fpsLabel)
         #endif
     }
 

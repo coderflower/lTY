@@ -185,7 +185,7 @@ extension PublishViewController: TZImagePickerControllerDelegate {
     private func updateCollectionView(photos: NSMutableArray, assets _: NSMutableArray, originCount _: Int) {
         if let photos = photos as? [UIImage] {
             /// 完成添加图片 , compactMap 过滤 nil
-            imagesSubject.accept(photos.compactMap { $0.pngData() })
+            imagesSubject.accept(photos.compactMap {image in autoreleasepool{image.pngData()} })
         }
 
         var models = photos.map({ PhotoModel(image: $0 as? UIImage) })

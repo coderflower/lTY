@@ -42,7 +42,7 @@ final class HomeViewCellViewModel {
         title = model.title
         isHiddenContent = model.content != nil
         timeString = HomeViewCellViewModel.formatDate(model.createTime)
-        let images = model.images?.compactMap({ UIImage(data: $0) })
+        let images = model.images?.compactMap({ data in autoreleasepool{UIImage(data: data) }})
         self.images = images ?? []
         isHiddenPhotoView = images?.count == 0
         (cellHeight, textHeight) = HomeViewCellViewModel.calculateViewHeight(content: model.content, imagesCount: images?.count ?? 0)
