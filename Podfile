@@ -38,6 +38,30 @@ target 'LTY' do
   target 'LTYUITests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'CleanJSON'
+    pod 'CollectionKit'
+    pod 'EachNavigationBar'
+    pod 'SnapKit'
+    pod 'Toast-Swift'
+    pod 'IQKeyboardManagerSwift'
+    pod 'MJRefresh'
+    pod 'ESTabBarController-swift'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+    pod 'RxDataSources'
+    pod 'RxGesture'
+    pod 'Moya/RxSwift'
+    pod 'RxSwiftExt'
+    pod 'Cache'
+    pod 'TZImagePickerController'
+    pod 'WCDB.swift'
+    pod 'Kingfisher'
+    pod 'SKPhotoBrowser'
+    pod 'JPush'
+    #pod 'UMCCommon'
+    #pod 'UMCSecurityPlugins'
+    pod 'UMCAnalytics'
+    pod 'UMCCommonLog'
   end
 
 end
