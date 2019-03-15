@@ -26,13 +26,14 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B87946CA223B7BA4008068B4"
+               BlueprintIdentifier = "B87946DA223B7ED7008068B4"
                BuildableName = "LTYTests.xctest"
                BlueprintName = "LTYTests"
                ReferencedContainer = "container:LTY.xcodeproj">
