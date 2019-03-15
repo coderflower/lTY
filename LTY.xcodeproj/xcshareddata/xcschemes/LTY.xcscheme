@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B8457B81223003E5006EC51F"
+               BlueprintIdentifier = "B87946CA223B7BA4008068B4"
                BuildableName = "LTYTests.xctest"
                BlueprintName = "LTYTests"
                ReferencedContainer = "container:LTY.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B8457B8C223003E5006EC51F"
+               BlueprintIdentifier = "B87946BA223B7434008068B4"
                BuildableName = "LTYUITests.xctest"
                BlueprintName = "LTYUITests"
                ReferencedContainer = "container:LTY.xcodeproj">

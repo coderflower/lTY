@@ -32,7 +32,8 @@ class LTYUITests: XCTestCase {
         
     }
     func testNavigateToSecondPage() {
-        App().navigateToAllSecondPage()
+        
+        // App().navigateToAllSecondPage()
 
     }
     

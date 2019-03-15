@@ -27,7 +27,7 @@ extension HTTPService {
     ) -> Observable<ListDataHelper<HomeModel>> {
         return Observable.create({ (observable) -> Disposable in
             do {
-                let objects: [HomeModel] = try table.dataBase.getObjects(on: propertyConvertibleList, fromTable: table.name, where: condition, orderBy: HomeModel.order, limit: pagesize, offset: offset)
+               let objects: [HomeModel] = try self.getObjects(table, offset: offset, pagesize: pagesize, orderBy: HomeModel.order, on: propertyConvertibleList, where: condition)
                 myLog(objects)
                 observable.onNext(ListDataHelper<HomeModel>(items: objects, offset: offset + pagesize))
                 observable.onCompleted()
@@ -71,6 +71,9 @@ extension HTTPService {
         }
     }
 
+    
+    
+    
     public func insert<T: TableCodable>(objects: [T], on propertyConvertibleList: [PropertyConvertible]? = nil, intoTable table: TableProtocol = SFTable.main) -> Observable<Bool> {
         return Observable.create({ (observable) -> Disposable in
             do {
@@ -96,4 +99,18 @@ extension HTTPService {
             return Disposables.create()
         }
     }
+    
+    
+    func getObjects<T: TableCodable>(_ table: TableProtocol = SFTable.main,
+                     offset: Int,
+                     pagesize: Int,
+                     orderBy orderList: [OrderBy]? = nil,
+                     on propertyConvertibleList: [PropertyConvertible] = T.Properties.all,
+                     where condition: Condition? = nil) throws -> [T] {
+        
+        return try table.dataBase.getObjects(on: propertyConvertibleList, fromTable: table.name, where: condition, orderBy: orderList, limit: pagesize, offset: offset)
+    }
+    
+    
+    
 }

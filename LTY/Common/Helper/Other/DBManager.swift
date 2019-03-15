@@ -27,6 +27,7 @@ enum SFDataBase: String, DataBaseProtocol {
     case user = "user.db"
     case main = "main.db"
     case home = "home.db"
+    case test = "test.db"
     var path: String {
         return rawValue.document
     }
@@ -39,6 +40,8 @@ enum SFDataBase: String, DataBaseProtocol {
             return 2
         case .home:
             return 3
+        case .test:
+            return 4
         }
     }
 
@@ -55,9 +58,11 @@ enum SFTable: String, TableProtocol {
         case .user:
             return "UserTable"
         case .main:
-            return "MainTabel"
+            return "MainTable"
         case .home:
-            return "Hometabel"
+            return "Hometable"
+        case .test:
+            return "testTable"
         }
     }
 
@@ -73,7 +78,7 @@ enum SFTable: String, TableProtocol {
     case user
     case main
     case home
-
+    case test
     var dataBase: Database {
         switch self {
         case .user:
@@ -82,6 +87,8 @@ enum SFTable: String, TableProtocol {
             return SFDataBase.main.db
         case .home:
             return SFDataBase.home.db
+        case .test:
+            return SFDataBase.test.db
         }
     }
 }

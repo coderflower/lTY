@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		386A24B5AE7C416C95430020 /* Pods_LTYTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AFD60D2BDE117D5AC604542 /* Pods_LTYTests.framework */; };
 		691906FBB043EFAE42BEEFBF /* Pods_LTY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B691CDDB4AA78B8924A7DE45 /* Pods_LTY.framework */; };
 		B8249C7622376B76007C67A6 /* SetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8249C7522376B76007C67A6 /* SetPasswordViewController.xib */; };
 		B8249C7822377B6D007C67A6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8249C7722377B6D007C67A6 /* UserService.swift */; };
@@ -88,7 +89,7 @@
 		B85BAFE22233FDF200264125 /* NotifyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BAFE12233FDF200264125 /* NotifyHelper.swift */; };
 		B87946BE223B7434008068B4 /* LTYUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87946BD223B7434008068B4 /* LTYUITests.swift */; };
 		B87946C6223B7A91008068B4 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87946C5223B7A91008068B4 /* App.swift */; };
-		B87946CE223B7BA4008068B4 /* LTYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87946CD223B7BA4008068B4 /* LTYTests.swift */; };
+		B87946DE223B7ED7008068B4 /* LTYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87946DD223B7ED7008068B4 /* LTYTests.swift */; };
 		B894B06222324D0D00036A19 /* AddPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */; };
 		B894B06422324DA000036A19 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06322324DA000036A19 /* UIView-Extension.swift */; };
 		B894B06722324EF700036A19 /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894B06622324EF700036A19 /* NiblessView.swift */; };
@@ -127,6 +128,7 @@
 		B8DA1DAE22369B37005464F3 /* PassworManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DAC22369B37005464F3 /* PassworManagerViewController.swift */; };
 		B8DA1DAF22369B37005464F3 /* PassworManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8DA1DAD22369B37005464F3 /* PassworManagerViewController.xib */; };
 		B8DA1DB122369FA7005464F3 /* PasswordManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DB022369FA7005464F3 /* PasswordManagerViewModel.swift */; };
+		CF19B91CD5965539B0AE9CA6 /* Pods_LTYUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA13C73BABF0CB00D18DE18 /* Pods_LTYUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,7 +139,7 @@
 			remoteGlobalIDString = B8457B6D223003E4006EC51F;
 			remoteInfo = LTY;
 		};
-		B87946D0223B7BA4008068B4 /* PBXContainerItemProxy */ = {
+		B87946E0223B7ED7008068B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B8457B66223003E4006EC51F /* Project object */;
 			proxyType = 1;
@@ -239,9 +241,9 @@
 		B87946BD223B7434008068B4 /* LTYUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTYUITests.swift; sourceTree = "<group>"; };
 		B87946BF223B7434008068B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B87946C5223B7A91008068B4 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		B87946CB223B7BA4008068B4 /* LTYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B87946CD223B7BA4008068B4 /* LTYTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTYTests.swift; sourceTree = "<group>"; };
-		B87946CF223B7BA4008068B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B87946DB223B7ED7008068B4 /* LTYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B87946DD223B7ED7008068B4 /* LTYTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTYTests.swift; sourceTree = "<group>"; };
+		B87946DF223B7ED7008068B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B894B06122324D0D00036A19 /* AddPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewCell.swift; sourceTree = "<group>"; };
 		B894B06322324DA000036A19 /* UIView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 		B894B06622324EF700036A19 /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
@@ -298,13 +300,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF19B91CD5965539B0AE9CA6 /* Pods_LTYUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B87946C8223B7BA4008068B4 /* Frameworks */ = {
+		B87946D8223B7ED7008068B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				386A24B5AE7C416C95430020 /* Pods_LTYTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +351,7 @@
 			children = (
 				B8457B70223003E4006EC51F /* LTY */,
 				B87946BC223B7434008068B4 /* LTYUITests */,
-				B87946CC223B7BA4008068B4 /* LTYTests */,
+				B87946DC223B7ED7008068B4 /* LTYTests */,
 				B8457B6F223003E4006EC51F /* Products */,
 				743FC9560C7CDEBD107078A7 /* Pods */,
 				977370ABA8DF97A10A8092A2 /* Frameworks */,
@@ -359,7 +363,7 @@
 			children = (
 				B8457B6E223003E4006EC51F /* LTY.app */,
 				B87946BB223B7434008068B4 /* LTYUITests.xctest */,
-				B87946CB223B7BA4008068B4 /* LTYTests.xctest */,
+				B87946DB223B7ED7008068B4 /* LTYTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -651,11 +655,11 @@
 			path = LTYUITests;
 			sourceTree = "<group>";
 		};
-		B87946CC223B7BA4008068B4 /* LTYTests */ = {
+		B87946DC223B7ED7008068B4 /* LTYTests */ = {
 			isa = PBXGroup;
 			children = (
-				B87946CD223B7BA4008068B4 /* LTYTests.swift */,
-				B87946CF223B7BA4008068B4 /* Info.plist */,
+				B87946DD223B7ED7008068B4 /* LTYTests.swift */,
+				B87946DF223B7ED7008068B4 /* Info.plist */,
 			);
 			path = LTYTests;
 			sourceTree = "<group>";
@@ -760,6 +764,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B87946C2223B7434008068B4 /* Build configuration list for PBXNativeTarget "LTYUITests" */;
 			buildPhases = (
+				0EF3237D715B88A66E85B26B /* [CP] Check Pods Manifest.lock */,
 				B87946B7223B7434008068B4 /* Sources */,
 				B87946B8223B7434008068B4 /* Frameworks */,
 				B87946B9223B7434008068B4 /* Resources */,
@@ -774,22 +779,23 @@
 			productReference = B87946BB223B7434008068B4 /* LTYUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		B87946CA223B7BA4008068B4 /* LTYTests */ = {
+		B87946DA223B7ED7008068B4 /* LTYTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B87946D2223B7BA4008068B4 /* Build configuration list for PBXNativeTarget "LTYTests" */;
+			buildConfigurationList = B87946E2223B7ED7008068B4 /* Build configuration list for PBXNativeTarget "LTYTests" */;
 			buildPhases = (
-				B87946C7223B7BA4008068B4 /* Sources */,
-				B87946C8223B7BA4008068B4 /* Frameworks */,
-				B87946C9223B7BA4008068B4 /* Resources */,
+				5E9B386188F72506B689A5EC /* [CP] Check Pods Manifest.lock */,
+				B87946D7223B7ED7008068B4 /* Sources */,
+				B87946D8223B7ED7008068B4 /* Frameworks */,
+				B87946D9223B7ED7008068B4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B87946D1223B7BA4008068B4 /* PBXTargetDependency */,
+				B87946E1223B7ED7008068B4 /* PBXTargetDependency */,
 			);
 			name = LTYTests;
 			productName = LTYTests;
-			productReference = B87946CB223B7BA4008068B4 /* LTYTests.xctest */;
+			productReference = B87946DB223B7ED7008068B4 /* LTYTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -819,7 +825,7 @@
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = B8457B6D223003E4006EC51F;
 					};
-					B87946CA223B7BA4008068B4 = {
+					B87946DA223B7ED7008068B4 = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = B8457B6D223003E4006EC51F;
 					};
@@ -840,7 +846,7 @@
 			targets = (
 				B8457B6D223003E4006EC51F /* LTY */,
 				B87946BA223B7434008068B4 /* LTYUITests */,
-				B87946CA223B7BA4008068B4 /* LTYTests */,
+				B87946DA223B7ED7008068B4 /* LTYTests */,
 			);
 		};
 /* End PBXProject section */
@@ -867,7 +873,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B87946C9223B7BA4008068B4 /* Resources */ = {
+		B87946D9223B7ED7008068B4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -877,6 +883,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0EF3237D715B88A66E85B26B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LTYUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		109912DE8CEBA3119B3528A5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -989,6 +1017,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LTY/Pods-LTY-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E9B386188F72506B689A5EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LTYTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1119,11 +1169,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B87946C7223B7BA4008068B4 /* Sources */ = {
+		B87946D7223B7ED7008068B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B87946CE223B7BA4008068B4 /* LTYTests.swift in Sources */,
+				B87946DE223B7ED7008068B4 /* LTYTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1135,10 +1185,10 @@
 			target = B8457B6D223003E4006EC51F /* LTY */;
 			targetProxy = B87946C0223B7434008068B4 /* PBXContainerItemProxy */;
 		};
-		B87946D1223B7BA4008068B4 /* PBXTargetDependency */ = {
+		B87946E1223B7ED7008068B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B8457B6D223003E4006EC51F /* LTY */;
-			targetProxy = B87946D0223B7BA4008068B4 /* PBXContainerItemProxy */;
+			targetProxy = B87946E0223B7ED7008068B4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1288,6 +1338,7 @@
 				CODE_SIGN_ENTITLEMENTS = LTY/LTY.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVF4WB423W;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = LTY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1313,6 +1364,7 @@
 				CODE_SIGN_ENTITLEMENTS = LTY/LTY.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVF4WB423W;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = LTY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1329,6 +1381,7 @@
 		};
 		B87946C3223B7434008068B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7FBCF0E367C29C9DE16C756 /* Pods-LTYUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVF4WB423W;
@@ -1348,6 +1401,7 @@
 		};
 		B87946C4223B7434008068B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 163128B2DEE3844C892BFBE6 /* Pods-LTYUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVF4WB423W;
@@ -1365,8 +1419,9 @@
 			};
 			name = Release;
 		};
-		B87946D3223B7BA4008068B4 /* Debug */ = {
+		B87946E3223B7ED7008068B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 734DC79C5B868C7B811DB3E5 /* Pods-LTYTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1377,16 +1432,23 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/JCore\"",
+					"\"${PODS_ROOT}/JPush\"",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.LTYTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LTY/LTY-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LTY.app/LTY";
 			};
 			name = Debug;
 		};
-		B87946D4223B7BA4008068B4 /* Release */ = {
+		B87946E4223B7ED7008068B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DA7420060BB86BB6241ADB8 /* Pods-LTYTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1397,8 +1459,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/JCore\"",
+					"\"${PODS_ROOT}/JPush\"",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiflower.LTYTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LTY/LTY-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LTY.app/LTY";
@@ -1435,11 +1503,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B87946D2223B7BA4008068B4 /* Build configuration list for PBXNativeTarget "LTYTests" */ = {
+		B87946E2223B7ED7008068B4 /* Build configuration list for PBXNativeTarget "LTYTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B87946D3223B7BA4008068B4 /* Debug */,
-				B87946D4223B7BA4008068B4 /* Release */,
+				B87946E3223B7ED7008068B4 /* Debug */,
+				B87946E4223B7ED7008068B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
