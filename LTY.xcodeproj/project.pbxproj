@@ -128,6 +128,8 @@
 		B8DA1DAE22369B37005464F3 /* PassworManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DAC22369B37005464F3 /* PassworManagerViewController.swift */; };
 		B8DA1DAF22369B37005464F3 /* PassworManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8DA1DAD22369B37005464F3 /* PassworManagerViewController.xib */; };
 		B8DA1DB122369FA7005464F3 /* PasswordManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA1DB022369FA7005464F3 /* PasswordManagerViewModel.swift */; };
+		B8E9678D223E1FAE000E42B7 /* HomeViewCellViewModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9678C223E1FAE000E42B7 /* HomeViewCellViewModelTestCase.swift */; };
+		B8E9678F223E2035000E42B7 /* PhotoWallViewCellViewModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9678E223E2035000E42B7 /* PhotoWallViewCellViewModelTestCase.swift */; };
 		CF19B91CD5965539B0AE9CA6 /* Pods_LTYUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA13C73BABF0CB00D18DE18 /* Pods_LTYUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -282,6 +284,8 @@
 		B8DA1DAC22369B37005464F3 /* PassworManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassworManagerViewController.swift; sourceTree = "<group>"; };
 		B8DA1DAD22369B37005464F3 /* PassworManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassworManagerViewController.xib; sourceTree = "<group>"; };
 		B8DA1DB022369FA7005464F3 /* PasswordManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManagerViewModel.swift; sourceTree = "<group>"; };
+		B8E9678C223E1FAE000E42B7 /* HomeViewCellViewModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellViewModelTestCase.swift; sourceTree = "<group>"; };
+		B8E9678E223E2035000E42B7 /* PhotoWallViewCellViewModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallViewCellViewModelTestCase.swift; sourceTree = "<group>"; };
 		CA6A4058C100080C23A0B791 /* Pods-LTY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTY.release.xcconfig"; path = "Target Support Files/Pods-LTY/Pods-LTY.release.xcconfig"; sourceTree = "<group>"; };
 		E7FBCF0E367C29C9DE16C756 /* Pods-LTYUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTYUITests.debug.xcconfig"; path = "Target Support Files/Pods-LTYUITests/Pods-LTYUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBA13C73BABF0CB00D18DE18 /* Pods_LTYUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTYUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -659,6 +663,8 @@
 			isa = PBXGroup;
 			children = (
 				B87946DD223B7ED7008068B4 /* LTYTests.swift */,
+				B8E9678C223E1FAE000E42B7 /* HomeViewCellViewModelTestCase.swift */,
+				B8E9678E223E2035000E42B7 /* PhotoWallViewCellViewModelTestCase.swift */,
 				B87946DF223B7ED7008068B4 /* Info.plist */,
 			);
 			path = LTYTests;
@@ -1271,6 +1277,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E9678F223E2035000E42B7 /* PhotoWallViewCellViewModelTestCase.swift in Sources */,
+				B8E9678D223E1FAE000E42B7 /* HomeViewCellViewModelTestCase.swift in Sources */,
 				B87946DE223B7ED7008068B4 /* LTYTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

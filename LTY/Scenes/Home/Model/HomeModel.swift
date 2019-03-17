@@ -18,12 +18,17 @@ struct HomeModel: Codable {
     let images: [Data]?
     /// 创建时间
     let createTime: Date
-    init(title: String, content: String? = nil, images: [Data]? = nil) {
+    init(
+        title: String,
+        content: String? = nil,
+        images: [Data]? = nil,
+        createTime: Date = Date()
+        ) {
         identifier = nil
         self.title = title
         self.content = content
         self.images = images
-        createTime = Date()
+        self.createTime = createTime
     }
 }
 
