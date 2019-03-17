@@ -24,7 +24,7 @@ extension HomeItemViewCell: Updatable {
         titleLabel.text = model.title
         contentLabel.attributedText = model.attributedText
         timeLabel.text = model.timeString
-        contentLabel.isHighlighted = model.isHiddenContent
+        contentLabel.isHidden = model.isHiddenContent
         photoView.isHidden = model.isHiddenPhotoView
         photoView.update(model.provider)
     }

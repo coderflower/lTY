@@ -14,7 +14,7 @@ import SKPhotoBrowser
 import UIKit
 import WCDBSwift
 final class HomeViewCellViewModel {
-    lazy var condition = HomeModel.Properties.identifier == (model.identifier ?? 0)
+    private lazy var condition = HomeModel.Properties.identifier == (model.identifier ?? 0)
     private let model: HomeModel
     /// item 高度
     let cellHeight: CGFloat
@@ -40,11 +40,11 @@ final class HomeViewCellViewModel {
     init(_ model: HomeModel) {
         self.model = model
         title = model.title
-        isHiddenContent = model.content != nil
+        isHiddenContent = (model.content?.isEmpty != false)
         timeString = HomeViewCellViewModel.formatDate(model.createTime)
         let images = model.images?.compactMap({ data in autoreleasepool{UIImage(data: data) }})
         self.images = images ?? []
-        isHiddenPhotoView = images?.count == 0
+        isHiddenPhotoView = (images?.isEmpty != false)
         (cellHeight, textHeight) = HomeViewCellViewModel.calculateViewHeight(content: model.content, imagesCount: images?.count ?? 0)
         self.provider = HomeViewCellViewModel.createProvider(images: images, content: model.content)
         if let content = model.content {

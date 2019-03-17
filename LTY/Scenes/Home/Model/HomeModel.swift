@@ -18,7 +18,7 @@ struct HomeModel: Codable {
     let images: [Data]?
     /// 创建时间
     let createTime: Date
-    init(title: String, content: String?, images: [Data]? = nil) {
+    init(title: String, content: String? = nil, images: [Data]? = nil) {
         identifier = nil
         self.title = title
         self.content = content
