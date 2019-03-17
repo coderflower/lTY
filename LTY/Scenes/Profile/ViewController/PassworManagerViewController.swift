@@ -48,9 +48,7 @@ extension PassworManagerViewController: Actionable {
                 $0.isSecureTextEntry = true
             }]).subscribe(onSuccess: { [weak self] index, input in
                 myLog(input)
-                if index == 0 {
-                    sender.isOn = true
-                }
+                if index == 0 { sender.isOn = true; return }
                 guard let password = input.first else { return }
                 /// 判断是否入旧密码相同
                 if UserService.shared.user?.password == password {

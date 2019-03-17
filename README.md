@@ -8,3 +8,5 @@ Swift4.2项目
 列表页面全部采用 CollectionKit，
 
 已添加单元测试用例，UI自动化测试
+
+![example](example.gif)
